@@ -1,0 +1,20 @@
+{
+  "jobName": "tensorflow-imagenet",
+  "image": "openpai/pai.example.tensorflow",
+  "dataDir": "$PAI_DEFAULT_FS_URI/Test/ImageNet/data",
+  "outputDir": "",
+  "codeDir": "$PAI_DEFAULT_FS_URI/Test/ImageNet/code",
+  "virtualCluster": "default",
+  "gpuType": "",
+  "retryCount": 0,
+  "taskRoles": [
+    {
+      "name": "imagenet_train",
+      "taskNumber": 1,
+      "cpuNumber": 4,
+      "memoryMB": 32768,
+      "gpuNumber": 6,
+      "command": "pip --quiet install git && python $PAI_CODE_DIR/train_image_classifier.py --batch_size=64 --model_name=inception_v3 --dataset_name=imagenet --dataset_split_name=train --dataset_dir=$PAI_DATA_DIR --train_dir=$PAI_OUTPUT_DIR"
+    }
+  ]
+}
