@@ -26,8 +26,8 @@ machines:
 
 # (Required) Log-in info of all machines. System administrator should guarantee
 # that the username/password pair is valid and has sudo privilege.
-ssh-username: wang
-ssh-password: nctu@wang@nchc
+ssh-username: ######
+ssh-password: ######
 
 # (Optional, default=22) Port number of ssh service on each machine.
 #ssh-port: 22
