@@ -1,2 +1,0 @@
-beginner_turtorials:opencvtest
--DCATKIN_DEVEL_PREFIX=/home/yayayo/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/yayayo/catkin_ws/install -G Unix Makefiles
