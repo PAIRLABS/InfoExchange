@@ -9,14 +9,14 @@ project(opencvtest)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
-  image_transport
   roscpp
   rospy
   sensor_msgs
   std_msgs
   message_generation
+  OpenCV
 )
-find_package(OpenCV)
+
 
 
 
@@ -191,8 +191,6 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
-add_executable(imageshow src/imageshow.cpp)
-target_link_libraries(imageshow ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 add_executable(imagetag src/imagetag.cpp)
 target_link_libraries(imagetag ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 add_executable(imagereader src/imagereader.cpp)
