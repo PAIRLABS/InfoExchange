@@ -1,6 +1,6 @@
 Docker
 ===
-> last updated on 20181025
+> last updated on 20181026
 # Reference
 * [Docker](https://www.docker.com/)
 * [Docker Hub](https://hub.docker.com/)
@@ -10,7 +10,7 @@ Docker
 * [Docker Tutorial](https://www.tutorialspoint.com/docker/)
 * [YouTube: Docker Tutorial](https://www.youtube.com/watch?v=pGYAg7TMmp0&list=PLoYCgNOIyGAAzevEST2qm2Xbe3aeLFvLc)
 * [Docker Tutorial | Docker Tutorial for Beginners | Docker](https://www.youtube.com/watch?v=VlSW-tztsvM)
-* [From Zero to Docker - Tutorial for Beginners](https://www.youtube.com/watch?v=JprTjTViaEA)
+* [[done] From Zero to Docker - Tutorial for Beginners](https://www.youtube.com/watch?v=JprTjTViaEA)
 # Notes
 ## Concept
 ![VM](https://blog.gtwang.org/wp-content/uploads/2017/06/virtual-machine-20170625-1.png)
@@ -21,7 +21,7 @@ VM: including codes & libs & Guest OS
 Docker: including only codes & libs
 
 Docker can include many containers, which provide the resources necessary.
-## Commands
+## Commands [(link)](https://docs.docker.com/engine/reference/commandline/docker/)
 - check docker version
 ``` shell
 docker --version
@@ -36,7 +36,7 @@ docker run [image_name]
 ```
 *docker will automatically download images for you.*
 ```shell
-docker run -it ubuntu
+docker run -it ubuntu [command]
 docker run -it --name [container_name] ubuntu
 docker run -it --rm --name [container_name] [image_name]
 ```
@@ -55,6 +55,7 @@ docker ps -a
 - remove the container
 ```shell
 docker rm -f [CONTAINER_NAMES/ID]
+docker rm $(docker ps -a -f status=exited -q)
 ```
 
 -  attach to containers
@@ -81,6 +82,11 @@ docker rmi -f [image_ID/NAMES]
 docker run --rm -v [local_path]:[container_path] --name [container_name] [image_name]
 ```
 
+- Create a new image from a container’s changes [(link)](https://docs.docker.com/engine/reference/commandline/commit/#commit-a-container)
+```shell
+docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
+
 ## DockerFile
 example
 ```dockerfile=
@@ -93,5 +99,6 @@ EXPOSE 80
 
 build
 ```shell
+docker build -t [image_name] .
 docker build -t [image_name] -f ./.Dockerfile .
 ```
