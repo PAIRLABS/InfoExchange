@@ -3,7 +3,7 @@ GUI interface w/ VNC or HTTP protocol
 > last updated on 20181026
 use ```henry2423/ros-vnc-ubuntu``` images do run a container
 ```shell
-docker run -it -p [outer_web_port]:[inner_web_port] -p [outer_vnc_port]:[inner_web_port] henry2423/ros-vnc-ubuntu:kinetic bash
+docker run -it -p [outer_web_port]:[inner_web_port] -p [outer_vnc_port]:[inner_vnc_port] henry2423/ros-vnc-ubuntu:kinetic bash
 ```
 inner_web_port: 5901
 outer_web_port: 6901
