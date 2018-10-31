@@ -6,16 +6,10 @@ Change user id in docker container to get permission from local
 # Steps
 **1. check your user id and group id from local**
 ```shell
-$ cd /etc/
-$ cat passwd
+$ id [user-name]
 ```
-you can find your user id and group id like below
-```shell
-alice:x:1002:1002:alice,,, .......
-```
-the first number **1002** is your **user id**
-the second number **1002** is your **group id**
-
+you will get sth like below
+```uid=1002(alice) gid=1002(alice)```
 **2. run docker**
 ```shell
 docker run -it .........
