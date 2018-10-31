@@ -1,6 +1,6 @@
 Docker
 ===
-> last updated on 20181026
+> last updated on 20181030
 # Reference
 * [Docker](https://www.docker.com/)
 * [Docker Hub](https://hub.docker.com/)
@@ -85,6 +85,11 @@ docker run --rm -v [local_path]:[container_path] --name [container_name] [image_
 - Create a new image from a container’s changes [(link)](https://docs.docker.com/engine/reference/commandline/commit/#commit-a-container)
 ```shell
 docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
+
+- Run docker w/ GPU
+```shell
+nvidia-docker
 ```
 
 ## DockerFile
