@@ -10,6 +10,7 @@ $ id [user-name]
 ```
 you will get sth like below
 ```uid=1002(alice) gid=1002(alice)```
+
 **2. run docker**
 ```shell
 docker run -it .........
