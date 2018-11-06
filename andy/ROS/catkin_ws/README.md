@@ -3,7 +3,7 @@ Instruction
 ## installation
 ---
 the ROS melodic is install in **Ubuntu 18.04 LTS**
-you should create a catkin workspace to put these source in it.
+**you should create a catkin workspace to put these source in it.**
 
 ## beginner tutorial
 ---
