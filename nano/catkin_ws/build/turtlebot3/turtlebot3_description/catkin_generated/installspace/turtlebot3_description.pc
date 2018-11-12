@@ -1,8 +1,0 @@
-prefix=/home/ros/test/InfoExchange/nano/catkin_ws/install
-
-Name: turtlebot3_description
-Description: Description of turtlebot3_description
-Version: 1.1.0
-Cflags: 
-Libs: -L/home/ros/test/InfoExchange/nano/catkin_ws/install/lib 
-Requires: urdf xacro
