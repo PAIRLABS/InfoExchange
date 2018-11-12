@@ -4,8 +4,9 @@
 
 > note : This instructions were tested on `Ubuntu 16.04` and `ROS Kinetic Kame`.
 
-> this tutorial's goal is to change the control node of turtlebot3's wheel by modifying turtlebot3_fake.cpp
+> this tutorial's goal is to change the control node of turtlebot3's wheel by modifying `turtlebot3_fake.cpp`
 
+> if you clone my file directly, you can jump to step 6.
 ------
 
 ## step 0: install locate
@@ -177,7 +178,7 @@ void Turtlebot3Fake::updateJoint(void)
 
 ------
 
-## step 5: catkin_make and execute
+## step 6: catkin_make and execute
 
 ```
 $ cd ~/catkin_ws
@@ -187,18 +188,22 @@ $ catkin_make
 In first terminal:
 
 ```
+$ export TURTLEBOT3_MODEL=burger
+$ source ~/catkin_ws/devel/setup.bash
 $ roslaunch turtlebot3_fake turtlebot3_fake.launch
 ```
 
 In second terminal:
 
 ```
-roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+$ export TURTLEBOT3_MODEL=burger
+$ source ~/catkin_ws/devel/setup.bash
+$roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
 and you can see the same scene with step 3, however, what's the difference?  Let's go step 6.
 
-## step 6: rosrun  rqt_graph & rqt_tf_tree
+## step 7: rosrun  rqt_graph & rqt_tf_tree
 
 let's check the `rqt_graph` and `rqt_tf_tree again`
 
