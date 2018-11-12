@@ -92,7 +92,7 @@ bool Turtlebot3Fake::init()
   joint_states_.effort.resize(2,0.0);
 
   // initialize publishers
-  joint_states_pub_ = nh_.advertise<sensor_msgs::JointState>("joint_states", 100);
+//  joint_states_pub_ = nh_.advertise<sensor_msgs::JointState>("joint_states", 100);
   odom_pub_         = nh_.advertise<nav_msgs::Odometry>("odom", 100);
 
   // initialize subscribers
@@ -183,10 +183,28 @@ bool Turtlebot3Fake::updateOdometry(ros::Duration diff_time)
 *******************************************************************************/
 void Turtlebot3Fake::updateJoint(void)
 {
-  joint_states_.position[LEFT]  = last_position_[LEFT];
-  joint_states_.position[RIGHT] = last_position_[RIGHT];
-  joint_states_.velocity[LEFT]  = last_velocity_[LEFT];
-  joint_states_.velocity[RIGHT] = last_velocity_[RIGHT];
+//  joint_states_.position[LEFT]  = last_position_[LEFT];
+//  joint_states_.position[RIGHT] = last_position_[RIGHT];
+//  joint_states_.velocity[LEFT]  = last_velocity_[LEFT];
+//  joint_states_.velocity[RIGHT] = last_velocity_[RIGHT];
+
+
+  static tf::TransformBroadcaster br_right;
+  tf::Transform transform_right;
+  transform_right.setOrigin( tf::Vector3(0.0,-0.080, 0.023) );
+  tf::Quaternion q_right;
+  q_right.setRPY(-1.57, last_position_[RIGHT]/3.1415926  ,0 );
+  transform_right.setRotation(q_right);
+  br_right.sendTransform(tf::StampedTransform(transform_right, ros::Time::now(), "base_link", "wheel_right_link"));
+
+  static tf::TransformBroadcaster br_left;
+  tf::Transform transform_left;
+  transform_left.setOrigin( tf::Vector3(0.0,0.08,0.023) );
+  tf::Quaternion q_left;
+  q_left.setRPY(-1.57, last_position_[LEFT]/3.1415926  ,0 );
+  transform_left.setRotation(q_left);
+  br_left.sendTransform(tf::StampedTransform(transform_left, ros::Time::now(), "base_link", "wheel_left_link"));
+
 }
 
 /*******************************************************************************
@@ -225,8 +243,8 @@ bool Turtlebot3Fake::update()
 
   // joint_states
   updateJoint();
-  joint_states_.header.stamp = time_now;
-  joint_states_pub_.publish(joint_states_);
+//  joint_states_.header.stamp = time_now;
+//  joint_states_pub_.publish(joint_states_);
 
   // tf
   geometry_msgs::TransformStamped odom_tf;
