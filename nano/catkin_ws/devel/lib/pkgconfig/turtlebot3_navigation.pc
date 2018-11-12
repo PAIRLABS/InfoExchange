@@ -1,8 +1,0 @@
-prefix=/home/ros/test/InfoExchange/nano/catkin_ws/devel
-
-Name: turtlebot3_navigation
-Description: Description of turtlebot3_navigation
-Version: 1.1.0
-Cflags: 
-Libs: -L/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib 
-Requires: 
