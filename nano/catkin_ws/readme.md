@@ -143,7 +143,7 @@ void Turtlebot3Fake::updateJoint(void)
   tf::Transform transform_right;
   transform_right.setOrigin( tf::Vector3(0.0,-0.080, 0.023) );
   tf::Quaternion q_right;
-  q_right.setRPY(-1.57, last_position_[RIGHT]/3.1415926  ,0 );
+  q_right.setRPY(-1.57, last_position_[RIGHT] ,0 );
   transform_right.setRotation(q_right);
   br_right.sendTransform(tf::StampedTransform(transform_right, ros::Time::now(), "base_link", "wheel_right_link"));
 
@@ -151,7 +151,7 @@ void Turtlebot3Fake::updateJoint(void)
   tf::Transform transform_left;
   transform_left.setOrigin( tf::Vector3(0.0,0.08,0.023) );
   tf::Quaternion q_left;
-  q_left.setRPY(-1.57, last_position_[LEFT]/3.1415926  ,0 );
+  q_left.setRPY(-1.57, last_position_[LEFT] ,0 );
   transform_left.setRotation(q_left);
   br_left.sendTransform(tf::StampedTransform(transform_left, ros::Time::now(), "base_link", "wheel_left_link"));
 }
