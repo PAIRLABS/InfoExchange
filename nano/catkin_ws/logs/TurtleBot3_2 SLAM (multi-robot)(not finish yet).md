@@ -4,7 +4,7 @@
 
 > note : This instructions were tested on `Ubuntu 16.04` and `ROS Kinetic Kame`.
 
-> this tutorial's goal is to 
+> this tutorial's goal is to practice multi-TurtleBoe3 control in gazebo and gmapping (SLAM package of turtlebot3) 
 
 > if you clone my file directly, you can jump to step 3.
 
