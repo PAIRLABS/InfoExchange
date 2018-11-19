@@ -299,21 +299,21 @@ $ ROS_NAMESPACE=tb3_2 roslaunch turtlebot3_slam turtlebot3_gmapping.launch set_b
 
 > (We will merge these three map in step 5 and represent it on rviz in step 6.)
 
-       	1.  Subscribe topic :
-               	1.  `tf` and `tf_static` ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : Transforms necessary to relate frames for laser, base, and odometry.
-               	2.   `scan` ([sensor_msgs/LaserScan](http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html)) : used to create map mainly.
+1.  Subscribe topic :
+    1.  `tf` and `tf_static` ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : Transforms necessary to relate frames for laser, base, and odometry.
+    2.   `scan` ([sensor_msgs/LaserScan](http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html)) : used to create map mainly.
     
-     	  2.  Publish topic :
-              1.  `map_metadata` ([nav_msgs/MapMetaData](http://docs.ros.org/api/nav_msgs/html/msg/MapMetaData.html)) : update meta data of map periodically (ex : map_load_time, width, height, origin...)
-            	2.  `map` ([nav_msgs/OccupancyGrid](http://docs.ros.org/api/nav_msgs/html/msg/OccupancyGrid.html)) : update  map periodically.
-            	3.  `tf`  ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : update the transform of map and odom (see rqt_tf_tree below).
-  	3.  Service:
-        1.  `dynamic_map` ([nav_msgs/GetMap](http://docs.ros.org/api/nav_msgs/html/srv/GetMap.html)) :  map data in service  type
+2.  Publish topic :
+    1.  `map_metadata` ([nav_msgs/MapMetaData](http://docs.ros.org/api/nav_msgs/html/msg/MapMetaData.html)) : update meta data of map periodically (ex : map_load_time, width, height, origin...)
+    2.  `map` ([nav_msgs/OccupancyGrid](http://docs.ros.org/api/nav_msgs/html/msg/OccupancyGrid.html)) : update  map periodically.
+    3.  `tf`  ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : update the transform of map and odom (see rqt_tf_tree below).
+3.  Service:
+    1.  `dynamic_map` ([nav_msgs/GetMap](http://docs.ros.org/api/nav_msgs/html/srv/GetMap.html)) :  map data in service  type
 
-    4. Broadcast tf Transforms:
-        1. `map` -> `odom` : the current estimate of the robot's pose within the map frame
+4. Broadcast tf Transforms:
+    1. `map` -> `odom` : the current estimate of the robot's pose within the map frame
 
-    5.  Parameters :  &*@#^(#@^(*&
+5.  Parameters :  &*@#^(#@^(*&
 
 ### 4. rosrun rqt_graph and rqt_tf_tree
 
