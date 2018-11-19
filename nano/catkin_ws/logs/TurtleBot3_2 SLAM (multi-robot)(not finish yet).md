@@ -1,4 +1,4 @@
-## TurtleBot3 control practice (multi-robot & SLAM)
+## TurtleBot3 control practice (multi-robot & SLAM) (not finish yet)
 
 ------
 
@@ -206,8 +206,7 @@ $ ROS_NAMESPACE=tb3_0 rosrun turtlebot3_teleop turtlebot3_teleop_key
 ```
 $ rosrun rqt_graph rqt_graph
 ```
-
-![rqt_graph_1](C:\Users\never\OneDrive\桌面\SLAM_TurtleBot3_image\rqt_graph_1.PNG)
+![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/catkin_ws/image/SLAM_TurtleBot3_image/rqt_graph_1.PNG)  
 
 > Q : what is `/tf_static` ?
 >
@@ -219,7 +218,7 @@ $ rosrun rqt_tf_tree rqt_tf_tree
 
 > we skip tb3_0 and tb3_1, which is similar with tb3_2
 
-![rqt_tf_tree_1](C:\Users\never\OneDrive\桌面\SLAM_TurtleBot3_image\rqt_tf_tree_1.PNG)
+![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/catkin_ws/image/SLAM_TurtleBot3_image/rqt_tf_tree_1.PNG)
 
 
 
@@ -304,18 +303,17 @@ $ ROS_NAMESPACE=tb3_2 roslaunch turtlebot3_slam turtlebot3_gmapping.launch set_b
                	1.  `tf` and `tf_static` ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : Transforms necessary to relate frames for laser, base, and odometry.
                	2.   `scan` ([sensor_msgs/LaserScan](http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html)) : used to create map mainly.
     
-     	2.  Publish topic :
-               	1.  `map_metadata` ([nav_msgs/MapMetaData](http://docs.ros.org/api/nav_msgs/html/msg/MapMetaData.html)) : update meta data of map periodically (ex : map_load_time, width, height, origin...)
+     	  2.  Publish topic :
+              1.  `map_metadata` ([nav_msgs/MapMetaData](http://docs.ros.org/api/nav_msgs/html/msg/MapMetaData.html)) : update meta data of map periodically (ex : map_load_time, width, height, origin...)
             	2.  `map` ([nav_msgs/OccupancyGrid](http://docs.ros.org/api/nav_msgs/html/msg/OccupancyGrid.html)) : update  map periodically.
             	3.  `tf`  ([tf/tfMessage](http://docs.ros.org/api/tf/html/msg/tfMessage.html)) : update the transform of map and odom (see rqt_tf_tree below).
   	3.  Service:
+        1.  `dynamic_map` ([nav_msgs/GetMap](http://docs.ros.org/api/nav_msgs/html/srv/GetMap.html)) :  map data in service  type
 
-​    ​	1.  `dynamic_map` ([nav_msgs/GetMap](http://docs.ros.org/api/nav_msgs/html/srv/GetMap.html)) :  map data in service  type
+    4. Broadcast tf Transforms:
+        1. `map` -> `odom` : the current estimate of the robot's pose within the map frame
 
-5. Broadcast tf Transforms:
-   1. `map` -> `odom` : the current estimate of the robot's pose within the map frame
-
-  	5.  Parameters :  &*@#^(#@^(*&
+    5.  Parameters :  &*@#^(#@^(*&
 
 ### 4. rosrun rqt_graph and rqt_tf_tree
 
@@ -323,17 +321,17 @@ $ ROS_NAMESPACE=tb3_2 roslaunch turtlebot3_slam turtlebot3_gmapping.launch set_b
 $ rosrun rqt_graph rqt_graph
 ```
 
-![rqt_graph_2](C:\Users\never\OneDrive\桌面\SLAM_TurtleBot3_image\rqt_graph_2.PNG)
+![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/catkin_ws/image/SLAM_TurtleBot3_image/rqt_graph_2.PNG)
 
 ```
 $ rosrun rqt_tf_tree rqt_tf_tree
 ```
 
-![rqt_tf_tree_2](C:\Users\never\OneDrive\桌面\SLAM_TurtleBot3_image\rqt_tf_tree_2.PNG)
+![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/catkin_ws/image/SLAM_TurtleBot3_image/rqt_tf_tree_2.PNG)
 
 
 
-<to be continue>
+<to be continue......>
 
 
 
