@@ -4,7 +4,7 @@
 
 > note : This instructions were tested on `Ubuntu 16.04` and `ROS Kinetic Kame`.
 
-> this tutorial's goal is to change the control node of turtlebot3's wheel by modifying `turtlebot3_fake.cpp`
+> this tutorial's goal is to change the control node of turtlebot3's wheel by modifying `turtlebot3_fake.cpp`.
 
 > if you clone my file directly, you can jump to step 6.
 ------
