@@ -197,7 +197,7 @@ $ ROS_NAMESPACE=tb3_0 rosrun turtlebot3_teleop turtlebot3_teleop_key
   </group>
 ```
 
-1. In parameter ``robot_description`, `turtlebot3_$(arg model).urdf.xacro` is a urdf file which **define the physical properties of link and joint and their relationship** of turtlebot3 model **in gazebo node**, and then publish to topic `/ns/joint_states`.
+1. In parameter `robot_description`, `turtlebot3_$(arg model).urdf.xacro` is a urdf file which **define the physical properties of link and joint and their relationship** of turtlebot3 model **in gazebo node**, and then publish to topic `/ns/joint_states`.
 2. node `robot_state_publisher` will broadcast the transform relationship of frame of turtlebot3's link in tf form.
 3. node `spawn_urdf` will spawn our turtlebot3 model for each namespace by argument we have already set.
 
