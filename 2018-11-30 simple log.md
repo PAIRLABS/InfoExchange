@@ -16,6 +16,13 @@ $ sudo updatedb
 $ locate [filename]
 ```
 
+#### step0.5 : clone
+
+```
+$git clone https://github.com/Nano1201/InfoExchange.git
+$cd InfoExchange/nano/catkin_ws
+```
+
 #### step1: roslaunch :
 
 ```
