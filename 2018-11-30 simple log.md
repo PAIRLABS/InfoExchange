@@ -55,7 +55,7 @@ $rosrun rviz rviz
 
 1. ## to do list
 
-   1. understand how to transform depthimage to laserscan, Andy gogo.
+   1. understand how to transform depthimage to laserscan, Andy let's gogo.
 
       > http://wiki.ros.org/depthimage_to_laserscan
 
