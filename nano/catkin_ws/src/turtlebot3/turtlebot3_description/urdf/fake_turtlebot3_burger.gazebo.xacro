@@ -134,7 +134,7 @@
      <sensor name="camera_right(sensor)" type="camera">
         <update_rate>20</update_rate>
 	<camera>
-          <pose> 0 -1 0 0 0 0 </pose>
+          <pose> 0 -0.06 0 0 0 0 </pose>
 	  <horizontal_fov>1.047198</horizontal_fov>
           <image>
             <width>640</width>
@@ -177,7 +177,7 @@
         <update_rate>20</update_rate>
 <!--        <visualize>true</visualize>
 -->        <camera name="left_crazy_camera">
-          <pose> 0 1 0 0 0 0 </pose>
+          <pose> 0 0.06 0 0 0 0 </pose>
           <horizontal_fov>1.047198</horizontal_fov>
           <image>
             <width>640</width>
