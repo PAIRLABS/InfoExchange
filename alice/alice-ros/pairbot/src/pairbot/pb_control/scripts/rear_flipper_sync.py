@@ -9,7 +9,6 @@ def callback_for_right_rear_flipper(data):
     pub = rospy.Publisher('/pairbot/joint_left_rear_flipper_controller/command', Float64, queue_size=10)
     pub.publish(data.set_point)
 
-
 def callback_for_left_rear_flipper(data):
     pub = rospy.Publisher('/pairbot/joint_right_rear_flipper_controller/command', Float64, queue_size=10)
     pub.publish(data.set_point)

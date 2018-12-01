@@ -15,9 +15,29 @@
                                       joint_right_rear_base_link_wheel_controller
                                       joint_left_rear_base_link_wheel_controller
                                       joint_left_front_flipper_wheel_controller
+                                      joint_left_front_flipper_middle_wheel_1_controller
+                                      joint_left_front_flipper_middle_wheel_2_controller
+                                      joint_left_front_flipper_middle_wheel_3_controller
+                                      joint_left_front_flipper_middle_wheel_4_controller
+                                      joint_left_front_flipper_middle_wheel_5_controller
                                       joint_right_front_flipper_wheel_controller
+                                      joint_right_front_flipper_middle_wheel_1_controller
+                                      joint_right_front_flipper_middle_wheel_2_controller
+                                      joint_right_front_flipper_middle_wheel_3_controller
+                                      joint_right_front_flipper_middle_wheel_4_controller
+                                      joint_right_front_flipper_middle_wheel_5_controller
                                       joint_left_rear_flipper_wheel_controller
+                                      joint_left_rear_flipper_middle_wheel_1_controller
+                                      joint_left_rear_flipper_middle_wheel_2_controller
+                                      joint_left_rear_flipper_middle_wheel_3_controller
+                                      joint_left_rear_flipper_middle_wheel_4_controller
+                                      joint_left_rear_flipper_middle_wheel_5_controller
                                       joint_right_rear_flipper_wheel_controller
+                                      joint_right_rear_flipper_middle_wheel_1_controller
+                                      joint_right_rear_flipper_middle_wheel_2_controller
+                                      joint_right_rear_flipper_middle_wheel_3_controller
+                                      joint_right_rear_flipper_middle_wheel_4_controller
+                                      joint_right_rear_flipper_middle_wheel_5_controller
                                       joint_right_middle_base_link_wheel_controller
                                       joint_left_middle_base_link_wheel_controller
                                         "/>
@@ -43,5 +63,6 @@
     <node name="go" pkg="pb_control" type="go.py" output="screen"></node> -->
     <node name="move" pkg="pb_control" type="move_base.py" output="screen"></node>
 
-
+    <!--for flipper wheel sync-->
+    <node name="flipper_wheel_sync" pkg="pb_control" type="flipper_wheel_sync.py" output="screen"></node>
 </launch>
