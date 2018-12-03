@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include <sensor_msgs/Image.h>
 
-void chatterCallback(const sensor_msgs::Image::ConstPtr &msg)
+void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
 {
   //ROS_INFO("I heard: %d",msg->data[2]);
   
@@ -23,7 +23,7 @@ void chatterCallback(const sensor_msgs::Image::ConstPtr &msg)
        uint8_t uc[] ={b0,b1,b2,b3};
        memcpy(&f, &uc, sizeof(f)); 
        dis[i][j] = f;
-    printf("%d %d %d %d \n",b0,b1,b2,b3); 
+  //  printf("%d %d %d %d \n",b0,b1,b2,b3); 
    }
   }
 
@@ -49,8 +49,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "listener");
   ros::NodeHandle n;
 
-  //ros::Subscriber sub = n.subscribe("/camera_depth/depth_image", 1000, chatterCallback);
-  ros::Subscriber sub = n.subscribe("/camera_depth/depth_camera/depth_image", 100, chatterCallback);
+  ros::Subscriber sub = n.subscribe("/camera_depth/depth_camera/depth_image", 100, DepthImage_Callback);
   ros::spin();
 
   return 0;
