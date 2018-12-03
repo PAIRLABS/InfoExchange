@@ -141,7 +141,7 @@
 
   <link name="base_camera_depth">
     <visual>
-      <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+      <origin xyz="0 0 0" rpy="1.5707963 0 1.5707963"/>
       <geometry>
     <!--    <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.0002 0.0002 0.0002"/> -->
       <mesh filename="package://turtlebot3_description/meshes/sensors/zed_model.dae" scale="0.01 0.01 0.01" />

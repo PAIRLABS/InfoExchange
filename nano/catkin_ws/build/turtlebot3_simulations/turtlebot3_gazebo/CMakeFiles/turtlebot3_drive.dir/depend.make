@@ -67,6 +67,7 @@ turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/tur
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/sensor_msgs/LaserScan.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h

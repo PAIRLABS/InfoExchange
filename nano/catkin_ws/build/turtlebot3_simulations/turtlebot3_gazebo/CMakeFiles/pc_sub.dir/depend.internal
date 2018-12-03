@@ -59,6 +59,7 @@ turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o
  /opt/ros/kinetic/include/ros/wall_timer.h
  /opt/ros/kinetic/include/ros/wall_timer_options.h
  /opt/ros/kinetic/include/rosconsole/macros_generated.h
- /opt/ros/kinetic/include/std_msgs/String.h
+ /opt/ros/kinetic/include/sensor_msgs/Image.h
+ /opt/ros/kinetic/include/std_msgs/Header.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h

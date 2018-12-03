@@ -18,9 +18,9 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   tf
   gazebo_ros
+  genmsg
+  cv_bridge
 )
-
-find_package(gazebo REQUIRED)
 
 ################################################################################
 # Setup for python modules and scripts
@@ -39,7 +39,7 @@ find_package(gazebo REQUIRED)
 ################################################################################
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf gazebo_ros
+  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf gazebo_ros cv_bridge
   DEPENDS gazebo
 )
 
@@ -60,7 +60,7 @@ target_link_libraries(turtlebot3_drive ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 add_executable(pc_sub src/pc_sub.cpp)
 target_link_libraries(pc_sub ${catkin_LIBRARIES})
-add_dependencies(pc_sub ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(pc_sub ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
 
 ################################################################################
 # Install

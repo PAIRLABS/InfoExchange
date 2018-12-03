@@ -1,44 +1,57 @@
 #include "ros/ros.h"
-#include "std_msgs/String.h"
+#include <sensor_msgs/Image.h>
 
-void chatterCallback(const std_msgs::String::ConstPtr& msg)
+void chatterCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
-  ROS_INFO("I heard: ");
+  //ROS_INFO("I heard: %d",msg->data[2]);
+  
+  int h=msg->height;
+  int w=msg->width;
+  
+  float dis[h][w];
+  int i,j;
+
+  for(i=0;i<h;i++)
+  {
+    for(j=0;j<w;j++)
+    {
+       float f;
+       uint8_t b0 = msg->data[i*w*4+j*4];
+       uint8_t b1 = msg->data[i*w*4+j*4+1];
+       uint8_t b2 = msg->data[i*w*4+j*4+2];
+       uint8_t b3 = msg->data[i*w*4+j*4+3];
+       uint8_t uc[] ={b0,b1,b2,b3};
+       memcpy(&f, &uc, sizeof(f)); 
+       dis[i][j] = f;
+    printf("%d %d %d %d \n",b0,b1,b2,b3); 
+   }
+  }
+
+  for (i=0;i<h;i++)
+  {
+    for(j=0;j<w;j++)
+    {
+        printf("%.5f ", dis[i][j]);
+        //cout << dis[i][j] << " ";
+    }
+    printf("\n");
+  }
+
+printf("-----------------------------------\n"); 
+
+  //return f;
+
+  return;
 }
 
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "listener");
-
   ros::NodeHandle n;
 
-  ros::Subscriber sub = n.subscribe("/camera_depth/points", 1000, chatterCallback);
-
+  //ros::Subscriber sub = n.subscribe("/camera_depth/depth_image", 1000, chatterCallback);
+  ros::Subscriber sub = n.subscribe("/camera_depth/depth_camera/depth_image", 100, chatterCallback);
   ros::spin();
 
   return 0;
 }
-
-/*
-#include <ros/ros.h>
-#include <include/pcl_ros/point_cloud.h>
-#include <pcl/point_types.h>
-#include <boost/foreach.hpp>
-
-typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
-
-void callback(const PointCloud::ConstPtr& msg)
-{
-  printf ("Cloud: width = %d, height = %d\n", msg->width, msg->height);
-  BOOST_FOREACH (const pcl::PointXYZ& pt, msg->points)
-    printf ("\t(%f, %f, %f)\n", pt.x, pt.y, pt.z);
-}
-
-int main(int argc, char** argv)
-{
-  ros::init(argc, argv, "sub_pcl");
-  ros::NodeHandle nh;
-  ros::Subscriber sub = nh.subscribe<PointCloud>("points2", 1, callback);
-  ros::spin();
-}
-*/
