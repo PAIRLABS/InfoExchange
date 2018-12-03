@@ -9,6 +9,7 @@ project(turtlebot3_fake)
 ################################################################################
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  rospy
   std_msgs
   sensor_msgs
   geometry_msgs
@@ -34,7 +35,7 @@ find_package(catkin REQUIRED COMPONENTS
 ################################################################################
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf turtlebot3_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs geometry_msgs nav_msgs tf turtlebot3_msgs
 )
 
 ################################################################################
@@ -48,6 +49,8 @@ include_directories(
 add_executable(turtlebot3_fake_node src/turtlebot3_fake.cpp)
 add_dependencies(turtlebot3_fake_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(turtlebot3_fake_node ${catkin_LIBRARIES})
+
+
 
 ################################################################################
 # Install

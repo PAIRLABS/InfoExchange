@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ros/test/InfoExchange/nano/catkin_ws/install/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/ros/test/InfoExchange/nano/catkin_ws/install/lib;/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -160,7 +160,7 @@ foreach(t ${turtlebot3_fake_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;std_msgs;sensor_msgs;geometry_msgs;nav_msgs;tf;turtlebot3_msgs")
+set(depends "roscpp;rospy;std_msgs;sensor_msgs;geometry_msgs;nav_msgs;tf;turtlebot3_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

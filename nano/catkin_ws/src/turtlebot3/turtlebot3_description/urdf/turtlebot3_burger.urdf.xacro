@@ -131,19 +131,21 @@
 
   <link name="imu_link"/>
 
-  <joint name="scan_joint" type="fixed">
+<!--             right camera                    -->
+
+  <joint name="camera_right_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="base_scan"/>
-    <origin xyz="-0.032 0 0.172" rpy="0 0 0"/>
+    <child link="base_camera_right"/>
+    <origin xyz="-0.032 -0.03 0.172" rpy="0 0 0"/>
   </joint>
 
-  <link name="base_scan">
+  <link name="base_camera_right">
     <visual>
-      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.0003 0.0003 0.0003"/>  
       </geometry>
-      <material name="dark"/>
+      <material name="blue"/>
     </visual>
 
     <collision>
@@ -161,5 +163,72 @@
                izz="0.001" />
     </inertial>
   </link>
+
+<!--             left camera            -->
+  <joint name="camera_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_camera_left"/>
+    <origin xyz="-0.032 0.02 0.172" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_camera_left">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.0003 0.0003 0.0003"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.114" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+  </link>
+<!-- depth camera-->
+
+  <joint name="camera_depth_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_camera_depth"/>
+    <origin xyz="-0.032 -0.005 0.172" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_camera_depth">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.0002 0.0002 0.0002"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.114" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+  </link>
+
+
+
 
 </robot>
