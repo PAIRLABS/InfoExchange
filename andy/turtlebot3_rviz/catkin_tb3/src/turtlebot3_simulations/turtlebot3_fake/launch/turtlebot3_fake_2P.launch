@@ -15,7 +15,7 @@
 		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
 		  <param name="publish_frequency" type="double" value="50.0" />
 		</node>
-	  <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard" output="screen" launch-prefix="gnome-terminal --command">
+	  <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard" output="screen" launch-prefix="xterm -e">
   	</node>
   </group>
 
@@ -36,7 +36,7 @@
 		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
 		  <param name="publish_frequency" type="double" value="50.0" />
 		</node>
-	  <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard" output="screen" launch-prefix="gnome-terminal --command">
+	  <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard" output="screen" launch-prefix="xterm -e">
   	</node>
   </group>
 

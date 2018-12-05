@@ -18,6 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   tf
   gazebo_ros
+  cv_bridge
 )
 
 find_package(gazebo REQUIRED)
@@ -57,6 +58,17 @@ include_directories(
 add_executable(turtlebot3_drive src/turtlebot3_drive.cpp)
 add_dependencies(turtlebot3_drive ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(turtlebot3_drive ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+add_executable(turtlebot3_follow src/turtlebot3_follow.cpp)
+add_dependencies(turtlebot3_follow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(turtlebot3_follow ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+add_executable(turtlebot3_depth_follow src/turtlebot3_depth_follow.cpp)
+add_dependencies(turtlebot3_depth_follow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(turtlebot3_depth_follow ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+add_executable(create_target src/create_target.cpp)
+target_link_libraries(create_target ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 ################################################################################
 # Install

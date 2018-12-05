@@ -22,11 +22,15 @@
 #include <ros/ros.h>
 
 #include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/Image.h>
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
 
 #define DEG2RAD (M_PI / 180.0)
 #define RAD2DEG (180.0 / M_PI)
+
+#define WIDTH 64
+#define HEIGHT 48
 
 #define CENTER 0
 #define LEFT   1
@@ -40,6 +44,11 @@
 #define TB3_RIGHT_TURN    2
 #define TB3_LEFT_TURN     3
 #define TB3_TARGET_TURN   4
+
+#define VERY_CLOSE 0
+#define CLOSE 1
+#define FAR 2
+#define CLEAR 3
 
 class Turtlebot3Drive
 {
@@ -62,13 +71,15 @@ class Turtlebot3Drive
   ros::Publisher cmd_vel_pub_;
 
   // ROS Topic Subscribers
-  ros::Subscriber laser_scan_sub_;
+  ros::Subscriber depth_scan_sub_;
   ros::Subscriber odom_sub_;
 
   // Variables
   double escape_range_;
   double check_forward_dist_;
   double check_side_dist_;
+
+  float dis[HEIGHT][WIDTH];  
 
   double scan_data_[3] = {0.0, 0.0, 0.0};
 
@@ -77,7 +88,7 @@ class Turtlebot3Drive
 
   // Function prototypes
   void updatecommandVelocity(double linear, double angular);
-  void laserScanMsgCallBack(const sensor_msgs::LaserScan::ConstPtr &msg);
+  void depthScanMsgCallBack(const sensor_msgs::Image::ConstPtr &msg);
   void odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg);
 };
 #endif // TURTLEBOT3_DRIVE_H_
