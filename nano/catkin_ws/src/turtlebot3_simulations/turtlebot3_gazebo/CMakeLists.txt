@@ -62,6 +62,13 @@ add_executable(pc_sub src/pc_sub.cpp)
 target_link_libraries(pc_sub ${catkin_LIBRARIES})
 add_dependencies(pc_sub ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
 
+add_executable(turtlebot3_depth_follow src/turtlebot3_depth_follow.cpp)
+add_dependencies(turtlebot3_depth_follow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(turtlebot3_depth_follow ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+add_executable(create_target src/create_target.cpp)
+target_link_libraries(create_target ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
 ################################################################################
 # Install
 ################################################################################

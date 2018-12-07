@@ -100,17 +100,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -121,6 +110,17 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -224,21 +224,6 @@ gazebo_ros_gencfg: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/gazebo_ro
 gazebo_ros_gencfg/fast:
 	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
 .PHONY : gazebo_ros_gencfg/fast
-
-# Convenience name for target.
-turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
 
 # Convenience name for target.
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
@@ -376,6 +361,21 @@ trajectory_msgs_generate_messages_lisp/fast:
 .PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/rule
+.PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/rule
+
+# Convenience name for target.
+create_target: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/rule
+
+.PHONY : create_target
+
+# fast build rule for target.
+create_target/fast:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/build
+.PHONY : create_target/fast
+
+# Convenience name for target.
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
 	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 .PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
@@ -435,6 +435,63 @@ turtlebot3_drive/fast:
 	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build
 .PHONY : turtlebot3_drive/fast
 
+# Convenience name for target.
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/rule
+.PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/rule
+
+# Convenience name for target.
+turtlebot3_depth_follow: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/rule
+
+.PHONY : turtlebot3_depth_follow
+
+# fast build rule for target.
+turtlebot3_depth_follow/fast:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build
+.PHONY : turtlebot3_depth_follow/fast
+
+src/create_target.o: src/create_target.cpp.o
+
+.PHONY : src/create_target.o
+
+# target to build an object file
+src/create_target.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/src/create_target.cpp.o
+.PHONY : src/create_target.cpp.o
+
+src/create_target.i: src/create_target.cpp.i
+
+.PHONY : src/create_target.i
+
+# target to preprocess a source file
+src/create_target.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/src/create_target.cpp.i
+.PHONY : src/create_target.cpp.i
+
+src/create_target.s: src/create_target.cpp.s
+
+.PHONY : src/create_target.s
+
+# target to generate assembly for a file
+src/create_target.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/create_target.dir/src/create_target.cpp.s
+.PHONY : src/create_target.cpp.s
+
 src/pc_sub.o: src/pc_sub.cpp.o
 
 .PHONY : src/pc_sub.o
@@ -461,6 +518,33 @@ src/pc_sub.s: src/pc_sub.cpp.s
 src/pc_sub.cpp.s:
 	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.s
 .PHONY : src/pc_sub.cpp.s
+
+src/turtlebot3_depth_follow.o: src/turtlebot3_depth_follow.cpp.o
+
+.PHONY : src/turtlebot3_depth_follow.o
+
+# target to build an object file
+src/turtlebot3_depth_follow.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/src/turtlebot3_depth_follow.cpp.o
+.PHONY : src/turtlebot3_depth_follow.cpp.o
+
+src/turtlebot3_depth_follow.i: src/turtlebot3_depth_follow.cpp.i
+
+.PHONY : src/turtlebot3_depth_follow.i
+
+# target to preprocess a source file
+src/turtlebot3_depth_follow.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/src/turtlebot3_depth_follow.cpp.i
+.PHONY : src/turtlebot3_depth_follow.cpp.i
+
+src/turtlebot3_depth_follow.s: src/turtlebot3_depth_follow.cpp.s
+
+.PHONY : src/turtlebot3_depth_follow.s
+
+# target to generate assembly for a file
+src/turtlebot3_depth_follow.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/catkin_ws/build && $(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/src/turtlebot3_depth_follow.cpp.s
+.PHONY : src/turtlebot3_depth_follow.cpp.s
 
 src/turtlebot3_drive.o: src/turtlebot3_drive.cpp.o
 
@@ -499,15 +583,14 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... gazebo_msgs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... gazebo_ros_gencfg"
-	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... install/strip"
 	@echo "... std_srvs_generate_messages_py"
-	@echo "... test"
 	@echo "... gazebo_msgs_generate_messages_nodejs"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... gazebo_msgs_generate_messages_cpp"
@@ -515,14 +598,23 @@ help:
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... pc_sub"
 	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... create_target"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... gazebo_msgs_generate_messages_eus"
 	@echo "... gazebo_msgs_generate_messages_py"
 	@echo "... turtlebot3_drive"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... turtlebot3_depth_follow"
 	@echo "... install/local"
+	@echo "... src/create_target.o"
+	@echo "... src/create_target.i"
+	@echo "... src/create_target.s"
 	@echo "... src/pc_sub.o"
 	@echo "... src/pc_sub.i"
 	@echo "... src/pc_sub.s"
+	@echo "... src/turtlebot3_depth_follow.o"
+	@echo "... src/turtlebot3_depth_follow.i"
+	@echo "... src/turtlebot3_depth_follow.s"
 	@echo "... src/turtlebot3_drive.o"
 	@echo "... src/turtlebot3_drive.i"
 	@echo "... src/turtlebot3_drive.s"

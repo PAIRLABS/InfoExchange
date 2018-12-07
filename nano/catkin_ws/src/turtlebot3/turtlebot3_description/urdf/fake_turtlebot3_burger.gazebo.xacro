@@ -107,8 +107,8 @@
 	<pose>0.01 0 0 0 0 0</pose>
         <horizontal_fov>2.094396</horizontal_fov> <!--<horizontal_fov>1.047198</horizontal_fov> -->
         <image>
-          <width>16</width>
-          <height>12</height>
+          <width>32</width>
+          <height>24</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -117,13 +117,13 @@
         </clip>
       </camera>
      
-      <plugin name="camera_depth_plugin" filename="libgazebo_ros_depth_camera.so">
+      <plugin name="camera_depth_plugin" filename="libgazebo_ros_depth_camera.so"> 
         <cameraName>camera_depth</cameraName>
         <alwaysOn>true</alwaysOn>
         <updateRate>0</updateRate>
         <imageTopicName>depth_camera/image</imageTopicName>
         <depthImageTopicName>depth_camera/depth_image</depthImageTopicName>
-        <cameraInfoTopicName>depth_camera/camera_info</cameraInfoTopicName>
+        <cameraInfoTopicName>depth_camera/depth_camera_info</cameraInfoTopicName>
         <depthCameraInfoTopicName>depth_camera/depth_camera_info</depthCameraInfoTopicName>
         <frameName>camera_link</frameName>
       </plugin>

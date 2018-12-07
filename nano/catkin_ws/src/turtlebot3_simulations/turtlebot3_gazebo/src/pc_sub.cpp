@@ -52,7 +52,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "listener");
   ros::NodeHandle n;
 
-  ros::Subscriber sub = n.subscribe("/camera_depth/depth_camera/depth_image", 100, DepthImage_Callback);
+  //ros::Subscriber sub = n.subscribe("/camera_depth/depth_camera/depth_image", 100, DepthImage_Callback);
+  ros::Subscriber sub = n.subscribe("/depth_camera/depth_image_raw", 100, DepthImage_Callback);
   ros::spin();
 
   return 0;
