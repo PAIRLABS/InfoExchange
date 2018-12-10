@@ -15,13 +15,17 @@
     <xacro:property name="big_wheel_radius" value="0.8"/>   <!--was 0.09-->
     <xacro:property name="small_wheel_radius" value="${big_wheel_radius*0.3}"/>   <!--was 0.09-->
     <xacro:property name="flipper_wheel_radius" value="${small_wheel_radius*0.6}"/> 
-    <xacro:property name="flipper_wheel_weight" value="0.04"/>
-    <xacro:property name="flipper_wheel_bias" value="${0.6*small_wheel_radius}"/>
+    <xacro:property name="flipper_wheel_slope" value="0.04"/>
+    <xacro:property name="flipper_wheel_bias" value="${0.8*small_wheel_radius}"/>
     <xacro:property name="ground_clearance" value="0.02517"/>   <!--old 0.05 0.02517-->
     <xacro:property name="wheel_length" value="${0.22*scale}"/>
     <xacro:property name="wheel_mass" value="0.1"/>
     <xacro:property name="scale" value="0.1"/>
     <xacro:property name="prefix" value="pairbot"/>
+    <xacro:property name="base_mass" value="100"/> <!--100-->
+    <xacro:property name="flipper_mass" value="77.5"/> <!--77.5-->
+    <xacro:property name="big_wheel_mass" value="30"/>
+    <xacro:property name="small_wheel_mass" value="10"/>
     <xacro:include filename="$(find pb_description)/urdf/pairbot.gazebo"/>
     <xacro:include filename="$(find pb_description)/urdf/materials.xacro"/>
     <!-- <xacro:include filename="$(find husky_description)/urdf/accessories/sick_lms1xx_mount.urdf.xacro"/> -->
@@ -92,14 +96,16 @@
     </xacro:macro>
 
     <xacro:macro name="wheel"
-                 params="name_link x y z roll pitch yaw radius wheel_length mass parent">
+                 params="mesh_name material name_link x y z roll pitch yaw radius wheel_length mass parent">
         <link name="${name_link}">
-            <visual>
+            <xacro:visual_macro mesh_name="${mesh_name}" x="0" y="0" z="0" roll="1.57" pitch="0" yaw="0"
+                                material="${material}" scale="${0.030*radius*scale}"/>
+            <!--<visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
                     <cylinder radius='${radius*scale}' length="${wheel_length*scale}"/>
                  </geometry>
-            </visual>
+            </visual>-->
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
@@ -130,10 +136,10 @@
         </transmission>
     </xacro:macro>
 
-    <xacro:link_macro name_link="base_link" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="Base2.dae" mass="10" material="orange"
+    <xacro:link_macro name_link="base_link" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="Base2.dae" mass="${base_mass}" material="orange"
                       scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
     <!--front flipper-->
-    <xacro:link_macro name_link="right_front_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="RightFrontFlipper.dae" mass="0.775" material="grey"
+    <xacro:link_macro name_link="right_front_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="RightFrontFlipper.dae" mass="${flipper_mass}" material="grey"
                       scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
 
     <xacro:joint_macro joint_name="joint_right_front_flipper" type="continuous" parent="base_link" child="right_front_flipper"
@@ -142,7 +148,7 @@
     <!-- <xacro:joint_macro joint_name="joint_right_front_flipper" type="revolute" parent="base_link" child="right_front_flipper"
                        x="${1.86*scale}" y="${-3.0*scale}" z="${-0.25*scale}" roll="${-PI*0.5}" pitch="0" yaw="${-PI/2}" axis="1 0 0" /> -->
 
-    <xacro:link_macro name_link="left_front_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="LeftFrontFlipper.dae" mass="0.775" material="grey"
+    <xacro:link_macro name_link="left_front_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="LeftFrontFlipper.dae" mass="${flipper_mass}" material="grey"
                       scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
     
     <xacro:joint_macro joint_name="joint_left_front_flipper" type="continuous" parent="base_link" child="left_front_flipper"
@@ -153,158 +159,164 @@
     
     <!--rear flipper-->
 
-    <xacro:link_macro name_link="right_rear_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="RightRearFlipper.dae" mass="0.775" material="grey"
+    <xacro:link_macro name_link="right_rear_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="RightRearFlipper.dae" mass="${flipper_mass}" material="grey"
                       scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
 
     <xacro:joint_macro joint_name="joint_right_rear_flipper" type="continuous" parent="base_link" child="right_rear_flipper"
                        x="${-1.86*scale}" y="${-2.2*scale}" z="${-0.25*scale}" roll="${PI*0.5}" pitch="0" yaw="${-PI/2}" axis="-1 0 0" />
 
-    <xacro:link_macro name_link="left_rear_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="LeftRearFlipper.dae" mass="0.775" material="grey"
+    <xacro:link_macro name_link="left_rear_flipper" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="LeftRearFlipper.dae" mass="${flipper_mass}" material="grey"
                       scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
     
     <xacro:joint_macro joint_name="joint_left_rear_flipper" type="continuous" parent="base_link" child="left_rear_flipper"
                        x="${-1.86*scale}" y="${2.2*scale}" z="${-0.25*scale}" roll="${PI*0.5}" pitch="0" yaw="${-PI/2}" axis="-1 0 0"/>
 
-    <xacro:wheel name_link="right_front_base_link_wheel" x="${1.86*scale}" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
-    <xacro:wheel name_link="left_front_base_link_wheel" x="${1.86*scale}" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="right_front_base_link_wheel" mesh_name="right_tire.stl" material="grey" 
+                 x="${1.86*scale}" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="left_front_base_link_wheel" mesh_name="left_tire.stl" material="grey"
+                 x="${1.86*scale}" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
 
-    <xacro:wheel name_link="right_rear_base_link_wheel" x="${-1.86*scale}" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
-    <xacro:wheel name_link="left_rear_base_link_wheel" x="${-1.86*scale}" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="right_rear_base_link_wheel" mesh_name="right_tire.stl" material="grey"
+                 x="${-1.86*scale}" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="left_rear_base_link_wheel" mesh_name="left_tire.stl" material="grey"
+                 x="${-1.86*scale}" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                 radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
 
-    <xacro:wheel name_link="right_middle_base_link_wheel" x="0" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
-    <xacro:wheel name_link="left_middle_base_link_wheel" x="0" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
-                radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="right_middle_base_link_wheel"  mesh_name="right_tire.stl" material="grey"
+                x="0" y="${-2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
+    <xacro:wheel name_link="left_middle_base_link_wheel" mesh_name="left_tire.stl" material="grey"
+                 x="0" y="${2.75*scale}" z="${-0.25*scale}" roll="0" pitch="${PI*0.5}" yaw="${PI/2}"
+                radius="${big_wheel_radius}" wheel_length="${wheel_length}" mass="${big_wheel_mass}" parent="base_link"/>
 
 <!-- y=3.4 x=0.3--> <!--for flipper: x: left/right y: up/down-->
     <!-- right front flipper -->
-    <xacro:wheel name_link="right_front_flipper_wheel"
+    <xacro:wheel name_link="right_front_flipper_wheel" mesh_name="right_tire.stl" material="grey"
                  x="${0.5*scale}" y="${flipper_wheel_bias*scale}" z="${3.4*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
 
-    <xacro:wheel name_link="right_front_flipper_middle_wheel_1"
-                 x="${0.5*scale}" y="${1*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_front_flipper_middle_wheel_1" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${1*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
 
-    <xacro:wheel name_link="right_front_flipper_middle_wheel_2"
-                 x="${0.5*scale}" y="${2*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_front_flipper_middle_wheel_2" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${2*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
     
-    <xacro:wheel name_link="right_front_flipper_middle_wheel_3" 
-                 x="${0.5*scale}" y="${3*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_front_flipper_middle_wheel_3" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${3*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
 
-    <xacro:wheel name_link="right_front_flipper_middle_wheel_4"
-                 x="${0.5*scale}" y="${4*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_front_flipper_middle_wheel_4" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${4*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
 
-    <xacro:wheel name_link="right_front_flipper_middle_wheel_5"
-                 x="${0.5*scale}" y="${5*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_front_flipper_middle_wheel_5" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${5*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_front_flipper"/>
     
     
     <!-- left front flipper -->
-    <xacro:wheel name_link="left_front_flipper_wheel" 
+    <xacro:wheel name_link="left_front_flipper_wheel"  mesh_name="left_tire.stl" material="grey"
                  x="${-0.5*scale}" y="${flipper_wheel_bias*scale}" z="${3.4*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
 
-    <xacro:wheel name_link="left_front_flipper_middle_wheel_1"
-                 x="${-0.5*scale}" y="${1*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_front_flipper_middle_wheel_1" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${1*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
 
-    <xacro:wheel name_link="left_front_flipper_middle_wheel_2"
-                 x="${-0.5*scale}" y="${2*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_front_flipper_middle_wheel_2" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${2*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
     
-    <xacro:wheel name_link="left_front_flipper_middle_wheel_3" 
-                 x="${-0.5*scale}" y="${3*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_front_flipper_middle_wheel_3" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${3*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
 
-    <xacro:wheel name_link="left_front_flipper_middle_wheel_4"
-                 x="${-0.5*scale}" y="${4*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_front_flipper_middle_wheel_4" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${4*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
 
-    <xacro:wheel name_link="left_front_flipper_middle_wheel_5"
-                 x="${-0.5*scale}" y="${5*flipper_wheel_weight*scale+flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_front_flipper_middle_wheel_5" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${5*flipper_wheel_slope*scale+flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_front_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_front_flipper"/>
     
     <!-- right rear flipper -->
-    <xacro:wheel name_link="right_rear_flipper_wheel" 
+    <xacro:wheel name_link="right_rear_flipper_wheel" mesh_name="right_tire.stl" material="grey"
                  x="${0.5*scale}" y="${-flipper_wheel_bias*scale}" z="${3.4*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
 
-    <xacro:wheel name_link="right_rear_flipper_middle_wheel_1"
-                 x="${0.5*scale}" y="${-1*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_rear_flipper_middle_wheel_1" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${-1*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
 
-    <xacro:wheel name_link="right_rear_flipper_middle_wheel_2"
-                 x="${0.5*scale}" y="${-2*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_rear_flipper_middle_wheel_2" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${-2*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
     
-    <xacro:wheel name_link="right_rear_flipper_middle_wheel_3" 
-                 x="${0.5*scale}" y="${-3*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_rear_flipper_middle_wheel_3"  mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${-3*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
 
-    <xacro:wheel name_link="right_rear_flipper_middle_wheel_4"
-                 x="${0.5*scale}" y="${-4*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_rear_flipper_middle_wheel_4" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${-4*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
 
-    <xacro:wheel name_link="right_rear_flipper_middle_wheel_5"
-                 x="${0.5*scale}" y="${-5*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="right_rear_flipper_middle_wheel_5" mesh_name="right_tire.stl" material="grey"
+                 x="${0.5*scale}" y="${-5*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="right_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="right_rear_flipper"/>
 
     <!-- left rear flipper -->
-    <xacro:wheel name_link="left_rear_flipper_wheel" 
+    <xacro:wheel name_link="left_rear_flipper_wheel"  mesh_name="left_tire.stl" material="grey"
                  x="${-0.5*scale}" y="${-flipper_wheel_bias*scale}" z="${3.4*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
 
-    <xacro:wheel name_link="left_rear_flipper_middle_wheel_1"
-                 x="${-0.5*scale}" y="${-1*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_rear_flipper_middle_wheel_1" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${-1*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-2*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
 
-    <xacro:wheel name_link="left_rear_flipper_middle_wheel_2"
-                 x="${-0.5*scale}" y="${-2*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_rear_flipper_middle_wheel_2" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${-2*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-4*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
     
-    <xacro:wheel name_link="left_rear_flipper_middle_wheel_3" 
-                 x="${-0.5*scale}" y="${-3*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_rear_flipper_middle_wheel_3" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${-3*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-6*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
 
-    <xacro:wheel name_link="left_rear_flipper_middle_wheel_4"
-                 x="${-0.5*scale}" y="${-4*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_rear_flipper_middle_wheel_4" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${-4*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-8*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
 
-    <xacro:wheel name_link="left_rear_flipper_middle_wheel_5"
-                 x="${-0.5*scale}" y="${-5*flipper_wheel_weight*scale-flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
+    <xacro:wheel name_link="left_rear_flipper_middle_wheel_5" mesh_name="left_tire.stl" material="grey"
+                 x="${-0.5*scale}" y="${-5*flipper_wheel_slope*scale-flipper_wheel_bias*scale}" z="${3.4*scale-10*small_wheel_radius*scale}" 
                  roll="0" pitch="${PI*0.5}" yaw="${PI}"
-                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${wheel_mass}" parent="left_rear_flipper"/>
+                 radius="${small_wheel_radius}" wheel_length="${wheel_length}" mass="${small_wheel_mass}" parent="left_rear_flipper"/>
 
     <!-- <xacro:link_macro name_link="cronstein" x="0" y="0" z="0" mesh_name="cronstain3.dae" mass="0.477" material="red"
                       scale="1" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>

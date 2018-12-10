@@ -47,7 +47,7 @@ def callback_transformation(data):
 
 def listener():
     rospy.init_node('listener', anonymous=True)
-    rospy.Subscriber("/turtle1/cmd_vel", Twist, callback)
+    rospy.Subscriber("/cmd_vel", Twist, callback)
     rospy.Subscriber('/gazebo/link_states', LinkStates, callback_transformation)
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
