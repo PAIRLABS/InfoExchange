@@ -11,10 +11,11 @@ def callback_for_right_front_flipper(data):
 
 def callback_for_left_front_flipper(data):
     pub = rospy.Publisher('/pairbot/joint_right_front_flipper_controller/command', Float64, queue_size=10)
+    rospy.logdebug("%s received!", str(data.set_point))
     pub.publish(data.set_point)
 
 def listener():
-    rospy.init_node('listener', anonymous=True)
+    rospy.init_node('listener', anonymous=True, log_level=rospy.WARN)
     rospy.Subscriber("/pairbot/joint_right_front_flipper_controller/state", JointControllerState, callback_for_right_front_flipper)
     rospy.Subscriber("/pairbot/joint_left_front_flipper_controller/state", JointControllerState, callback_for_left_front_flipper)
     # spin() simply keeps python from exiting until this node is stopped
