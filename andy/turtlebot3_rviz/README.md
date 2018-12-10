@@ -27,3 +27,12 @@ $ roslaunch turtlebot3_gazebo turtlebot3_empty_world_multi.launch
 $ roslaunch turtlebot3_fake turtlebot3_gazebo_multi.launch
 ```
 2. then it will display the same scheme in gazebo and rviz
+3. there is note in `catkin_tb3/turtlebot3_gazebo_note.md`
+### avoiding obstacles and chasing target
+1.run
+```
+$ export TURTLEBOT3_MODEL=$burger
+$roslaunch turtlebot3_gazebo depth_turtlebot3_world.launch
+$roslaunch turtlebot3_gazebo depth_turtlebot3_simulation.launch
+```
+2.the robot will auto chase another robot and you can drag the target robot by youself
