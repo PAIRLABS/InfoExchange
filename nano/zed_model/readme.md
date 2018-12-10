@@ -23,10 +23,10 @@
    ```
 
    1. find `zed_sim` in `insert`
-   ![image](InfoExchange/nano/zed_model/log_image/image 1.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%201.PNG)
 
    2. place to anyplace as you wish
-   ![image](InfoExchange/nano/zed_model/log_image/image 2.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%202.PNG)
 
 4. visualize depth camera and RGB camera in RVIZ
 
@@ -35,9 +35,9 @@
    ```
 
    1. add depth image (camera)
-   ![image](InfoExchange/nano/zed_model/log_image/image 3.PNG)
-   ![image](InfoExchange/nano/zed_model/log_image/image 4.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%203.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%204.PNG)
 
    2. add right and left RGB image (camera)
-   ![image](InfoExchange/nano/zed_model/log_image/image 5.PNG)
-   ![image](InfoExchange/nano/zed_model/log_image/image 6.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%205.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%206.PNG)
