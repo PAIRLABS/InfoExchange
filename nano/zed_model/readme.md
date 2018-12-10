@@ -32,3 +32,14 @@
    ```
    $ rosrun rviz rviz 
    ```
+   1. add depth image (camera)
+   ---
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%203.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%204.PNG)
+
+   2. add right and left RGB image (camera)
+   ---
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%205.PNG)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%206.PNG)
+
+   
