@@ -22,11 +22,15 @@
    $ roslaunch [any_package][any_launch_in_package]
    ```
 
-   1. find `zed_sim` in `insert`.
+   1. find `zed_sim` in `insert`
+   ---
       ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%201.PNG)
+   ---
    2. place to anyplace as you wish.
+   ---
       ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%202.PNG)
-
+   ---
+   
 4. visualize depth camera and RGB camera in RVIZ
 
    ```
