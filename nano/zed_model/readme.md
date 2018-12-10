@@ -19,7 +19,7 @@
 
    ```
    $ roscore
-   $ roslaunch [any_package][and_launch_in_package]
+   $ roslaunch [any_package][any_launch_in_package]
    ```
 
    1. find `zed_sim` in `insert`
@@ -37,6 +37,7 @@
    ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%203.PNG)
    ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%204.PNG)
 
+   ---
    2. add right and left RGB image (camera)
    ---
    ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/zed_model/log_image/image%205.PNG)
