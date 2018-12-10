@@ -21,7 +21,10 @@
 
 #include <ros/ros.h>
 
+
 #include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/Image.h>
+
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
 
@@ -78,5 +81,6 @@ class Turtlebot3Drive
   void updatecommandVelocity(double linear, double angular);
   void laserScanMsgCallBack(const sensor_msgs::LaserScan::ConstPtr &msg);
   void odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg);
+  void depth_CallBack(const sensor_msgs::Image::ConstPtr &msg);
 };
 #endif // TURTLEBOT3_DRIVE_H_

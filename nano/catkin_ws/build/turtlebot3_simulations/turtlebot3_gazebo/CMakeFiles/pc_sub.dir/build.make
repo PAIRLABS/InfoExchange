@@ -106,12 +106,16 @@ pc_sub_EXTERNAL_OBJECTS =
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /usr/lib/x86_64-linux-gnu/libboost_signals.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libxmlrpcpp.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libtf2.so
+/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
+/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libcv_bridge.so
+/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
+/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
+/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgcodecs3.so.3.3.1
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/librosconsole.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libroscpp_serialization.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/librostime.so
 /home/ros/test/InfoExchange/nano/catkin_ws/devel/lib/turtlebot3_gazebo/pc_sub: /opt/ros/kinetic/lib/libcpp_common.so

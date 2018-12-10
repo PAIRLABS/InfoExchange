@@ -35,6 +35,8 @@ Turtlebot3Drive::~Turtlebot3Drive()
 /*******************************************************************************
 * Init function
 *******************************************************************************/
+
+
 bool Turtlebot3Drive::init()
 {
   // initialize ROS parameter
@@ -55,7 +57,17 @@ bool Turtlebot3Drive::init()
   laser_scan_sub_  = nh_.subscribe("scan", 10, &Turtlebot3Drive::laserScanMsgCallBack, this);
   odom_sub_ = nh_.subscribe("odom", 10, &Turtlebot3Drive::odomMsgCallBack, this);
 
+  ros::Subscriber dd = nh_.subscribe("/camera_depth/depth_image",10,&Turtlebot3Drive::depth_CallBack, this);
+
   return true;
+}
+
+void Turtlebot3Drive::depth_CallBack(const sensor_msgs::Image::ConstPtr &msg)
+{
+  ROS_INFO("ya!!");
+
+  return;  
+
 }
 
 void Turtlebot3Drive::odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg)

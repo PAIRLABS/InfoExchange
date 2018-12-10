@@ -58,7 +58,8 @@ turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o:
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
-turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 
