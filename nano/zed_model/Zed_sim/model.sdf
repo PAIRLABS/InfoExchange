@@ -11,10 +11,6 @@
 	  <box>
 	    <size> 0.03 0.175 0.033 </size> 
 	  </box>
-	<!--mesh>
-	  <uri>model://Zed_sim/meshes/zed_model.dae</uri>
-          <scale> 0.018 0.018 0.018</scale>
-        </mesh-->
 	</geometry>
       </collision>
       <visual name="visual">
