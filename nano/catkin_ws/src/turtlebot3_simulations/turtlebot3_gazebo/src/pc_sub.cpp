@@ -22,22 +22,27 @@ void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
        uint8_t b3 = msg->data[i*w*4+j*4+3];
        uint8_t uc[] ={b0,b1,b2,b3};
        memcpy(&f, &uc, sizeof(f)); 
-       if (f!=f)
-         dis[i][j]=-1;
-       else
+      // if (f!=f)
+      //   dis[i][j]=f;
+      // else
 	 dis[i][j] = f;
   //  printf("%d %d %d %d \n",b0,b1,b2,b3); 
    }
   }
-
+  int flag =0;
+  int cnt=0;
   for (i=0;i<h;i++)
   {
     for(j=0;j<w;j++)
     {
-        printf("%.5f ", dis[i][j]);
-        //cout << dis[i][j] << " ";
+	if(dis[i][j]==dis[i][j])
+        {    
+	    printf("%.5f ", dis[i][j]);
+            flag=1;
+	    cnt++;
+	}
     }
-    printf("\n");
+    if(flag==1) {printf("\n cnt = %d \n",cnt); break; }
   }
 
 printf("-----------------------------------\n"); 

@@ -18,7 +18,7 @@
 	</geometry>
       </collision>
       <visual name="visual">
-        <pose>-0.02 -0.0875 -0.0125 1.5707963  0 1.5707963 </pose>
+        <pose>-0.01 -0.0875 -0.0125 1.5707963  0 1.5707963 </pose>
         <geometry>
           <mesh>
             <uri>model://Zed_sim/meshes/zed_body.stl</uri>
@@ -28,18 +28,18 @@
       </visual>
 <!--  depth sensor  -->
       <sensor name="camera" type="depth">
-        <pose> 0 0 0.004 0 0 0 </pose>
+        <pose> 0.005 0 0.004 0 0 0 </pose>
 	<update_rate>20</update_rate>
         <camera>
-          <horizontal_fov>1.5707813</horizontal_fov>  <!-- 3.14/3 -->
+          <horizontal_fov>1.047198</horizontal_fov>  <!-- 3.14/3 -->
           <image>
             <width>640</width>
             <height>480</height>
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.5</near>
-            <far>5</far>
+            <near>0.01</near>
+            <far>10</far>
           </clip>
         </camera>
 
@@ -58,9 +58,8 @@
 	  <depthImageCameraInfoTopicName>/zzzzz/camera_ifdo</depthImageCameraInfoTopicName>
           <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
           <frameName>camera_link</frameName>
-          <baseline>0.12</baseline>
-          <!--hackBaseline>0.12</hackBaseline-->
-	  <distortionK1>0</distortionK1>
+          <pointCloudCutoff>0.05</pointCloudCutoff>
+          <distortionK1>0</distortionK1>
           <distortionK2>0</distortionK2>
           <distortionK3>0</distortionK3>
           <distortionT1>0</distortionT1>
@@ -69,6 +68,7 @@
           <Cx>0</Cx>
           <Cy>0</Cy>
           <focalLength>0</focalLength>
+          <hackBaseline>0</hackBaseline>
         </plugin>
 
       </sensor>
@@ -79,15 +79,15 @@
         <pose> 0.005 -0.0595 0.004 0 0 0 </pose>
 	<update_rate>20</update_rate>
         <camera>
-          <horizontal_fov>1.5707813</horizontal_fov>
+          <horizontal_fov>1.047198</horizontal_fov>
           <image>
             <width>640</width>
             <height>480</height>
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.05</near>
-            <far>10</far>
+            <near>0.01</near>
+            <far>8</far>
           </clip>
           <noise>
             <type>gaussian</type>
@@ -122,14 +122,14 @@
 	<pose> 0.005 0.058 0.004 0 0 0 </pose>
         <update_rate>20</update_rate>
         <camera>
-          <horizontal_fov>1.5707813</horizontal_fov>
+          <horizontal_fov>1.047198</horizontal_fov>
           <image>
             <width>640</width>
             <height>480</height>
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.05</near>
+            <near>0.01</near>
             <far>10</far>
           </clip>
           <noise>
