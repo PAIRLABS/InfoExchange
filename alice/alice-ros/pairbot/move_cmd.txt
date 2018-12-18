@@ -1,0 +1,12 @@
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+
+rostopic pub -1 /pairbot/joint_right_rear_flipper_controller/command std_msgs/Float64 1.4
+rostopic pub -1 /pairbot/joint_left_front_flipper_controller/command std_msgs/Float64 1.4
+/pairbot/joint_right_rear_flipper_wheel_controller/command
+/pairbot/joint_left_rear_flipper_wheel_controller/command
+
+https://pdfs.semanticscholar.org/9dbc/830fc9b8e85b8c84a2d993d40fa947e005ca.pdf
+https://github.com/progtologist/gazebo-tracks
+https://answers.ros.org/question/249874/tracked-robot-gazebo-ros/
+https://github.com/lucasw/simple_sim_ros
+https://bitbucket.org/osrf/gazebo/issues?component=plugins
