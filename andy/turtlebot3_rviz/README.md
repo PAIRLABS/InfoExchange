@@ -33,6 +33,5 @@ $ roslaunch turtlebot3_fake turtlebot3_gazebo_multi.launch
 ```
 $ export TURTLEBOT3_MODEL=$burger
 $roslaunch turtlebot3_gazebo depth_turtlebot3_world.launch
-$roslaunch turtlebot3_gazebo depth_turtlebot3_simulation.launch
 ```
 2.the robot will auto chase another robot and you can drag the target robot by youself

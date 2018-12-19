@@ -44,32 +44,15 @@ bool Turtlebot3Drive::init()
   // initialize ROS parameter
   std::string cmd_vel_topic_name = nh_.param<std::string>("cmd_vel_topic_name", "");
 
-  // initialize variables
-  escape_range_       = 12.0 * DEG2RAD;
-  check_forward_dist_ = 0.7;
-  check_side_dist_    = 0.5;
-
-  tb3_pose_ = 0.0;
-  prev_tb3_pose_ = 0.0;
-
   // initialize publishers
   cmd_vel_pub_   = nh_.advertise<geometry_msgs::Twist>(cmd_vel_topic_name, 10);
-
   // initialize subscribers
-  depth_scan_sub_  = nh_.subscribe("/camera_depth/depth_camera/depth_image", 10, &Turtlebot3Drive::depthScanMsgCallBack, this);
-  odom_sub_ = nh_.subscribe("odom", 10, &Turtlebot3Drive::odomMsgCallBack, this);
-
+  depth_scan_sub_  = nh_.subscribe("camera_depth/depth_camera/depth_image", 10, &Turtlebot3Drive::depthScanMsgCallBack, this);
 
   return true;
 }
 
-void Turtlebot3Drive::odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg)
-{
-  double siny = 2.0 * (msg->pose.pose.orientation.w * msg->pose.pose.orientation.z + msg->pose.pose.orientation.x * msg->pose.pose.orientation.y);
-	double cosy = 1.0 - 2.0 * (msg->pose.pose.orientation.y * msg->pose.pose.orientation.y + msg->pose.pose.orientation.z * msg->pose.pose.orientation.z);  
 
-	tb3_pose_ = atan2(siny, cosy);
-}
 
 void Turtlebot3Drive::depthScanMsgCallBack(const sensor_msgs::Image::ConstPtr &msg)
 {
@@ -125,16 +108,20 @@ uint8_t find_distance(float x)
 *******************************************************************************/
 bool Turtlebot3Drive::controlLoop()
 {
-  static uint8_t turtlebot3_state_num = 0;
+//static uint8_t turtlebot3_state_num = 0;
+
 //set the lookup tf
 	tf::StampedTransform transform;
 	tf::TransformListener listener;
+//pass the param from launch file
+	std::string target_base_frame = nh_.param<std::string>("taget_base_frame", "");
+  std::string base_footprint = nh_.param<std::string>("base_footprint", "");
 
-	listener.waitForTransform("base_footprint", "target/base_footprint", ros::Time(0), ros::Duration(10));
-	listener.lookupTransform("base_footprint", "target/base_footprint",	ros::Time(0), transform);
-	
+	listener.waitForTransform(base_footprint, target_base_frame, ros::Time(0), ros::Duration(10));
+	listener.lookupTransform(base_footprint, target_base_frame,	ros::Time(0), transform);
 	double dist = sqrt(pow(transform.getOrigin().x(), 2) +
 										 pow(transform.getOrigin().y(), 2));
+	ROS_INFO("distance %lf", dist);
 	static double ang;
 	static double vel;
 	int h = HEIGHT/2;
@@ -143,6 +130,7 @@ bool Turtlebot3Drive::controlLoop()
 	{
 		ang = 0;
 		vel = 0;
+		ROS_INFO("ARRIVED");
 		goto update;
 	}
   for (int i = (WIDTH/32)*12; i < WIDTH/2; i++)//left side
@@ -151,6 +139,7 @@ bool Turtlebot3Drive::controlLoop()
  		{
     	ang = -1 * ANGULAR_VELOCITY; //turn right
     	vel = 0;
+			//ROS_INFO("????");
 			goto update;
  		}
  		if(i >= (WIDTH/32)*14)
@@ -206,7 +195,9 @@ bool Turtlebot3Drive::controlLoop()
 	  																		transform.getOrigin().x());
 	//ang = 0;
 	vel = LINEAR_VELOCITY;	
-  update:
+ 
+
+update:
 		updatecommandVelocity(vel,ang);
   
 	return true;

@@ -13,23 +13,32 @@
     <arg name="debug" value="false"/>
   </include>
 
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/fake_turtlebot3_$(arg model).urdf.xacro" />
+	<group ns = "ns1">
+		<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/fake_turtlebot3_$(arg model).urdf.xacro" />
+		<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
 
-	<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
-	<param name="odom_frame" value="odom"/>
-	<param name="base_frame" value="base_footprint"/>
-  <node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map odom 20"/>
-	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
-	  <param name="publish_frequency" type="double" value="50.0" />
-	</node>
+		<param name="odom_frame" value="ns1/odom"/>
+		<param name="base_frame" value="ns1/base_footprint"/>
+		<param name="tf_prefix" value="ns1"/>
+		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+			<param name="publish_frequency" type="double" value="50.0" />
+		</node>
+	<!-- run turtlebot3_depth_follow.cpp   -->
+		<arg name="cmd_vel" default="cmd_vel"/>
+  	<arg name="name" default="turtlebot3"/>
+		<arg name="ns" default="ns1"/>
 
+		<param name="taget_base_frame" value="target/base_footprint"/>
+  	<param name="cmd_vel_topic_name" value="$(arg cmd_vel)"/>
+		<param name="base_footprint" value="$(arg ns)/base_footprint" />
+  	<node name="$(arg name)_follow" pkg="turtlebot3_gazebo" type="turtlebot3_depth_follow" required="true" output="screen"/>
+	</group>
 
 	<group ns = "target">
 		<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/fake_turtlebot3_$(arg model).urdf.xacro" />
 		<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model target -x 0 -y 0 -z 0 -param robot_description" />
-		<param name="odom_frame" value="odom"/>
-		<param name="base_frame" value="base_footprint"/>
-		<node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map target/odom 20"/>
 	</group>
 
+	<node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map ns1/odom 20"/>
+	<node name="target_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map target/odom 20"/>
 </launch>
