@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
 nodelet/loader.h
 -
 ros/ros.h

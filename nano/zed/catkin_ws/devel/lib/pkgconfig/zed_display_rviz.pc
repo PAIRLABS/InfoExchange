@@ -1,8 +1,8 @@
-prefix=/home/nvidia/catkin_ws/devel
+prefix=/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel
 
 Name: zed_display_rviz
 Description: Description of zed_display_rviz
 Version: 2.7.0
 Cflags: 
-Libs: -L/home/nvidia/catkin_ws/devel/lib 
+Libs: -L/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib 
 Requires: 

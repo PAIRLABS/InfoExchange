@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/set_initial_pose.srv;/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv;/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_tracking.srv"
+services_str = "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/set_initial_pose.srv;/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv;/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_tracking.srv"
 pkg_name = "zed_wrapper"
 dependencies_str = ""
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

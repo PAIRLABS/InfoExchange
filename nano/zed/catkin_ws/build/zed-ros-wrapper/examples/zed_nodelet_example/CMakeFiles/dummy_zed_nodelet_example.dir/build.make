@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/build
 
 # Utility rule file for dummy_zed_nodelet_example.
 
@@ -63,10 +63,10 @@ zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_exampl
 .PHONY : zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/build
 
 zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/clean:
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example && $(CMAKE_COMMAND) -P CMakeFiles/dummy_zed_nodelet_example.dir/cmake_clean.cmake
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example && $(CMAKE_COMMAND) -P CMakeFiles/dummy_zed_nodelet_example.dir/cmake_clean.cmake
 .PHONY : zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/clean
 
 zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/depend:
-	cd /home/nvidia/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/catkin_ws/src /home/nvidia/catkin_ws/src/zed-ros-wrapper/examples/zed_nodelet_example /home/nvidia/catkin_ws/build /home/nvidia/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example /home/nvidia/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/test/InfoExchange/nano/zed/catkin_ws/src /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/examples/zed_nodelet_example /home/ros/test/InfoExchange/nano/zed/catkin_ws/build /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : zed-ros-wrapper/examples/zed_nodelet_example/CMakeFiles/dummy_zed_nodelet_example.dir/depend
 

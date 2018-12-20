@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/depend.make
@@ -58,17 +58,17 @@ include zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/progress.mak
 include zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/flags.make
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/flags.make
-zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o: /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o"
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o -c /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
+zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o: /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o"
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o -c /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.i"
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp > CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.i
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp > CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.i
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.s"
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp -o CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.s
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/src/zed_wrapper_node.cpp -o CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.s
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o.requires:
 
@@ -88,69 +88,70 @@ zed_wrapper_node_OBJECTS = \
 # External object files for target zed_wrapper_node
 zed_wrapper_node_EXTERNAL_OBJECTS =
 
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build.make
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /home/nvidia/catkin_ws/devel/lib/libZEDWrapper.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libimage_transport.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libnodeletlib.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libuuid.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libbondcpp.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libtinyxml2.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libclass_loader.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/libPocoFoundation.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libdl.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroslib.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librospack.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libpython2.7.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_program_options.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libtinyxml.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/liborocos-kdl.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/liborocos-kdl.so.1.3.0
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libtf2_ros.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libactionlib.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libmessage_filters.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libtf2.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroscpp.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_signals.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librostime.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libcpp_common.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_system.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_thread.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_chrono.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_date_time.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libboost_atomic.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libpthread.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_input.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_core.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_zed.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libcudart.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppial.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppisu.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppicc.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppicom.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppidei.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppif.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppig.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppim.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppist.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppitc.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnpps.so
-/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node"
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/zed_wrapper_node.dir/link.txt --verbose=$(VERBOSE)
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/src/zed_wrapper_node.cpp.o
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build.make
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/libZEDWrapper.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libimage_transport.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libnodeletlib.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libuuid.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libbondcpp.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libclass_loader.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/libPocoFoundation.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libdl.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroslib.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librospack.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/liborocos-kdl.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/liborocos-kdl.so.1.3.0
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libtf2_ros.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libactionlib.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libmessage_filters.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libtf2.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroscpp.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/librostime.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /opt/ros/kinetic/lib/libcpp_common.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_input.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_core.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/zed/lib/libsl_zed.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda/lib64/libcudart_static.a
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/lib/x86_64-linux-gnu/librt.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppial.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppisu.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppicc.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppicom.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppidei.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppif.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppig.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppim.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppist.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda-9.0/lib64/libnppitc.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: /usr/local/cuda/lib64/libnpps.so
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node: zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node"
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/zed_wrapper_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build: /home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node
+zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build: /home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node
 
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build
 
@@ -159,10 +160,10 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/requires: zed-ros-wr
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/requires
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/clean:
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -P CMakeFiles/zed_wrapper_node.dir/cmake_clean.cmake
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -P CMakeFiles/zed_wrapper_node.dir/cmake_clean.cmake
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/clean
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/depend:
-	cd /home/nvidia/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/catkin_ws/src /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper /home/nvidia/catkin_ws/build /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/test/InfoExchange/nano/zed/catkin_ws/src /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper /home/ros/test/InfoExchange/nano/zed/catkin_ws/build /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/depend
 

@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zed_wrapper_generate_messages_eus"
-  "/home/nvidia/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/reset_odometry.l"
-  "/home/nvidia/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/set_initial_pose.l"
-  "/home/nvidia/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/reset_tracking.l"
-  "/home/nvidia/catkin_ws/devel/share/roseus/ros/zed_wrapper/manifest.l"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/set_initial_pose.l"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/reset_tracking.l"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/roseus/ros/zed_wrapper/srv/reset_odometry.l"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/roseus/ros/zed_wrapper/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

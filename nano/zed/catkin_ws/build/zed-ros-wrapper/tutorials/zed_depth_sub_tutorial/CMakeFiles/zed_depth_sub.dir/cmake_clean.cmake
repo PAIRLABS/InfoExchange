@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zed_depth_sub.dir/src/zed_depth_sub_tutorial.cpp.o"
-  "/home/nvidia/catkin_ws/devel/lib/zed_depth_sub_tutorial/zed_depth_sub.pdb"
-  "/home/nvidia/catkin_ws/devel/lib/zed_depth_sub_tutorial/zed_depth_sub"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_depth_sub_tutorial/zed_depth_sub.pdb"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_depth_sub_tutorial/zed_depth_sub"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,8 @@
-prefix=/home/nvidia/catkin_ws/install
+prefix=/home/ros/test/InfoExchange/nano/zed/catkin_ws/install
 
 Name: zed_tracking_sub_tutorial
 Description: Description of zed_tracking_sub_tutorial
 Version: 2.7.0
 Cflags: 
-Libs: -L/home/nvidia/catkin_ws/install/lib 
+Libs: -L/home/ros/test/InfoExchange/nano/zed/catkin_ws/install/lib 
 Requires: 

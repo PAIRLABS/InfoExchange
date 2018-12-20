@@ -1,8 +1,8 @@
-# Install script for directory: /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_ros
+# Install script for directory: /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_ros
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/nvidia/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ros/test/InfoExchange/nano/zed/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,6 +33,6 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_ros" TYPE FILE FILES "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_ros/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_ros" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_ros/package.xml")
 endif()
 

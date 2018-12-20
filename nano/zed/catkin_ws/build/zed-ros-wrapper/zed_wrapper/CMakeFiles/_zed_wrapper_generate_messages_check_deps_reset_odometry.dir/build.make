@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/build
 
 # Utility rule file for _zed_wrapper_generate_messages_check_deps_reset_odometry.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
 include zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/progress.make
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry:
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py zed_wrapper /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv 
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py zed_wrapper /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv 
 
 _zed_wrapper_generate_messages_check_deps_reset_odometry: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry
 _zed_wrapper_generate_messages_check_deps_reset_odometry: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/build.make
@@ -67,10 +67,10 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/build
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/clean:
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -P CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/cmake_clean.cmake
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper && $(CMAKE_COMMAND) -P CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/cmake_clean.cmake
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/clean
 
 zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/depend:
-	cd /home/nvidia/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/catkin_ws/src /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper /home/nvidia/catkin_ws/build /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper /home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/test/InfoExchange/nano/zed/catkin_ws/src /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper /home/ros/test/InfoExchange/nano/zed/catkin_ws/build /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_reset_odometry.dir/depend
 

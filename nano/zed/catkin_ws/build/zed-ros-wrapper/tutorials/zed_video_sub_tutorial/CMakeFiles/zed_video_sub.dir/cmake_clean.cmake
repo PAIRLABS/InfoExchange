@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zed_video_sub.dir/src/zed_video_sub_tutorial.cpp.o"
-  "/home/nvidia/catkin_ws/devel/lib/zed_video_sub_tutorial/zed_video_sub.pdb"
-  "/home/nvidia/catkin_ws/devel/lib/zed_video_sub_tutorial/zed_video_sub"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_video_sub_tutorial/zed_video_sub.pdb"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_video_sub_tutorial/zed_video_sub"
 )
 
 # Per-language clean rules from dependency scanning.

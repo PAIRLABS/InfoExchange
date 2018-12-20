@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zed_wrapper_generate_messages_py"
-  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_reset_odometry.py"
-  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_set_initial_pose.py"
-  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_reset_tracking.py"
-  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/__init__.py"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_set_initial_pose.py"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_reset_tracking.py"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/_reset_odometry.py"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/srv/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.
