@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"zed_tracking_sub_tutorial\"
 
-CXX_INCLUDES = -I/home/nvidia/catkin_ws/src/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

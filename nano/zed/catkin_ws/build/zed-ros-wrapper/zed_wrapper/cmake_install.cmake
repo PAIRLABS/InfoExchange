@@ -1,8 +1,8 @@
-# Install script for directory: /home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper
+# Install script for directory: /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/nvidia/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ros/test/InfoExchange/nano/zed/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,73 +34,73 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/srv" TYPE FILE FILES
-    "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/set_initial_pose.srv"
-    "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv"
-    "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_tracking.srv"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/set_initial_pose.srv"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_odometry.srv"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/srv/reset_tracking.srv"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/cmake" TYPE FILE FILES "/home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/cmake" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper-msg-paths.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/include/zed_wrapper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/include/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/share/roseus/ros/zed_wrapper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/roseus/ros/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/zed_wrapper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/common-lisp/ros/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/share/gennodejs/ros/zed_wrapper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/gennodejs/ros/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/zed_wrapper" TYPE FILE FILES "/home/nvidia/catkin_ws/devel/include/zed_wrapper/ZedConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/zed_wrapper" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/include/zed_wrapper/ZedConfig.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/zed_wrapper" TYPE FILE FILES "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/zed_wrapper" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/__init__.py")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/cfg")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/cfg")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/zed_wrapper" TYPE DIRECTORY FILES "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/zed_wrapper" TYPE DIRECTORY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/python2.7/dist-packages/zed_wrapper/cfg")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/cmake" TYPE FILE FILES "/home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/cmake" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapper-msg-extras.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper/cmake" TYPE FILE FILES
-    "/home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapperConfig.cmake"
-    "/home/nvidia/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapperConfig-version.cmake"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapperConfig.cmake"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_wrapper/catkin_generated/installspace/zed_wrapperConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper" TYPE FILE FILES "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -110,12 +110,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libZEDWrapper.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/nvidia/catkin_ws/devel/lib/libZEDWrapper.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/libZEDWrapper.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libZEDWrapper.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libZEDWrapper.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libZEDWrapper.so"
-         OLD_RPATH "/usr/local/zed/lib:/opt/ros/kinetic/lib:/usr/local/cuda-9.0/lib64:"
+         OLD_RPATH "/usr/local/zed/lib:/opt/ros/kinetic/lib:/usr/local/cuda-9.0/lib64:/usr/local/cuda/lib64:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libZEDWrapper.so")
@@ -130,12 +130,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper/zed_wrapper_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper" TYPE EXECUTABLE FILES "/home/nvidia/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper" TYPE EXECUTABLE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/zed_wrapper/zed_wrapper_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper/zed_wrapper_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper/zed_wrapper_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper/zed_wrapper_node"
-         OLD_RPATH "/usr/local/zed/lib:/home/nvidia/catkin_ws/devel/lib:/opt/ros/kinetic/lib:/usr/local/cuda-9.0/lib64:"
+         OLD_RPATH "/usr/local/zed/lib:/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib:/opt/ros/kinetic/lib:/usr/local/cuda-9.0/lib64:/usr/local/cuda/lib64:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/zed_wrapper/zed_wrapper_node")
@@ -144,13 +144,13 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper" TYPE FILE FILES "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/nodelet_plugins.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper" TYPE FILE FILES "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/nodelet_plugins.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/zed_wrapper" TYPE DIRECTORY FILES
-    "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/launch"
-    "/home/nvidia/catkin_ws/src/zed-ros-wrapper/zed_wrapper/urdf"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/launch"
+    "/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/zed_wrapper/urdf"
     )
 endif()
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ros/test/InfoExchange/nano/zed/catkin_ws/build
 
 # Utility rule file for nav_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate
 .PHONY : zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
 
 zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/nvidia/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial && $(CMAKE_COMMAND) -P CMakeFiles/nav_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial && $(CMAKE_COMMAND) -P CMakeFiles/nav_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
 
 zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/nvidia/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/catkin_ws/src /home/nvidia/catkin_ws/src/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial /home/nvidia/catkin_ws/build /home/nvidia/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial /home/nvidia/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/test/InfoExchange/nano/zed/catkin_ws/src /home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial /home/ros/test/InfoExchange/nano/zed/catkin_ws/build /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/depend
 

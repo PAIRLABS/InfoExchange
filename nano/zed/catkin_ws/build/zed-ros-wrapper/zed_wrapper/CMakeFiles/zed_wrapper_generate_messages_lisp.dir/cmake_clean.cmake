@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zed_wrapper_generate_messages_lisp"
-  "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/reset_odometry.lisp"
-  "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/set_initial_pose.lisp"
-  "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/reset_tracking.lisp"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/set_initial_pose.lisp"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/reset_tracking.lisp"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/share/common-lisp/ros/zed_wrapper/srv/reset_odometry.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

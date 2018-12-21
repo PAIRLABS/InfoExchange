@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ZEDWrapper.dir/src/tools/src/sl_tools.cpp.o"
   "CMakeFiles/ZEDWrapper.dir/src/nodelet/src/zed_wrapper_nodelet.cpp.o"
-  "/home/nvidia/catkin_ws/devel/lib/libZEDWrapper.pdb"
-  "/home/nvidia/catkin_ws/devel/lib/libZEDWrapper.so"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/libZEDWrapper.pdb"
+  "/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib/libZEDWrapper.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/nvidia/catkin_ws/install/setup.sh
+    local-name: /home/ros/test/InfoExchange/nano/zed/catkin_ws/install/setup.sh
