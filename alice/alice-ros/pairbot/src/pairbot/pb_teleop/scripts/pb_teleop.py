@@ -42,10 +42,10 @@ STOP = -9999
 baseMove = {
     #'key':(x, y, z, angular)
     'w':(1,0,0,0),
-    'a':(0,0,0,-1),
+    'a':(0,0,0,1),
     's':(STOP,0,0,0),
     'x':(-1,0,0,0),
-    'd':(0,0,0,1)
+    'd':(0,0,0,-1)
 }
 
 frontFlipper = {
@@ -152,10 +152,11 @@ if __name__=="__main__":
                 pub_front_flipper_wheel.publish(front_speed)
                 pub_rear_flipper.publish(rear_degree)
                 pub_rear_flipper_wheel.publish(rear_speed)
-                if (key == '\x03'):
-                    break
+            elif (key == '\x03'):
+                print('Leaving......')
+                break;
             print("current:\tx: %s\ttheta: %s\tfront_speed:%s\tfront_degree:%s\trear_speed:%s\trear_degree:%s\t" \
-                  % (x, th, front_speed, front_degree, rear_speed, rear_degree))
+                  %(x, th, front_speed, front_degree, rear_speed, rear_degree))
     except Exception as e:
         print(e)
 
