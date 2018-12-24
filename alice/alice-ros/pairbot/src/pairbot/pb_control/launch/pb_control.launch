@@ -6,8 +6,8 @@
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
           output="screen" ns="/pairbot" args="joint_state_controller
-	                                  joint_left_front_flipper_controller
-	                                  joint_right_front_flipper_controller
+	                                    joint_left_front_flipper_controller
+	                                    joint_right_front_flipper_controller
                                       joint_left_rear_flipper_controller
                                       joint_right_rear_flipper_controller
                                       right
@@ -19,21 +19,29 @@
                                       joint_left_front_flipper_middle_wheel_2_controller
                                       joint_left_front_flipper_middle_wheel_3_controller
                                       joint_left_front_flipper_middle_wheel_4_controller
+                                      joint_left_front_flipper_middle_wheel_5_controller
+                                      joint_left_front_flipper_middle_wheel_6_controller
                                       joint_right_front_flipper_wheel_controller
                                       joint_right_front_flipper_middle_wheel_1_controller
                                       joint_right_front_flipper_middle_wheel_2_controller
                                       joint_right_front_flipper_middle_wheel_3_controller
                                       joint_right_front_flipper_middle_wheel_4_controller
+                                      joint_right_front_flipper_middle_wheel_5_controller
+                                      joint_right_front_flipper_middle_wheel_6_controller
                                       joint_left_rear_flipper_wheel_controller
                                       joint_left_rear_flipper_middle_wheel_1_controller
                                       joint_left_rear_flipper_middle_wheel_2_controller
                                       joint_left_rear_flipper_middle_wheel_3_controller
                                       joint_left_rear_flipper_middle_wheel_4_controller
+                                      joint_left_rear_flipper_middle_wheel_5_controller
+                                      joint_left_rear_flipper_middle_wheel_6_controller
                                       joint_right_rear_flipper_wheel_controller
                                       joint_right_rear_flipper_middle_wheel_1_controller
                                       joint_right_rear_flipper_middle_wheel_2_controller
                                       joint_right_rear_flipper_middle_wheel_3_controller
                                       joint_right_rear_flipper_middle_wheel_4_controller
+                                      joint_right_rear_flipper_middle_wheel_5_controller
+                                      joint_right_rear_flipper_middle_wheel_6_controller
                                       joint_right_middle_base_link_wheel_controller
                                       joint_left_middle_base_link_wheel_controller
                                         "/>
