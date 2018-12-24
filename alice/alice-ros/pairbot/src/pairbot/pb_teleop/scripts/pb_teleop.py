@@ -120,23 +120,25 @@ if __name__=="__main__":
                 twist.angular.z = th
                 pub_vel.publish(twist)
             elif key in frontFlipper.keys(): #'key':(speed, degree)
-                if frontFlipper[key][0] == STOP:
-                    front_speed = 0
+                if frontFlipper[key][1] != 0:
+                    front_degree += angle_step*frontFlipper[key][1]
+                    pub_front_flipper.publish(front_degree)
                 else:
-                    front_speed += speed_step*frontFlipper[key][0]
-                
-                front_degree += angle_step*frontFlipper[key][1]   
-                pub_front_flipper.publish(front_degree)
-                pub_front_flipper_wheel.publish(front_speed)             
+                    if frontFlipper[key][0] == STOP:
+                        front_speed = 0
+                    else:
+                        front_speed += speed_step*frontFlipper[key][0]
+                    pub_front_flipper_wheel.publish(front_speed)
             elif key in rearFlipper.keys(): #'key':(speed, degree)
-                if rearFlipper[key][0] == STOP:
-                    rear_speed = 0
+                if rearFlipper[key][1] != 0:
+                    rear_degree += angle_step*rearFlipper[key][1]
+                    pub_rear_flipper.publish(rear_degree)
                 else:
-                    rear_speed += speed_step*rearFlipper[key][0]
-                
-                rear_degree += angle_step*rearFlipper[key][1]
-                pub_rear_flipper.publish(rear_degree)
-                pub_rear_flipper_wheel.publish(rear_speed)
+                    if rearFlipper[key][0] == STOP:
+                        rear_speed = 0
+                    else:
+                        rear_speed += speed_step*rearFlipper[key][0]
+                    pub_rear_flipper_wheel.publish(rear_speed)
             elif key == 'q':
                 x = 0
                 th = 0
