@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
+subdirs(turtlebot3_gazebo)
 subdirs(zed-ros-wrapper/examples/zed_ar_track_alvar_example)
 subdirs(zed-ros-wrapper/tutorials/zed_depth_sub_tutorial)
 subdirs(zed-ros-wrapper/zed_display_rviz)

@@ -117,6 +117,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/turtlebot3_gazebo/cmake_install.cmake")
   include("/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/examples/zed_ar_track_alvar_example/cmake_install.cmake")
   include("/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/cmake_install.cmake")
   include("/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/zed_display_rviz/cmake_install.cmake")
