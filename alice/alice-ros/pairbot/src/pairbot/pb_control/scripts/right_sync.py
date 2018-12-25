@@ -11,7 +11,7 @@ def callback(data):
     res=divide(data,coef)
     #    rospy.loginfo(data)
 
-    pub = rospy.Publisher('/pairbot/joint_right_front_flipper_wheel_controller/command', Float64, queue_size=10)
+    pub = rospy.Publisher('/pairbot/joint_right_front_base_wheel_controller/command', Float64, queue_size=10)
     pub.publish(res)
 
     pub = rospy.Publisher('/pairbot/joint_right_rear_base_link_wheel_controller/command', Float64, queue_size=10)
@@ -22,7 +22,7 @@ def callback(data):
 
 
 def listener():
-    rospy.init_node('listener', anonymous=True)
+    rospy.init_node('listener', anonymous=True, log_level=rospy.DEBUG)
     rospy.Subscriber("/pairbot/right/command", Float64, callback)
 #    rospy.Subscriber("/pairbot/joint_left_front_flipper_controller/state", JointControllerState, callback_for_left_front_flipper)
     # spin() simply keeps python from exiting until this node is stopped

@@ -8,7 +8,7 @@ import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64
 
-import sys, select, termios, tty
+import sys, select, termios, tty, math
 
 msg = """
 Reading from the keyboard and Publishing to Twist!
@@ -92,7 +92,7 @@ if __name__=="__main__":
     th = 0
 
     speed_step = 0.1
-    angle_step = 0.087
+    angle_step = math.pi/36
     # front flipper
     front_speed = 0
     front_degree = 0
@@ -101,6 +101,15 @@ if __name__=="__main__":
     rear_degree = 0
 
     try:
+        twist = Twist()
+        twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
+        twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
+        pub_vel.publish(twist)
+        pub_front_flipper.publish(0.0)
+        pub_front_flipper_wheel.publish(0.0)
+        pub_rear_flipper.publish(0.0)
+        pub_rear_flipper_wheel.publish(0.0)
+        
         print(msg)
         while(1):
             key = getKey()
@@ -122,6 +131,8 @@ if __name__=="__main__":
             elif key in frontFlipper.keys(): #'key':(speed, degree)
                 if frontFlipper[key][1] != 0:
                     front_degree += angle_step*frontFlipper[key][1]
+                    if abs(front_degree)<0.0001:
+                        front_degree = 0
                     pub_front_flipper.publish(front_degree)
                 else:
                     if frontFlipper[key][0] == STOP:
@@ -132,6 +143,8 @@ if __name__=="__main__":
             elif key in rearFlipper.keys(): #'key':(speed, degree)
                 if rearFlipper[key][1] != 0:
                     rear_degree += angle_step*rearFlipper[key][1]
+                    if abs(rear_degree)<0.0001:
+                        rear_degree = 0
                     pub_rear_flipper.publish(rear_degree)
                 else:
                     if rearFlipper[key][0] == STOP:

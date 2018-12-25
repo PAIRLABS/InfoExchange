@@ -29,8 +29,8 @@ def callback(data):
     pub = rospy.Publisher('/pairbot/left/command', Float64, queue_size=10)
     pub.publish(left)
 
-    pub = rospy.Publisher('/pairbot/joint_right_front_flipper_controller/command', Float64, queue_size=10)
-    pub.publish(flipper)
+    # pub = rospy.Publisher('/pairbot/joint_right_front_flipper_controller/command', Float64, queue_size=10)
+    # pub.publish(flipper)
 
 def callback_transformation(data):
     # print(data.name)

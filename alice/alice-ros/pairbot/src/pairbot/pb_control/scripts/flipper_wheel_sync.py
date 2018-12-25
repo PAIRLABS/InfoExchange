@@ -18,24 +18,26 @@ pubs_rear = []
 
 def sync_init():
     #pubs_front.append(rospy.Publisher(T_LF_FW, Float64, queue_size=10))
-    pubs_front.extend([ rospy.Publisher(T_LF_FMW.format(i+1), Float64, queue_size=10) for i in range(4)])
+    pubs_front.extend([ rospy.Publisher(T_LF_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
     pubs_front.append(rospy.Publisher(T_RF_FW, Float64, queue_size=10))
-    pubs_front.extend([ rospy.Publisher(T_RF_FMW.format(i+1), Float64, queue_size=10) for i in range(4)])
+    pubs_front.extend([ rospy.Publisher(T_RF_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
     #pubs_rear.append(rospy.Publisher(T_LR_FW, Float64, queue_size=10))
-    pubs_rear.extend([ rospy.Publisher(T_LR_FMW.format(i+1), Float64, queue_size=10) for i in range(4)])
+    pubs_rear.extend([ rospy.Publisher(T_LR_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
     pubs_rear.append(rospy.Publisher(T_RR_FW, Float64, queue_size=10))
-    pubs_rear.extend([ rospy.Publisher(T_RR_FMW.format(i+1), Float64, queue_size=10) for i in range(4)])
+    pubs_rear.extend([ rospy.Publisher(T_RR_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
     
 
 # Left flipper is a mirror of right flipper, so angles of flippers are inversed (i,-i)
 def callback_for_front_flipper(data):
-    rospy.logdebug("callback for front")
+    rospy.logdebug("callback for front flipper wheel")
     rospy.logdebug("There are %s publishers", str(len(pubs_front)))
     for p in pubs_front:
         rospy.logdebug("%s received!", str(data))
         p.publish(data)
 
 def callback_for_rear_flipper(data):
+    rospy.logdebug("callback for rear flipper wheel")
+    rospy.logdebug("There are %s publishers", str(len(pubs_rear)))
     for p in pubs_rear:
         p.publish(data)
 
