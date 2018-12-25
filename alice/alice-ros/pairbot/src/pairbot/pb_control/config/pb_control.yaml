@@ -8,22 +8,22 @@ pairbot:
   joint_left_front_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_left_front_flipper
-    pid: {p: 400.0, i: 0.01, d: 10.0}
+    pid: {p: 40.0, i: 0.01, d: 20.0}
 
   joint_right_front_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_right_front_flipper
-    pid: {p: 400.0, i: 0.01, d: 10.0}
+    pid: {p: 40.0, i: 0.01, d: 20.0}
 
   joint_left_rear_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_left_rear_flipper
-    pid: {p: 400.0, i: 0.01, d: 10.0}
+    pid: {p: 40.0, i: 0.01, d: 20.0}
 
   joint_right_rear_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_right_rear_flipper
-    pid: {p: 400.0, i: 0.01, d: 10.0}
+    pid: {p: 40.0, i: 0.01, d: 20.0}
 
   joint_cronstein:
       type: effort_controllers/JointPositionController

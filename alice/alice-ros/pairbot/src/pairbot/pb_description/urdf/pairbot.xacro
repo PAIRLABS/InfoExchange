@@ -163,6 +163,15 @@
                                   ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
     </link>
 
+    <xacro:link_macro name_link="camera_stick_link" x="0" y="0" z="0" roll="0" pitch="0" yaw="0" mesh_name="camera_body.stl"  mass="5" material="grey"
+                      scale="${scale}" ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.000" izz="1"/>
+    
+    <joint name="joint_camera_stick" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_stick_link"/>
+        <origin xyz="${base_length/2-0.03} 0 ${base_height-0.05}" rpy="0 0 0"/>
+        <axis xyz="0 0 0"/>
+    </joint>
 
     <xacro:wheel name_link="right_front_base_link_wheel" mesh_name="right_tire.stl" material="grey" 
                  x="${(big_wheel_radius*2+0.01)*scale}" y="${-1*base_width/2*scale}" z="${(big_wheel_radius-0.02)*scale}" roll="0" pitch="0" yaw="0"
