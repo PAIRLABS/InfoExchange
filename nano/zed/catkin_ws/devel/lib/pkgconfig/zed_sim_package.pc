@@ -1,0 +1,8 @@
+prefix=/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel
+
+Name: zed_sim_package
+Description: Description of zed_sim_package
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib 
+Requires: 
