@@ -67,7 +67,7 @@ void teleop_node::keyloop()
  
   puts("Reading from keyboard");
   puts("---------------------------");
-  puts("Press R or S to switch");
+  puts("Press 1(Sim) or 2(Real) to switch");
  
  
   for(;;)
@@ -83,13 +83,13 @@ void teleop_node::keyloop()
     switch(c)
     {
       case KEYCODE_1:
-	ROS_INFO("sim !!");
+	ROS_INFO("switch to Zed_Sim");
         ROS_DEBUG("Simulated zed");
         msg.data = SIM;
 	dirty = true;
         break;
       case KEYCODE_2:
-	ROS_INFO("Real !!");
+	ROS_INFO("switch to Zed_Real");
         ROS_DEBUG("REAL Zed");
         msg.data = REAL;
 	dirty = true;

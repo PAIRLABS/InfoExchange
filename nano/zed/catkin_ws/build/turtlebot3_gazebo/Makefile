@@ -766,6 +766,21 @@ roscpp_generate_messages_cpp/fast:
 .PHONY : roscpp_generate_messages_cpp/fast
 
 # Convenience name for target.
+turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/rule
+.PHONY : turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/rule
+
+# Convenience name for target.
+sim_wrapper: turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/rule
+
+.PHONY : sim_wrapper
+
+# fast build rule for target.
+sim_wrapper/fast:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build
+.PHONY : sim_wrapper/fast
+
+# Convenience name for target.
 turtlebot3_gazebo/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
 	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot3_gazebo/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 .PHONY : turtlebot3_gazebo/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
@@ -1332,6 +1347,33 @@ src/pc_sub.cpp.s:
 	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f turtlebot3_gazebo/CMakeFiles/pc_sub.dir/build.make turtlebot3_gazebo/CMakeFiles/pc_sub.dir/src/pc_sub.cpp.s
 .PHONY : src/pc_sub.cpp.s
 
+src/sim_wrapper.o: src/sim_wrapper.cpp.o
+
+.PHONY : src/sim_wrapper.o
+
+# target to build an object file
+src/sim_wrapper.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/src/sim_wrapper.cpp.o
+.PHONY : src/sim_wrapper.cpp.o
+
+src/sim_wrapper.i: src/sim_wrapper.cpp.i
+
+.PHONY : src/sim_wrapper.i
+
+# target to preprocess a source file
+src/sim_wrapper.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/src/sim_wrapper.cpp.i
+.PHONY : src/sim_wrapper.cpp.i
+
+src/sim_wrapper.s: src/sim_wrapper.cpp.s
+
+.PHONY : src/sim_wrapper.s
+
+# target to generate assembly for a file
+src/sim_wrapper.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/src/sim_wrapper.cpp.s
+.PHONY : src/sim_wrapper.cpp.s
+
 src/teleop.o: src/teleop.cpp.o
 
 .PHONY : src/teleop.o
@@ -1465,6 +1507,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... sim_wrapper"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -1505,6 +1548,9 @@ help:
 	@echo "... src/pc_sub.o"
 	@echo "... src/pc_sub.i"
 	@echo "... src/pc_sub.s"
+	@echo "... src/sim_wrapper.o"
+	@echo "... src/sim_wrapper.i"
+	@echo "... src/sim_wrapper.s"
 	@echo "... src/teleop.o"
 	@echo "... src/teleop.i"
 	@echo "... src/teleop.s"

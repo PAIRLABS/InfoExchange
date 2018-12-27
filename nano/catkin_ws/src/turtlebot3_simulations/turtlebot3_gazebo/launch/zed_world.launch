@@ -4,7 +4,7 @@
   <arg name="z_pos" default="0.0"/>
 
   <!-- remap any topic before include if you want -->
-  <remap from="/Zed/depth/point_cloud/cloud_registered" to="/Zed/point_cloud/cloud_registered"/> 
+  <remap from="/Zed_sim/depth/point_cloud/cloud_registered" to="/Zed_sim/point_cloud/cloud_registered"/> 
   
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -16,12 +16,15 @@
     <arg name="debug" value="false"/>
   </include>
 
+<group ns = "Zed_sim">
   <node pkg="topic_tools" type="relay" name="public_right_rect" args="/Zed_sim/right/image_raw_color /Zed_sim/right/image_rect_color"/>
   <node pkg="topic_tools" type="relay" name="public_left_rect" args="/Zed_sim/left/image_raw_color /Zed_sim/left/image_rect_color"/>
 
   <node pkg="topic_tools" type="relay" name="public_rgb_info" args="/Zed_sim/left/camera_info /Zed_sim/rgb/camera_info"/>
   <node pkg="topic_tools" type="relay" name="public_rgb_raw"  args="/Zed_sim/left/image_raw_color /Zed_sim/rgb/image_rew_color"/>
   <node pkg="topic_tools" type="relay" name="public_rgb_rect" args="/Zed_sim/left/image_rect_color /Zed_sim/rgb/image_rect_color"/>
+
+</group>
 
   <node pkg="tf" type="static_transform_publisher" name="odom_to_map"  args="0 0 0 0 0 0  /map /Zed_sim/odom 100" />
 

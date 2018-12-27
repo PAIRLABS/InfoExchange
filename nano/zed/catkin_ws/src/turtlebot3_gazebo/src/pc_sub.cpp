@@ -48,7 +48,10 @@ class Master_node
     void teleop_Callback(const std_msgs::Int32::ConstPtr& msg)
     {
 	zed_switcher = msg->data;
-	ROS_INFO("switch to %d",zed_switcher);	
+	if (zed_switcher==SIM)
+	  ROS_INFO("switch to Zed_Sim");	
+	else if(zed_switcher==REAL)
+	  ROS_INFO("switch to Zed_Real");
 	return;
     }
 

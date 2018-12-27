@@ -59,8 +59,8 @@ add_dependencies(turtlebot3_drive ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_E
 target_link_libraries(turtlebot3_drive ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 add_executable(pc_sub src/pc_sub.cpp)
-target_link_libraries(pc_sub ${catkin_LIBRARIES})
-add_dependencies(pc_sub ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
+target_link_libraries(pc_sub ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(pc_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_executable(turtlebot3_depth_follow src/turtlebot3_depth_follow.cpp)
 add_dependencies(turtlebot3_depth_follow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -69,6 +69,11 @@ target_link_libraries(turtlebot3_depth_follow ${catkin_LIBRARIES} ${GAZEBO_LIBRA
 add_executable(teleop src/teleop.cpp)
 target_link_libraries(teleop ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 add_dependencies(teleop ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
+
+
+add_executable(sim_wrapper src/sim_wrapper.cpp)
+target_link_libraries(sim_wrapper ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(sim_wrapper ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
 
 ################################################################################
 # Install
