@@ -60,7 +60,7 @@ $ ssh -i "test.pem" ubuntu@140.110.x.x
 
 1. Normally, for source code and small dataset, I will use `"高速平行儲存服務"`, which can be found in `"儲存服務"` -> `"高速平行儲存服務"` Tab. You can use FTP to upload/download your data, and the data can be acccessed by every container in `/luster`
 
-2. If you need to upload large dataset, you can upload dat to `Amazon S3` Bucket, which can be found in `"儲存服務"` -> `"S3 共用儲存服務"` Tab. You will need a tool to upload your data to `Amazon S3` Bucket, for example, in MACOS, I use `forklift` to connect to `Amazon S3 Bucket`
+2. If you need to upload large dataset, you can upload data to `Amazon S3` Bucket, which can be found in `"儲存服務"` -> `"S3 共用儲存服務"` Tab. You will need a tool to upload your data to `Amazon S3` Bucket, for example, in macOS, I use [Forklift](https://binarynights.com/) to connect to `Amazon S3 Bucket`
 ![Amazon S3 Service](screenshot/service-s3.png)
 
 3. NOTE: I strongly recommend to save the source codes in `/luster`. If your container encounter any error, your data won't be lost.
