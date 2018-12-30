@@ -74,5 +74,5 @@ $ ssh -i "test.pem" ubuntu@140.110.x.x
 2. If you don't use the container anymore, please shut it down from the TWGC Portal, otherwise the container will still be charged even if any GPU is using.
 ![Shut Down](screenshot/shut-down-container.png)
 
-3. If your project need some custom package not within default conatiner, you can write the bash script in the begining of jupyter notebook to install your package automatically. Just put `!` in the begining of shell command. For example, you can write `` !sudo pip3 install keras==2.2.4`` in the begining block of notebook, so `Keras` package will be installed into container everytime you execute it.
+3. If your project need some custom package not within default conatiner, you can write the bash script in the beginning of jupyter notebook to install your package automatically. Just put `!` in the beginning of shell command. For example, you can write `` !sudo pip3 install keras==2.2.4`` in the beginning block of notebook, so `Keras` package will be installed into container everytime you execute it.
 ![Jupyter Tips](screenshot/jupyter-tips.png) 
