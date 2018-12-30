@@ -31,10 +31,10 @@
 
 ### Create New Container
 
-1. In the `"機器學習服務"` -> `"新增服務"` Tab, type-in the name of container, how many GPU you want to use, which framework you want to use to train and the access key, whitelist you setup before. About the framework spec, you can refer to [Nvidia Deep Learning Framwork Documentation](https://docs.nvidia.com/deeplearning/dgx/support-matrix/index.html)
+1. In the `"機器學習服務"` -> `"新增服務"` Tab, type-in the name of container, how many GPU you want to use, which framework you want to use to train and the access key, whitelist you setup before. About the framework spec, you can refer to [Nvidia Deep Learning Framwork Documentation](https://docs.nvidia.com/deeplearning/dgx/support-matrix/index.html)
 ![Create Container](screenshot/create-container.png)
 
-2. Once you create container, you will be directed to `"機器學習服務"` -> `"服務列表"`, here you can see all the container you created. Noticed that create a new container need some times, you can hit the refrest button on the right up cornor to check if the container is ready.
+2. Once you create container, you will be directed to `"機器學習服務"` -> `"服務列表"`, here you can see all the container you created. Noticed that create a new container need some times, you can hit the refrest button on the right up cornor to check if the container is ready.
 ![Start Container](screenshot/start-container.png)
 
 3. When the container is ready, you can access the container with Jupyter Notebook by clicking `"連線"`.
@@ -58,9 +58,9 @@ $ ssh -i "test.pem" ubuntu@140.110.x.x
 
 ### Storage
 
-1. Normally, for source code and small dataset, I will use `高速平行儲存服務`, which can be found in `儲存服務` -> `高速平行儲存服務` Tab. You can use FTP to upload/download your data, and the data can be acccessed by every container in `/luster`
+1. Normally, for source code and small dataset, I will use `"高速平行儲存服務"`, which can be found in `"儲存服務"` -> `"高速平行儲存服務"` Tab. You can use FTP to upload/download your data, and the data can be acccessed by every container in `/luster`
 
-2. If you need to upload large dataset, you can upload dat to `Amazon S3` Bucket, which can be found in `儲存服務` -> `S3 共用儲存服務` Tab. You will need a tool to upload your data to `Amazon S3` Bucket, for example, in MACOS, I use `forklift` to connect to `Amazon S3 Bucket`
+2. If you need to upload large dataset, you can upload dat to `Amazon S3` Bucket, which can be found in `"儲存服務"` -> `"S3 共用儲存服務"` Tab. You will need a tool to upload your data to `Amazon S3` Bucket, for example, in MACOS, I use `forklift` to connect to `Amazon S3 Bucket`
 ![Amazon S3 Service](screenshot/service-s3.png)
 
 3. NOTE: I strongly recommend to save the source codes in `/luster`. If your container encounter any error, your data won't be lost.
