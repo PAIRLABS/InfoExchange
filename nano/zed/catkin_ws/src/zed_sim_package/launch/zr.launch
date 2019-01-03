@@ -1,0 +1,36 @@
+<launch>
+  <arg name="model" default="$(find zed_sim_package)/urdf/zed_sim.urdf.xacro"/>
+
+ <!-- remap any topic before include if you want -->
+  <remap from="/Zed_sim/depth/point_cloud/cloud_registered" to="/Zed_sim/point_cloud/cloud_registered"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/zed_world.world"/-->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find zed_sim_package)/urdf/zed_sim.urdf.xacro'" />
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model Zed_sim -param robot_description"/>
+
+  <group ns="Zed_sim">
+  <node pkg="topic_tools" type="relay" name="public_right_rect" args="/Zed_sim/right/image_raw_color /Zed_sim/right/image_rect_color"/>
+  <node pkg="topic_tools" type="relay" name="public_left_rect" args="/Zed_sim/left/image_raw_color /Zed_sim/left/image_rect_color"/>
+
+  <node pkg="topic_tools" type="relay" name="public_rgb_info" args="/Zed_sim/left/camera_info /Zed_sim/rgb/camera_info"/>
+  <node pkg="topic_tools" type="relay" name="public_rgb_raw"  args="/Zed_sim/left/image_raw_color /Zed_sim/rgb/image_rew_color"/>
+  <node pkg="topic_tools" type="relay" name="public_rgb_rect" args="/Zed_sim/left/image_raw_color /Zed_sim/rgb/image_rect_color"/>
+
+</group>
+
+
+
+
+</launch> 
