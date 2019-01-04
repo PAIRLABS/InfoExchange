@@ -491,7 +491,7 @@ turtlebot3_gazebo/preinstall:
 turtlebot3_gazebo/CMakeFiles/teleop.dir/all:
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/teleop.dir/build.make turtlebot3_gazebo/CMakeFiles/teleop.dir/depend
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/teleop.dir/build.make turtlebot3_gazebo/CMakeFiles/teleop.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=19,20 "Built target teleop"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=23,24 "Built target teleop"
 .PHONY : turtlebot3_gazebo/CMakeFiles/teleop.dir/all
 
 # Include target in all.
@@ -951,7 +951,7 @@ turtlebot3_gazebo/CMakeFiles/pc_sub.dir/all: turtlebot3_gazebo/CMakeFiles/action
 turtlebot3_gazebo/CMakeFiles/pc_sub.dir/all: turtlebot3_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/pc_sub.dir/build.make turtlebot3_gazebo/CMakeFiles/pc_sub.dir/depend
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/pc_sub.dir/build.make turtlebot3_gazebo/CMakeFiles/pc_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=15,16 "Built target pc_sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=19,20 "Built target pc_sub"
 .PHONY : turtlebot3_gazebo/CMakeFiles/pc_sub.dir/all
 
 # Include target in all.
@@ -1347,7 +1347,7 @@ turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/all: turtlebot3_gazebo/
 turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/all: turtlebot3_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/depend
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build.make turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=21,22 "Built target turtlebot3_depth_follow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=27,28 "Built target turtlebot3_depth_follow"
 .PHONY : turtlebot3_gazebo/CMakeFiles/turtlebot3_depth_follow.dir/all
 
 # Include target in all.
@@ -1615,7 +1615,7 @@ turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: turtlebot3_gazebo/CMakeFi
 turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: turtlebot3_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build.make turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/depend
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build.make turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=23,24 "Built target turtlebot3_drive"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=29,30 "Built target turtlebot3_drive"
 .PHONY : turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all
 
 # Include target in all.
@@ -2004,7 +2004,7 @@ clean: turtlebot3_gazebo/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/all:
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/depend
 	$(MAKE) -f turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build.make turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=17,18 "Built target sim_wrapper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=21,22 "Built target sim_wrapper"
 .PHONY : turtlebot3_gazebo/CMakeFiles/sim_wrapper.dir/all
 
 # Include target in all.
@@ -3294,7 +3294,7 @@ zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/preinstall:
 zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/all:
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/build.make zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/depend
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/build.make zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=25,26 "Built target zed_depth_sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=31,32 "Built target zed_depth_sub"
 .PHONY : zed-ros-wrapper/tutorials/zed_depth_sub_tutorial/CMakeFiles/zed_depth_sub.dir/all
 
 # Include target in all.
@@ -3496,12 +3496,16 @@ clean: zed-ros-wrapper/examples/zed_rtabmap_example/CMakeFiles/dummy_zed_rtabmap
 # Directory level rules for directory zed_sim_package
 
 # Convenience name for "all" pass in the directory.
-zed_sim_package/all:
+zed_sim_package/all: zed_sim_package/CMakeFiles/master_node.dir/all
+zed_sim_package/all: zed_sim_package/CMakeFiles/master_switch.dir/all
+zed_sim_package/all: zed_sim_package/CMakeFiles/test_depth.dir/all
 
 .PHONY : zed_sim_package/all
 
 # Convenience name for "clean" pass in the directory.
-zed_sim_package/clean:
+zed_sim_package/clean: zed_sim_package/CMakeFiles/master_node.dir/clean
+zed_sim_package/clean: zed_sim_package/CMakeFiles/master_switch.dir/clean
+zed_sim_package/clean: zed_sim_package/CMakeFiles/test_depth.dir/clean
 
 .PHONY : zed_sim_package/clean
 
@@ -3509,6 +3513,117 @@ zed_sim_package/clean:
 zed_sim_package/preinstall:
 
 .PHONY : zed_sim_package/preinstall
+
+#=============================================================================
+# Target rules for target zed_sim_package/CMakeFiles/master_node.dir
+
+# All Build rule for target.
+zed_sim_package/CMakeFiles/master_node.dir/all:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/depend
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=15,16 "Built target master_node"
+.PHONY : zed_sim_package/CMakeFiles/master_node.dir/all
+
+# Include target in all.
+all: zed_sim_package/CMakeFiles/master_node.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+zed_sim_package/CMakeFiles/master_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/master_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 0
+.PHONY : zed_sim_package/CMakeFiles/master_node.dir/rule
+
+# Convenience name for target.
+master_node: zed_sim_package/CMakeFiles/master_node.dir/rule
+
+.PHONY : master_node
+
+# clean rule for target.
+zed_sim_package/CMakeFiles/master_node.dir/clean:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/clean
+.PHONY : zed_sim_package/CMakeFiles/master_node.dir/clean
+
+# clean rule for target.
+clean: zed_sim_package/CMakeFiles/master_node.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zed_sim_package/CMakeFiles/master_switch.dir
+
+# All Build rule for target.
+zed_sim_package/CMakeFiles/master_switch.dir/all:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/depend
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=17,18 "Built target master_switch"
+.PHONY : zed_sim_package/CMakeFiles/master_switch.dir/all
+
+# Include target in all.
+all: zed_sim_package/CMakeFiles/master_switch.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+zed_sim_package/CMakeFiles/master_switch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/master_switch.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 0
+.PHONY : zed_sim_package/CMakeFiles/master_switch.dir/rule
+
+# Convenience name for target.
+master_switch: zed_sim_package/CMakeFiles/master_switch.dir/rule
+
+.PHONY : master_switch
+
+# clean rule for target.
+zed_sim_package/CMakeFiles/master_switch.dir/clean:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/clean
+.PHONY : zed_sim_package/CMakeFiles/master_switch.dir/clean
+
+# clean rule for target.
+clean: zed_sim_package/CMakeFiles/master_switch.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zed_sim_package/CMakeFiles/test_depth.dir
+
+# All Build rule for target.
+zed_sim_package/CMakeFiles/test_depth.dir/all:
+	$(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/depend
+	$(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=25,26 "Built target test_depth"
+.PHONY : zed_sim_package/CMakeFiles/test_depth.dir/all
+
+# Include target in all.
+all: zed_sim_package/CMakeFiles/test_depth.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+zed_sim_package/CMakeFiles/test_depth.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/test_depth.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles 0
+.PHONY : zed_sim_package/CMakeFiles/test_depth.dir/rule
+
+# Convenience name for target.
+test_depth: zed_sim_package/CMakeFiles/test_depth.dir/rule
+
+.PHONY : test_depth
+
+# clean rule for target.
+zed_sim_package/CMakeFiles/test_depth.dir/clean:
+	$(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/clean
+.PHONY : zed_sim_package/CMakeFiles/test_depth.dir/clean
+
+# clean rule for target.
+clean: zed_sim_package/CMakeFiles/test_depth.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial
@@ -3535,7 +3650,7 @@ zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/preinstall:
 zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/all:
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/build.make zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/depend
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/build.make zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=27,28 "Built target zed_tracking_sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=33,34 "Built target zed_tracking_sub"
 .PHONY : zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/zed_tracking_sub.dir/all
 
 # Include target in all.
@@ -3590,7 +3705,7 @@ zed-ros-wrapper/tutorials/zed_video_sub_tutorial/preinstall:
 zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/all:
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/build.make zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/depend
 	$(MAKE) -f zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/build.make zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=29,30 "Built target zed_video_sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=35,36 "Built target zed_video_sub"
 .PHONY : zed-ros-wrapper/tutorials/zed_video_sub_tutorial/CMakeFiles/zed_video_sub.dir/all
 
 # Include target in all.
@@ -3751,7 +3866,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/all:
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_set_initial_pose.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=45,46,47,48 "Built target zed_wrapper_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=51,52,53,54 "Built target zed_wrapper_generate_messages_py"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3817,7 +3932,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_set_initial_pose.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=42,43,44 "Built target zed_wrapper_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=48,49,50 "Built target zed_wrapper_generate_messages_nodejs"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4139,7 +4254,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/all
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_set_initial_pose.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=35,36,37,38 "Built target zed_wrapper_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=41,42,43,44 "Built target zed_wrapper_generate_messages_eus"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4305,7 +4420,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/all: zed-ros-wrapper
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/ZEDWrapper.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=49,50 "Built target zed_wrapper_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=55,56 "Built target zed_wrapper_node"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_node.dir/all
 
 # Include target in all.
@@ -4406,7 +4521,7 @@ clean: zed-ros-wrapper/zed_wrapper/CMakeFiles/stereo_msgs_generate_messages_node
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/all:
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=31 "Built target zed_wrapper_gencfg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=37 "Built target zed_wrapper_gencfg"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_gencfg.dir/all
 
 # Include target in all.
@@ -4605,7 +4720,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/al
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_set_initial_pose.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=39,40,41 "Built target zed_wrapper_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=45,46,47 "Built target zed_wrapper_generate_messages_lisp"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4639,7 +4754,7 @@ zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/all
 zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/all: zed-ros-wrapper/zed_wrapper/CMakeFiles/_zed_wrapper_generate_messages_check_deps_set_initial_pose.dir/all
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/depend
 	$(MAKE) -f zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/build.make zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=32,33,34 "Built target zed_wrapper_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/CMakeFiles --progress-num=38,39,40 "Built target zed_wrapper_generate_messages_cpp"
 .PHONY : zed-ros-wrapper/zed_wrapper/CMakeFiles/zed_wrapper_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.

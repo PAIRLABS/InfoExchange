@@ -163,10 +163,13 @@
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/list_install_components.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/install.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/rebuild_cache.dir
-/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/install/strip.dir
-/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/install/local.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/test.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/edit_cache.dir
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/master_node.dir
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/master_switch.dir
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/test_depth.dir
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/install/local.dir
+/home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed_sim_package/CMakeFiles/install/strip.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/list_install_components.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/install.dir
 /home/ros/test/InfoExchange/nano/zed/catkin_ws/build/zed-ros-wrapper/tutorials/zed_tracking_sub_tutorial/CMakeFiles/rebuild_cache.dir
