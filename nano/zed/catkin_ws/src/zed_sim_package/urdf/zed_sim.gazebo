@@ -21,13 +21,13 @@
 
         <!--plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so"-->
         <plugin name="depth_plugin" filename="libgazebo_ros_depth_camera.so">
-	      <robotNamespace>Zed_sim</robotNamespace>
-	      <baseline>0.12</baseline>
+	 <robotNamespace>Zed_sim</robotNamespace>
+	 <baseline>0.12</baseline>
           <cameraName>depth</cameraName>
           <alwaysOn>true</alwaysOn>
           <updateRate>0</updateRate>
           <pointCloudTopicName>point_cloud/cloud_registered</pointCloudTopicName>
-	      <depthImageTopicName>depth_registered</depthImageTopicName>
+	  <depthImageTopicName>depth_registered</depthImageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>zed_sim</frameName>
           <distortionK1>0</distortionK1>
@@ -121,8 +121,19 @@
       </plugin>
     </sensor>
 
-
   </gazebo>
+
+<!--gazebo>
+  <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <robotNamespace>Zed_sim</robotNamespace>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>/Zed_sim/odom</odometryTopic>
+      <odometryFrame>/Zed_sim/odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>/Zed_sim/zed_sim</robotBaseFrame>
+  </plugin>
+</gazebo-->
+
 </robot>
 <!-- modify-->
 
