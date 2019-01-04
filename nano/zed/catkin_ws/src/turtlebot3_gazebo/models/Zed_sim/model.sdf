@@ -30,8 +30,8 @@
         <camera>
           <horizontal_fov>1.5707813</horizontal_fov> 
           <image>
-            <width>8</width>
-            <height>6</height>
+            <width>1280</width>
+            <height>720</height>
             <format>R8G8B8</format>
           </image>
           <clip>
