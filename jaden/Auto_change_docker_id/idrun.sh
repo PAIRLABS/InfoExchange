@@ -13,26 +13,9 @@ echo "Your host user ID: ${yourHostUserId}"
 
 #Run to generate the container
 dockerName=${1:-"new-container"}
-docker run --name ${1} ${2}
+docker run -d --name ${1} -it ${2} /bin/bash
 
 #Change this docker's uid and gid
-docker start ${1}
-echo "Container started"
-: '
-docker exec -it ${1} /bin/bash
-
-
-echo "Original container ID is: $(docker exec ${1} id | cut -c5-8)"
-containerOrigUserId="$(id ros | cut -c5-8)" # remember the original id for later use on files
-docker exec -u 0 ${1} usermod -u ${yourHostUserId} ros
-docker exec -u 0 ${1} groupmod -g ${yourHostUserId} ros
-echo "Container ID has been changed to: $(docker exec ${1} id)" # check you have successfully changed
-find / -group ${containerOrigUserId} -exec chgrp -h ros {} \;
-find / -user ${containerOrigUserId} -exec chown -h ros {} \;
-
-
-
-
 echo "Original container ID is: $(docker exec ${1} id | cut -c5-8)"
 containerOrigUserId="$(docker exec ${1} id | cut -c5-8)"
 
@@ -42,8 +25,7 @@ echo "Container ID has been changed to: $(docker exec ${1} id | cut -c5-8)"
 docker start ${1}
 docker exec -u 0 ${1} find / -group ${containerOrigUserId} -exec chgrp -h ros {} \;
 docker exec -u 0 ${1} find / -user ${containerOrigUserId} -exec chown -h ros {} \;
-'
 
-
+#Exit
 echo "script end"
 exit 0
