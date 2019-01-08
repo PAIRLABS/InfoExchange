@@ -108,7 +108,7 @@ totalMemory: 10.92GiB freeMemory: 10.76GiB
 #success ^_^
 ```
 
-##### 3.compare with container without GPU
+### 3.compare with container without GPU
 
 ```
 $ docker run -it --rm -p 7777:8888 --hostname [host_name] --name [container_name]  tensorflow/tensorflow /bin/bash
