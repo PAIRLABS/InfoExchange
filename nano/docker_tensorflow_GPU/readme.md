@@ -1,11 +1,5 @@
 # docker image from tensorflow (confirm the usage of GPU)
 
-> images source : https://hub.docker.com/r/tensorflow/tensorflow/
->
-> --  all of tensorflow's images are based on ubuntu 16.04
-
-
-
 > step 1 : nvidia-docker run container from tensorflow
 >
 > step 2 : make sure the usage of GPU
@@ -14,7 +8,21 @@
 
 
 
+------
+
 ## step 1 : nvidia-docker run container from tensorflow
+
+> images source : https://hub.docker.com/r/tensorflow/tensorflow/
+>
+> -- there are other version of image, change the tag if you need
+>
+> --  all of tensorflow's images are based on ubuntu 16.04
+
+```
+nvidia-docker run --rm -it -p 8888:8888 tensorflow/tensorflow:latest-gpu /bin/bash
+```
+
+or if you are willing to setup the hostname or container name :
 
 ```
 nvidia-docker run --rm -it -p 8888:8888 --hostname [your_host_name]  --name [your_container-name] tensorflow/tensorflow:latest-gpu /bin/bash
@@ -22,9 +30,11 @@ nvidia-docker run --rm -it -p 8888:8888 --hostname [your_host_name]  --name [you
 
 
 
+------
+
 ## step 2 : make sure the usage of GPU
 
-### 1. execute `nvidia-smi`
+#### 1. execute `nvidia-smi`
 
 ```
 ## in container
@@ -52,7 +62,9 @@ Tue Jan  8 01:47:13 2019
 
 ```
 
-### 2. try a simple matrix operation with GPU
+
+
+#### 2. try a simple matrix operation with GPU
 
 ##### vim check.py​
 
@@ -104,11 +116,9 @@ totalMemory: 10.92GiB freeMemory: 10.76GiB
 2019-01-08 01:57:43.121302: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10405 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:02:00.0, compute capability: 6.1)
 [[22. 28.]
  [49. 64.]]
-
-#success ^_^
 ```
 
-### 3.compare with container without GPU
+#### 3.compare with container without GPU
 
 ```
 $ docker run -it --rm -p 7777:8888 --hostname [host_name] --name [container_name]  tensorflow/tensorflow /bin/bash
@@ -116,7 +126,7 @@ $ docker run -it --rm -p 7777:8888 --hostname [host_name] --name [container_name
 #and execute 1 and 2 upper
 ```
 
-
+------
 
 ## step 3 : jupyter notebook
 
@@ -137,9 +147,10 @@ root@nano-e3-gpu:/notebooks# jupyter notebook --allow-root
         http://(nano-e3-gpu or 127.0.0.1):8888/?token=79956ac5cf9e460693832b71b0a46cf3f0974519acaaeda8
 ```
 
+Copy/paste the URL upper into your browser, note that :
 
-
-##### 2. Copy/paste the URL upper into your browser, note that to modify the host port, and note that the string after token is the initial password.
+1. to modify the host port after `http://`
+2. the string after token is the initial password.
 
 
 
