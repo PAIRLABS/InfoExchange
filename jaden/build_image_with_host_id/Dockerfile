@@ -15,18 +15,15 @@ ARG hostGid=""
 RUN echo "Host uid is set to $hostUid"
 RUN echo "Host gid is set to $hostGid"
 
-# Configure user
-ARG containerUid=""
-ARG containerGid=""
-RUN echo "Original container uid is $containerUid"
-RUN echo "Original container gid is $containerGid"
-
 # RUN usermod
 USER root
-RUN	 usermod -u $hostUid $userName && \
-	 groupmod -g $hostGid $userName
-RUN	 find / -ignore_readdir_race -path /proc -prune -o -user $containerUid -exec chown -h $userName {} \; &&\
-	 find / -ignore_readdir_race -path /proc -prune -o -group $containerGid -exec chgrp -h $userName {} \;
+RUN export containerUid=`id $userName -u` && \
+	export containerGid=`id $userName -g` && \
+	echo "Changing original container uid $containerUid to $hostUid, and gid $containerGid to $hostGid" && \
+	usermod -u $hostUid  $userName && \
+	groupmod -g $hostGid $userName && \
+	find / -ignore_readdir_race -path /proc -prune -o -user $containerUid -exec chown -h $userName {} \; && \
+	find / -ignore_readdir_race -path /proc -prune -o -group $containerGid -exec chgrp -h $userName {} \;
 USER $userName
 
 

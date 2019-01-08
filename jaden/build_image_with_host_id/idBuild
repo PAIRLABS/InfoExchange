@@ -1,0 +1,23 @@
+#!/bin/bash
+# Program:
+#       This program builds image and changes id automatically.
+#		Assign the image name that you want and it's parent image name.
+# History:
+# 2019/01/4	Jaden	First release
+#PATH=/home/jaden:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+#export PATH
+[ "$#" -ne 2 ] && echo "Usage: idBuild [New image name] [Orginal image name]" && exit 0
+echo "New Image name is: ${1}, Original image name is: ${2}"
+
+#Check your currect uid
+yourHostUid="$(id -u)"
+echo "Your host user uid: ${yourHostUid}"
+yourHostGid="$(id -g)"
+echo "Your host user gid: ${yourHostGid}"
+
+docker build -t ${1} . --build-arg imageName=${2} --build-arg hostUid=${yourHostUid} --build-arg hostGid=${yourHostGid}
+
+
+#Exit
+echo "script end"
+exit 0
