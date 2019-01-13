@@ -5,7 +5,7 @@ import time
 if __name__ == "__main__":
 
     size_array = [8,16,32,64,128,256,512,1024,2048,4096,8192]
-    loop_time2 = 10000
+    loop_time = 10000
     for size in size_array:
         with tf.device("/cpu:0"):
             c = tf.Variable(tf.convert_to_tensor(np.eye(size),dtype=tf.float64),name='c-cpu')

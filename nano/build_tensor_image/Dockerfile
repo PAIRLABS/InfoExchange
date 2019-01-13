@@ -5,8 +5,9 @@ ARG hostGid
 ARG hostUid
 RUN echo "arguments: $hostGid $hostUid $username"
 RUN groupadd -g $hostGid $username 
-RUN useradd -m -s /bin/bash -u $hostUid -g $hostGid $username
+RUN useradd -m -u $hostUid -g $hostGid $username
 RUN usermod -aG sudo $username
+RUN echo "$username:$username" | chpasswd
 USER $username 
 WORKDIR /home/$username
 
