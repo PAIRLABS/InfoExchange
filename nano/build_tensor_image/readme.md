@@ -6,11 +6,11 @@
 
 
 
-> step 1 : build image and run container
+> step 1 : build image and run container.
 >
-> step 2 : check if jupyter notebook work
+> step 2 : check if jupyter notebook work.
 >
-> step 3 :make sure the usage of GPU
+> step 3 :make sure the usage of GPU.
 
 
 
