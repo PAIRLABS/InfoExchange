@@ -63,7 +63,6 @@
   	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 		args="-urdf -model pairbot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)
     	   -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
-
 	<!--robot_state_publisher-->
 		<param name="tf_prefix" value="pairbot"/>
 		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
