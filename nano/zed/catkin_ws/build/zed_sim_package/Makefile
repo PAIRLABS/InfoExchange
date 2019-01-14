@@ -89,28 +89,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -132,6 +110,28 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -165,6 +165,132 @@ depend:
 	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+zed_sim_package/CMakeFiles/master_node.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/master_node.dir/rule
+.PHONY : zed_sim_package/CMakeFiles/master_node.dir/rule
+
+# Convenience name for target.
+master_node: zed_sim_package/CMakeFiles/master_node.dir/rule
+
+.PHONY : master_node
+
+# fast build rule for target.
+master_node/fast:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/build
+.PHONY : master_node/fast
+
+# Convenience name for target.
+zed_sim_package/CMakeFiles/master_switch.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/master_switch.dir/rule
+.PHONY : zed_sim_package/CMakeFiles/master_switch.dir/rule
+
+# Convenience name for target.
+master_switch: zed_sim_package/CMakeFiles/master_switch.dir/rule
+
+.PHONY : master_switch
+
+# fast build rule for target.
+master_switch/fast:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/build
+.PHONY : master_switch/fast
+
+# Convenience name for target.
+zed_sim_package/CMakeFiles/test_depth.dir/rule:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 zed_sim_package/CMakeFiles/test_depth.dir/rule
+.PHONY : zed_sim_package/CMakeFiles/test_depth.dir/rule
+
+# Convenience name for target.
+test_depth: zed_sim_package/CMakeFiles/test_depth.dir/rule
+
+.PHONY : test_depth
+
+# fast build rule for target.
+test_depth/fast:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/build
+.PHONY : test_depth/fast
+
+src/master_node.o: src/master_node.cpp.o
+
+.PHONY : src/master_node.o
+
+# target to build an object file
+src/master_node.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/src/master_node.cpp.o
+.PHONY : src/master_node.cpp.o
+
+src/master_node.i: src/master_node.cpp.i
+
+.PHONY : src/master_node.i
+
+# target to preprocess a source file
+src/master_node.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/src/master_node.cpp.i
+.PHONY : src/master_node.cpp.i
+
+src/master_node.s: src/master_node.cpp.s
+
+.PHONY : src/master_node.s
+
+# target to generate assembly for a file
+src/master_node.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/src/master_node.cpp.s
+.PHONY : src/master_node.cpp.s
+
+src/master_switch.o: src/master_switch.cpp.o
+
+.PHONY : src/master_switch.o
+
+# target to build an object file
+src/master_switch.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/src/master_switch.cpp.o
+.PHONY : src/master_switch.cpp.o
+
+src/master_switch.i: src/master_switch.cpp.i
+
+.PHONY : src/master_switch.i
+
+# target to preprocess a source file
+src/master_switch.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/src/master_switch.cpp.i
+.PHONY : src/master_switch.cpp.i
+
+src/master_switch.s: src/master_switch.cpp.s
+
+.PHONY : src/master_switch.s
+
+# target to generate assembly for a file
+src/master_switch.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/src/master_switch.cpp.s
+.PHONY : src/master_switch.cpp.s
+
+src/test_depth.o: src/test_depth.cpp.o
+
+.PHONY : src/test_depth.o
+
+# target to build an object file
+src/test_depth.cpp.o:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/src/test_depth.cpp.o
+.PHONY : src/test_depth.cpp.o
+
+src/test_depth.i: src/test_depth.cpp.i
+
+.PHONY : src/test_depth.i
+
+# target to preprocess a source file
+src/test_depth.cpp.i:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/src/test_depth.cpp.i
+.PHONY : src/test_depth.cpp.i
+
+src/test_depth.s: src/test_depth.cpp.s
+
+.PHONY : src/test_depth.s
+
+# target to generate assembly for a file
+src/test_depth.cpp.s:
+	cd /home/ros/test/InfoExchange/nano/zed/catkin_ws/build && $(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/src/test_depth.cpp.s
+.PHONY : src/test_depth.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,10 +300,22 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... test"
 	@echo "... edit_cache"
+	@echo "... master_node"
+	@echo "... master_switch"
+	@echo "... test_depth"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... src/master_node.o"
+	@echo "... src/master_node.i"
+	@echo "... src/master_node.s"
+	@echo "... src/master_switch.o"
+	@echo "... src/master_switch.i"
+	@echo "... src/master_switch.s"
+	@echo "... src/test_depth.o"
+	@echo "... src/test_depth.i"
+	@echo "... src/test_depth.s"
 .PHONY : help
 
 

@@ -3,6 +3,6 @@ prefix=/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel
 Name: zed_sim_package
 Description: Description of zed_sim_package
 Version: 0.0.0
-Cflags: 
-Libs: -L/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib 
-Requires: 
+Cflags: -I/home/ros/test/InfoExchange/nano/zed/catkin_ws/src/zed_sim_package/include
+Libs: -L/home/ros/test/InfoExchange/nano/zed/catkin_ws/devel/lib -lzed_sim_package
+Requires: cv_bridge gazebo_ros genmsg geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf
