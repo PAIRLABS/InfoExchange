@@ -8,10 +8,10 @@
     <param name="scale_linear" value="2" type="double"/>
     <param name="scale_angular" value="2" type="double"/>
 
-    <node pkg="learning_tf" type="BodyNode"
+    <node pkg="tf_example" type="BodyNode"
           args="/turtleBody" name="baseBodyNode" />
 
-    <node pkg="learning_tf" type="EyeNode"
+    <node pkg="tf_example" type="EyeNode"
           args="/turtleEye" name="baseEyeNode" />
 
   </launch>
