@@ -1,0 +1,49 @@
+#!/bin/bash
+# Program:
+# 	Spin Turtle3 and Turtle4 from 0 to 360 by input angle
+# History:
+# 2019/01/18	Jaden Lin	First release
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+source ~/catkin_ws/devel/setup.bash
+read -p "Please enter the angle of each rotation: " angle
+rosservice call /kill turtle1
+rosservice call /spawn 5 5 0 "turtle3"
+rosservice call /spawn 1 2 0 "turtle4"
+cd . > ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+sleep 2
+ang=0
+echo "turtle3 spin, turtle4 don't spin"
+for (( deg=0; deg<360; deg=deg+${angle} ))
+do
+	ang=$(echo ${deg} | awk '{printf("%.4f", ($1/180)*3.14159)}')
+    rosservice call /turtle3/teleport_absolute 5 5 ${ang}
+    echo "------------------------------------"
+    rostopic echo turtleT3 -n 1
+    rostopic echo turtleT4 -n 1
+    rostopic echo turtletf -n 1
+    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtletf -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    echo "------------------------------------"
+    #sleep 0.1
+done
+rosservice call /turtle3/teleport_absolute 5 5 0
+
+echo "turtle3 don't spin, turtle4 spin"
+sleep 1
+for (( deg=0; deg<360; deg=deg+${angle} ))
+do
+	ang=$(echo ${deg} | awk '{printf("%.4f", ($1/180)*3.14159)}')
+    rosservice call /turtle4/teleport_absolute 1 2 ${ang}
+    echo "------------------------------------"
+    rostopic echo turtleT3 -n 1
+    rostopic echo turtleT4 -n 1
+    rostopic echo turtletf -n 1
+    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtletf -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    echo "------------------------------------"
+    #sleep 0.1
+done
+rosservice call /turtle4/teleport_absolute 1 2 0

@@ -1,0 +1,8 @@
+prefix=/home/ros/catkin_ws/install
+
+Name: tf_example
+Description: Description of tf_example
+Version: 0.0.0
+Cflags: -I/home/ros/catkin_ws/install/include
+Libs: -L/home/ros/catkin_ws/install/lib -ltf_example
+Requires: roscpp rospy tf turtlesim

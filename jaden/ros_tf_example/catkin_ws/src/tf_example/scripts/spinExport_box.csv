@@ -1,0 +1,40 @@
+data: "Body_x=1,  Body_y=2,  Body_theta=0"
+---
+data: "Eye_x=5,  Eye_y=5,  Eye_theta=0"
+---
+data: "Box_x=6,  Box_y=6"
+---
+data: "EB_x=1,  EB_y=1, EB_theta=45, EB_dist=1.41421"
+---
+data: "BB_x=5,  BB_y=4, BB_theta=38.6598, BB_dist=6.40312"
+---
+data: "Body_x=1,  Body_y=2,  Body_theta=0"
+---
+data: "Eye_x=5,  Eye_y=5,  Eye_theta=240.001"
+---
+data: "Box_x=6,  Box_y=6"
+---
+data: "EB_x=-1.36602,  EB_y=0.366039, EB_theta=164.999, EB_dist=1.41421"
+---
+data: "BB_x=5,  BB_y=4, BB_theta=38.6598, BB_dist=6.40312"
+---
+data: "Body_x=1,  Body_y=2,  Body_theta=0"
+---
+data: "Eye_x=5,  Eye_y=5,  Eye_theta=0"
+---
+data: "Box_x=6,  Box_y=6"
+---
+data: "EB_x=1,  EB_y=1, EB_theta=45, EB_dist=1.41421"
+---
+data: "BB_x=5,  BB_y=4, BB_theta=38.6598, BB_dist=6.40312"
+---
+data: "Body_x=1,  Body_y=2,  Body_theta=240.001"
+---
+data: "Eye_x=5,  Eye_y=5,  Eye_theta=0"
+---
+data: "Box_x=6,  Box_y=6"
+---
+data: "EB_x=1,  EB_y=1, EB_theta=45, EB_dist=1.41421"
+---
+data: "BB_x=-5.96408,  BB_y=2.33018, BB_theta=158.659, BB_dist=6.40312"
+---

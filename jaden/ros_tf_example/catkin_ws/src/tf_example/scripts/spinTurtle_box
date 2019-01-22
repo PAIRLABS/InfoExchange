@@ -1,0 +1,58 @@
+#!/bin/bash
+# Program:
+# 	Spin TurtleEye and TurtleBody from 0 to 360 by input angle
+# History:
+# 2019/01/19	Jaden Lin	First release
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+source ~/catkin_ws/devel/setup.bash
+read -p "Please enter the angle of each rotation: " angle
+rosservice call /kill turtle1
+rosservice call /spawn 5 5 0 "turtleEye"
+rosservice call /spawn 1 2 0 "turtleBody"
+rosservice call /spawn 6 6 0 "box"
+cd . > ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+sleep 2
+ang=0
+echo "turtleEye spin, turtleBody don't spin"
+for (( deg=0; deg<360; deg=deg+${angle} ))
+do
+	ang=$(echo ${deg} | awk '{printf("%.4f", ($1/180)*3.14159)}')
+    rosservice call /turtleEye/teleport_absolute 5 5 ${ang}
+    echo "------------------------------------"
+    rostopic echo pubBody -n 1
+    rostopic echo pubEye -n 1
+    rostopic echo pubBox -n 1
+    rostopic echo pubEB -n 1
+    rostopic echo pubBB -n 1
+    rostopic echo pubBody -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEye -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBox -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    echo "------------------------------------"
+    #sleep 0.1
+done
+rosservice call /turtleEye/teleport_absolute 5 5 0
+
+echo "turtleEye don't spin, turtleBody spin"
+sleep 1
+for (( deg=0; deg<360; deg=deg+${angle} ))
+do
+	ang=$(echo ${deg} | awk '{printf("%.4f", ($1/180)*3.14159)}')
+    rosservice call /turtleBody/teleport_absolute 1 2 ${ang}
+    echo "------------------------------------"
+    rostopic echo pubBody -n 1
+    rostopic echo pubEye -n 1
+    rostopic echo pubBox -n 1
+    rostopic echo pubEB -n 1
+    rostopic echo pubBB -n 1
+    rostopic echo pubBody -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEye -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBox -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    echo "------------------------------------"
+    #sleep 0.1
+done
+rosservice call /turtleBody/teleport_absolute 1 2 0
