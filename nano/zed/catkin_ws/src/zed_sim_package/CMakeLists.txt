@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(zed_sim_package)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -109,10 +109,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES zed_sim_package
-#  CATKIN_DEPENDS cv_bridge gazebo_ros genmsg geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES zed_sim_package
+  CATKIN_DEPENDS cv_bridge gazebo_ros genmsg geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf
+  DEPENDS system_lib #gazebo?
 )
 
 ###########
@@ -126,10 +126,28 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
+)
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/zed_sim_package.cpp
 # )
+
+add_executable(master_node src/master_node.cpp)
+target_link_libraries(master_node ${catkin_LIBRARIES})
+add_dependencies(master_node ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
+
+add_executable(master_switch src/master_switch.cpp)
+target_link_libraries(master_switch ${catkin_LIBRARIES})
+add_dependencies(master_switch ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
+
+add_executable(test_depth src/test_depth.cpp)
+target_link_libraries(test_depth ${catkin_LIBRARIES})
+add_dependencies(test_depth ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

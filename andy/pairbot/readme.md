@@ -20,3 +20,6 @@ use the pairbot and turtlebot with the depth camera "zed" to simulate in the gaz
 
 I found that the depth camera in gazebo 8 wouldn't pass `nan` for the distance is too far, but the gazebo7 did. so I change the urdf setting to let the camera distant range to be 0.05m ~ 20m. It can see far in the gazebo 7, but I think it may have some problem with it.
 5. The gazebo simulation still too slow, I haven't found the solution yet.
+
+6. maybe you should manual to import the map model when you launch the pairbot_chasing.
+The model is put in the `pairbot/pb_gazebo/models`

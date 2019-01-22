@@ -8,27 +8,27 @@ pairbot:
   joint_left_front_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_left_front_flipper
-    pid: {p: 40.0, i: 0.01, d: 20.0}
+    pid: {p: 400.0, i: 0.01, d: 40.0}
 
   joint_right_front_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_right_front_flipper
-    pid: {p: 40.0, i: 0.01, d: 20.0}
+    pid: {p: 400.0, i: 0.01, d: 40.0}
 
   joint_left_rear_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_left_rear_flipper
-    pid: {p: 40.0, i: 0.01, d: 20.0}
+    pid: {p: 400.0, i: 0.01, d: 40.0}
 
   joint_right_rear_flipper_controller:
     type: effort_controllers/JointPositionController
     joint: joint_right_rear_flipper
-    pid: {p: 40.0, i: 0.01, d: 20.0}
+    pid: {p: 400.0, i: 0.01, d: 40.0}
 
   joint_cronstein:
       type: effort_controllers/JointPositionController
       joint: joint_cronstein
-      pid: {p: 100.0, i: 0.01, d: 10.0}
+      pid: {p: 200.0, i: 0.01, d: 10.0}
 
   joint_first_part:
     type: effort_controllers/JointPositionController
@@ -43,197 +43,265 @@ pairbot:
   joint_head:
         type: effort_controllers/JointPositionController
         joint: joint_head
-        pid: {p: 100.0, i: 0.01, d: 10.0}
+        pid: {p: 200.0, i: 0.01, d: 10.0}
   #
   #
-  right:
+  joint_right_base_wheel_1_controller:
      type: velocity_controllers/JointVelocityController
-     joint: joint_right_front_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
-  left:
+     joint: joint_right_base_wheel_1
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_2_controller:
      type: velocity_controllers/JointVelocityController
-     joint: joint_left_front_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
-  joint_right_rear_base_link_wheel_controller:
+     joint: joint_right_base_wheel_2
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_3_controller:
      type: velocity_controllers/JointVelocityController
-     joint: joint_right_rear_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
-  joint_left_rear_base_link_wheel_controller:
+     joint: joint_right_base_wheel_3
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_4_controller:
      type: velocity_controllers/JointVelocityController
-     joint: joint_left_rear_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
+     joint: joint_right_base_wheel_4
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_5_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_5
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_6_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_6
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_7_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_7
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_8_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_8
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_9_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_9
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_10_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_10
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_11_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_11
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_right_base_wheel_12_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_right_base_wheel_12
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  
+  joint_left_base_wheel_1_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_1
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_2_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_2
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_3_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_3
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_4_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_4
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_5_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_5
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_6_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_6
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_7_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_7
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_8_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_8
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_9_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_9
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_10_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_10
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_11_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_11
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  joint_left_base_wheel_12_controller:
+     type: velocity_controllers/JointVelocityController
+     joint: joint_left_base_wheel_12
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  
 
   # right front flipper wheel controllers
   joint_right_front_flipper_wheel_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_1_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_1
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_2_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_2
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_3_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_3
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_4_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_4
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_5_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_5
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_front_flipper_middle_wheel_6_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_front_flipper_middle_wheel_6
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   # left front flipper wheel controllers
   joint_left_front_flipper_wheel_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_1_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_1
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_2_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_2
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_3_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_3
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_4_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_4
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_5_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_5
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_front_flipper_middle_wheel_6_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_front_flipper_middle_wheel_6
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   # right rear flipper wheel controllers
   joint_right_rear_flipper_wheel_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_1_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_1
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_2_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_2
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_3_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_3
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_4_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_4
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_5_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_5
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_right_rear_flipper_middle_wheel_6_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_right_rear_flipper_middle_wheel_6
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   # left rear flipper wheel controllers
   joint_left_rear_flipper_wheel_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_1_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_1
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_2_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_2
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_3_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_3
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_4_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_4
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_5_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_5
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   joint_left_rear_flipper_middle_wheel_6_controller:
      type: velocity_controllers/JointVelocityController
      joint: joint_left_rear_flipper_middle_wheel_6
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
-  joint_right_middle_base_link_wheel_controller:
-     type: velocity_controllers/JointVelocityController
-     joint: joint_right_middle_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
-
-  joint_left_middle_base_link_wheel_controller:
-     type: velocity_controllers/JointVelocityController
-     joint: joint_left_middle_base_link_wheel
-     pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+     pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
   # joint_left_front_wheel_controller:
   #   type: effort_controllers/JointEffortController
   #   joint: joint_left_front_wheel
-  #   pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   pid: {p: 200.0, i: 0.01, d: 10.0}
   #
   # joint_left_rear_wheel_controller:
   #   type: effort_controllers/JointVelocityController
   #   joint: joint_left_rear_wheel
-  #   pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  #   pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
   # joint_right_rear_wheel_controller:
   #   type: effort_controllers/JointVelocityController
   #   joint: joint_right_rear_wheel
-  #   pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 10.0}
+  #   pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
   #
   # joint_left_front_flipper_wheel_controller:
   #   type: effort_controllers/JointPositionController

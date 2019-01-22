@@ -25,6 +25,7 @@
         <selfCollide>true</selfCollide>
     </gazebo>
 
+
     <gazebo reference="left_front_flipper">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -53,25 +54,123 @@
         <material>Gazebo/Grey</material>
     </gazebo>
 
-    <gazebo reference="right_front_base_link_wheel">
+    <gazebo reference="right_base_wheel_1">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_2">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_3">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_4">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_5">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_6">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_7">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_8">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_9">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_10">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_11">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="right_base_wheel_12">
         <mu1>100</mu1>
         <mu2>100</mu2>
         <material>Gazebo/Grey</material>
     </gazebo>
 
-    <gazebo reference="left_front_base_link_wheel">
+    <gazebo reference="left_base_wheel_1">
         <mu1>100</mu1>
         <mu2>100</mu2>
         <material>Gazebo/Grey</material>
     </gazebo>
-
-    <gazebo reference="right_rear_base_link_wheel">
+    <gazebo reference="left_base_wheel_2">
         <mu1>100</mu1>
         <mu2>100</mu2>
         <material>Gazebo/Grey</material>
     </gazebo>
-
-    <gazebo reference="left_rear_base_link_wheel">
+    <gazebo reference="left_base_wheel_3">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_4">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_5">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_6">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_7">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_8">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_9">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_10">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_11">
+        <mu1>100</mu1>
+        <mu2>100</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_base_wheel_12">
         <mu1>100</mu1>
         <mu2>100</mu2>
         <material>Gazebo/Grey</material>
@@ -102,17 +201,6 @@
         <material>Gazebo/Grey</material>
     </gazebo>
 
-    <gazebo reference="right_middle_base_link_wheel">
-        <mu1>100</mu1>
-        <mu2>100</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="left_middle_base_link_wheel">
-        <mu1>100</mu1>
-        <mu2>100</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
 
     <!-- <gazebo reference="cronstein">
         <material>Gazebo/Grey</material>
@@ -178,8 +266,5 @@
         </plugin>
       </sensor>
     </gazebo> -->
-
-
-
 
 </robot>

@@ -1,0 +1,5 @@
+digraph G {
+node [shape=box];
+"zed_sim" [label="zed_sim"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+}

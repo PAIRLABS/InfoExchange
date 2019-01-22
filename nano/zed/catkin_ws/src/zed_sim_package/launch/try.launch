@@ -1,0 +1,12 @@
+<launch>
+  <arg name="model" default="$(find zed_sim_package)/urdf/zed_sim.urdf.xacro"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find zed_sim_package)/urdf/zed_sim.urdf.xacro'" />
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model Zed_sim -param robot_description"/>
+
+</launch> 

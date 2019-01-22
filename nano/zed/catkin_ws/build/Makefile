@@ -1362,6 +1362,45 @@ dummy_zed_rtabmap_example/fast:
 .PHONY : dummy_zed_rtabmap_example/fast
 
 #=============================================================================
+# Target rules for targets named master_node
+
+# Build rule for target.
+master_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 master_node
+.PHONY : master_node
+
+# fast build rule for target.
+master_node/fast:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_node.dir/build.make zed_sim_package/CMakeFiles/master_node.dir/build
+.PHONY : master_node/fast
+
+#=============================================================================
+# Target rules for targets named master_switch
+
+# Build rule for target.
+master_switch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 master_switch
+.PHONY : master_switch
+
+# fast build rule for target.
+master_switch/fast:
+	$(MAKE) -f zed_sim_package/CMakeFiles/master_switch.dir/build.make zed_sim_package/CMakeFiles/master_switch.dir/build
+.PHONY : master_switch/fast
+
+#=============================================================================
+# Target rules for targets named test_depth
+
+# Build rule for target.
+test_depth: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_depth
+.PHONY : test_depth
+
+# fast build rule for target.
+test_depth/fast:
+	$(MAKE) -f zed_sim_package/CMakeFiles/test_depth.dir/build.make zed_sim_package/CMakeFiles/test_depth.dir/build
+.PHONY : test_depth/fast
+
+#=============================================================================
 # Target rules for targets named zed_tracking_sub
 
 # Build rule for target.
@@ -1986,6 +2025,9 @@ help:
 	@echo "... dummy_zed_display_rviz"
 	@echo "... dummy_zed_nodelet_example"
 	@echo "... dummy_zed_rtabmap_example"
+	@echo "... master_node"
+	@echo "... master_switch"
+	@echo "... test_depth"
 	@echo "... zed_tracking_sub"
 	@echo "... zed_video_sub"
 	@echo "... dummy_zed_wrapper"

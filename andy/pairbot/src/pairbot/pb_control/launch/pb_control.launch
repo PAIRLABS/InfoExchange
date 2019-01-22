@@ -1,18 +1,39 @@
 <launch>
+
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find pb_control)/config/pb_control.yaml" command="load"/>
 
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
           output="screen" ns="/pairbot" args="joint_state_controller
-	                                    joint_left_front_flipper_controller
-	                                    joint_right_front_flipper_controller
+	                                    joint_right_base_wheel_1_controller
+                                      joint_right_base_wheel_2_controller
+                                      joint_right_base_wheel_3_controller
+                                      joint_right_base_wheel_4_controller
+                                      joint_right_base_wheel_5_controller
+                                      joint_right_base_wheel_6_controller
+                                      joint_right_base_wheel_7_controller
+                                      joint_right_base_wheel_8_controller
+                                      joint_right_base_wheel_9_controller
+                                      joint_right_base_wheel_10_controller
+                                      joint_right_base_wheel_11_controller
+                                      joint_right_base_wheel_12_controller
+                                      joint_left_base_wheel_1_controller
+                                      joint_left_base_wheel_2_controller
+                                      joint_left_base_wheel_3_controller
+                                      joint_left_base_wheel_4_controller
+                                      joint_left_base_wheel_5_controller
+                                      joint_left_base_wheel_6_controller
+                                      joint_left_base_wheel_7_controller
+                                      joint_left_base_wheel_8_controller
+                                      joint_left_base_wheel_9_controller
+                                      joint_left_base_wheel_10_controller
+                                      joint_left_base_wheel_11_controller
+                                      joint_left_base_wheel_12_controller
+                                      joint_left_front_flipper_controller
+                                      joint_right_front_flipper_controller
                                       joint_left_rear_flipper_controller
                                       joint_right_rear_flipper_controller
-                                      right
-                                      left
-                                      joint_right_rear_base_link_wheel_controller
-                                      joint_left_rear_base_link_wheel_controller
                                       joint_left_front_flipper_wheel_controller
                                       joint_left_front_flipper_middle_wheel_1_controller
                                       joint_left_front_flipper_middle_wheel_2_controller
@@ -41,8 +62,6 @@
                                       joint_right_rear_flipper_middle_wheel_4_controller
                                       joint_right_rear_flipper_middle_wheel_5_controller
                                       joint_right_rear_flipper_middle_wheel_6_controller
-                                      joint_right_middle_base_link_wheel_controller
-                                      joint_left_middle_base_link_wheel_controller
                                         "/>
 
     <!-- convert joint states to TF transforms for rviz, etc joint_left_front_flipper_controller
@@ -53,9 +72,7 @@
               joint_right_rear_wheel_controller
               joint_left_front_flipper_wheel_controller
               joint_right_front_flipper_wheel_controller-->
-
 <!--
-
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
           respawn="false" output="screen">
         <remap from="/joint_states" to="/pairbot/joint_states"/>
@@ -70,5 +87,5 @@
     <node name="move" pkg="pb_control" type="move_base.py" output="screen"></node>
 
     <!--for flipper wheel sync-->
-    <node name="flipper_wheel_sync" pkg="pb_control" type="flipper_wheel_sync.py" output="screen"></node>
+    <!-- <node name="flipper_wheel_sync" pkg="pb_control" type="flipper_wheel_sync.py" output="screen"></node> -->
 </launch>

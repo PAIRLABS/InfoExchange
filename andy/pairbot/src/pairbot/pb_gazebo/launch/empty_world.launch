@@ -27,16 +27,25 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-
+	<!-- Run the pairbot in the namespace to fit the tf name in `move_base.py`(in the pb_control.launch) -->
+	<group ns = "pairbot">
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description"
-	 command="$(find xacro)/xacro.py '$(find pb_description)/urdf/pairbot.xacro'" />
-   <param name="imu_used" value="true"/>
-
+	  <param name="robot_description"
+			command="$(find xacro)/xacro.py '$(find pb_description)/urdf/pairbot.xacro'" />
+  	<param name="imu_used" value="true"/>
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-	args="-urdf -model pairbot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)
+  	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+		args="-urdf -model pairbot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+	<!--robot_state_publisher-->
+		<param name="tf_prefix" value="pairbot"/>
+		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen">
+			<param name="publish_frequency" type="double" value="50.0" />
+        <!--<remap from="joint_states" to="pairbot/joint_states"/>-->
+    </node>
+	</group>
+
 
   <!-- ros_control eng launch file -->
   <include file="$(find pb_control)/launch/pb_control.launch" />

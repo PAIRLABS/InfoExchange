@@ -195,7 +195,7 @@ if __name__=="__main__":
                     rear_degree += angle_step*rearFlipper[key][1]
                     if abs(rear_degree)<0.0001:
                         rear_degree = 0
-                    pub_front_flipper.publish(rear_degree)
+                    pub_rear_flipper.publish(rear_degree)
             elif key == 'q':
                 print('Putting the robot into rest...')
                 r = rospy.Rate(10)
