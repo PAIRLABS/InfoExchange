@@ -25,13 +25,13 @@
    to build the package.
 
 2. ```shell
-   $ roslaunch learning_tf start_demo.launch
+   $ roslaunch tf_example start_demo.launch
    ```
 
    to launch example 1.
 
    ```shell
-   $ roslaunch learning_tf start_demo_box.launch
+   $ roslaunch tf_example start_demo_box.launch
    ```
 
    to launch example 2.
