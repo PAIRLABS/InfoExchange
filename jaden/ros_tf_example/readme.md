@@ -1,6 +1,6 @@
 ## This is an example for introduce how tf works.
 
-- #### learning_tf is the package for example.
+- #### tf_example is the package for example.
 
 - #### conv.py & conv5field.py can convert files exported from echo.
 
@@ -33,3 +33,4 @@
 
 
 #### Please see ``ROS_tf_introduction.odp`` for more details.
+
