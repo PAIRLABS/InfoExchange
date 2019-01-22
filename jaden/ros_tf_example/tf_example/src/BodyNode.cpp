@@ -60,23 +60,15 @@ int main(int argc, char** argv){
     try{
     listener.waitForTransform("/turtleBody", "/turtleEye", ros::Time(0), ros::Duration(5.0));
     listener.lookupTransform("/turtleBody", "/turtleEye", ros::Time(0), transform);
-    }
-    catch (tf::TransformException &ex) {
-      ROS_ERROR("%s",ex.what());
-      ros::spinOnce();
-      rate.sleep();
-      continue;
-    }
     tf::Transform transform_BE = transform;
-
     tf::Vector3 vecBB;
     vecBB = transform_BE*vecEB;
 
     publishBoxPosfromBody(vecBB);
-
-    
-
-
+    }
+    catch (tf::TransformException &ex) {
+      ROS_ERROR("%s",ex.what());
+    }
     ros::spinOnce();
     rate.sleep();
   }

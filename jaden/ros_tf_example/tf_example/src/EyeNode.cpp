@@ -74,23 +74,15 @@ int main(int argc, char** argv){
     try{
     listener.waitForTransform("/turtleEye", "/world", ros::Time(0), ros::Duration(5.0));
     listener.lookupTransform("/turtleEye", "/world", ros::Time(0), transform);
-    }
-    catch (tf::TransformException &ex) {
-      ROS_ERROR("%s",ex.what());
-      ros::spinOnce();
-      rate.sleep();
-      continue;
-    }
-
-    tf::Transform transform_EB;
-    transform_EB = transform;
-
+    tf::Transform transform_EB = transform;
     tf::Vector3 vecEB;
     vecEB = transform_EB*vecBox;
 
     publishBoxPosfromEye(vecEB);
-    
-
+    }
+    catch (tf::TransformException &ex) {
+      ROS_ERROR("%s",ex.what());
+    }
     ros::spinOnce();
     rate.sleep();
   }
