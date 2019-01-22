@@ -10,7 +10,7 @@ read -p "Please enter the angle of each rotation: " angle
 rosservice call /kill turtle1
 rosservice call /spawn 5 5 0 "turtle3"
 rosservice call /spawn 1 2 0 "turtle4"
-cd . > ~/catkin_ws/spinExport.csv
+cd . > ~/catkin_ws/src/tf_example/scripts/spinExport.csv
 sleep 2
 ang=0
 echo "turtle3 spin, turtle4 don't spin"
@@ -22,9 +22,9 @@ do
     rostopic echo turtleT3 -n 1
     rostopic echo turtleT4 -n 1
     rostopic echo turtletf -n 1
-    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/spinExport.csv
-    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/spinExport.csv
-    rostopic echo turtletf -n 1 >> ~/catkin_ws/spinExport.csv
+    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtletf -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
     echo "------------------------------------"
     #sleep 0.1
 done
@@ -40,9 +40,9 @@ do
     rostopic echo turtleT3 -n 1
     rostopic echo turtleT4 -n 1
     rostopic echo turtletf -n 1
-    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/spinExport.csv
-    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/spinExport.csv
-    rostopic echo turtletf -n 1 >> ~/catkin_ws/spinExport.csv
+    rostopic echo turtleT3 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtleT4 -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
+    rostopic echo turtletf -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport.csv
     echo "------------------------------------"
     #sleep 0.1
 done

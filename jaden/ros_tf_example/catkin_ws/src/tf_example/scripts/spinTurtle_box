@@ -11,7 +11,7 @@ rosservice call /kill turtle1
 rosservice call /spawn 5 5 0 "turtleEye"
 rosservice call /spawn 1 2 0 "turtleBody"
 rosservice call /spawn 6 6 0 "box"
-cd . > ~/catkin_ws/spinExport_box.csv
+cd . > ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
 sleep 2
 ang=0
 echo "turtleEye spin, turtleBody don't spin"
@@ -25,11 +25,11 @@ do
     rostopic echo pubBox -n 1
     rostopic echo pubEB -n 1
     rostopic echo pubBB -n 1
-    rostopic echo pubBody -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubEye -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubBox -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubEB -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubBB -n 1 >> ~/catkin_ws/spinExport_box.csv
+    rostopic echo pubBody -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEye -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBox -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
     echo "------------------------------------"
     #sleep 0.1
 done
@@ -47,11 +47,11 @@ do
     rostopic echo pubBox -n 1
     rostopic echo pubEB -n 1
     rostopic echo pubBB -n 1
-    rostopic echo pubBody -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubEye -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubBox -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubEB -n 1 >> ~/catkin_ws/spinExport_box.csv
-    rostopic echo pubBB -n 1 >> ~/catkin_ws/spinExport_box.csv
+    rostopic echo pubBody -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEye -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBox -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubEB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
+    rostopic echo pubBB -n 1 >> ~/catkin_ws/src/tf_example/scripts/spinExport_box.csv
     echo "------------------------------------"
     #sleep 0.1
 done
