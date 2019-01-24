@@ -54,7 +54,7 @@
 	</group>
 
   <!--           pairbot           -->
-	<group ns = "pairbot">
+	<group ns = "tracer">
   <!-- Load the URDF into the ROS Parameter Server -->
   	<param name="robot_description"
 	 	command="$(find xacro)/xacro.py '$(find pb_description)/urdf/pairbot.xacro'" />
@@ -64,19 +64,14 @@
 		args="-urdf -model pairbot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)
     	   -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
 	<!--robot_state_publisher-->
-		<param name="tf_prefix" value="pairbot"/>
-		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-          respawn="false" output="screen">
-			<param name="publish_frequency" type="double" value="50.0" />
-        <!--<remap from="joint_states" to="pairbot/joint_states"/>-->
-    </node>
+
 	<!-- run follow.cpp   -->
-		<arg name="cmd_vel" default="/cmd_vel"/>
+		<arg name="cmd_vel" default="cmd_vel"/>
   	<arg name="name" default="pairbot"/>
 
 		<param name="taget_base_frame" value="target/base_footprint"/>
   	<param name="cmd_vel_topic_name" value="$(arg cmd_vel)"/>
-		<param name="base_footprint" value="pairbot/base_link" />
+		<param name="base_footprint" value="tracer/base_link" />
 		<param name="robot_width" value="0.62" />
   	<node name="$(arg name)_follow" pkg="robot_follow" type="follow" required="true" output="screen"/>
   
@@ -84,10 +79,12 @@
   <!-- ros_control eng launch file -->
 
 
-
+   	<include file="$(find pb_control)/launch/pb_control.launch">
+			<arg name="namespace" value="tracer"/>
+		</include>
 	</group>
- 	<include file="$(find pb_control)/launch/pb_control.launch" />
-	<node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map pairbot/odom 20"/>
+
+	<node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map tracer/odom 20"/>
 	<node name="target_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map target/odom 20"/>
 
 </launch>

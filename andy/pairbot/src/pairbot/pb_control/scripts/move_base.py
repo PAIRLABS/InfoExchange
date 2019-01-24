@@ -23,10 +23,10 @@ def callback(data):
     left=avg_speed-delta_speed
     flipper=-0.1
 
-    pub = rospy.Publisher('/pairbot/right/command', Float64, queue_size=10)
+    pub = rospy.Publisher('right/command', Float64, queue_size=10)
     pub.publish(right)
 
-    pub = rospy.Publisher('/pairbot/left/command', Float64, queue_size=10)
+    pub = rospy.Publisher('left/command', Float64, queue_size=10)
     pub.publish(left)
 
     # pub = rospy.Publisher('/pairbot/joint_right_front_flipper_controller/command', Float64, queue_size=10)
@@ -36,14 +36,16 @@ def callback_transformation(data):
     # print(data.name)
     index=data.name.index("pairbot::base_link")
     pose=data.pose[index]
-
+    ns = rospy.get_param('tf_prefix', '')
+    base_link = ns + "/base_link"
+    odom = ns + "/odom"
     br = tf.TransformBroadcaster()
     br.sendTransform((pose.position.x, pose.position.y, pose.position.z),
                      #tf.transformations.quaternion_from_euler
                      (pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
                      rospy.Time.now(),
-                     "pairbot/base_link",
-                     "pairbot/odom")
+                     base_link,
+                     odom)
 
 def listener():
     rospy.init_node('listener', anonymous=True)
