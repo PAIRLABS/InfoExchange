@@ -10,8 +10,8 @@ ENV REFRESHED_AT 2019-01-07
 ARG userName="ros"
 
 #Host uid & gid should be given from --build-arg 
-ARG hostUid=""
-ARG hostGid=""
+ARG hostUid
+ARG hostGid
 RUN echo "Host uid is set to $hostUid"
 RUN echo "Host gid is set to $hostGid"
 

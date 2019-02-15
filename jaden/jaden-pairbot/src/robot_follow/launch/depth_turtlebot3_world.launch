@@ -1,0 +1,45 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="-2.0"/>
+  <arg name="y_pos" default="-0.5"/>
+  <arg name="z_pos" default="0.0"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find robot_follow)/worlds/turtlebot3_house.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+	<group ns = "ns1">
+		<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/depth_turtlebot3_burger.urdf.xacro" />
+		<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_burger -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+		<param name="odom_frame" value="ns1/odom"/>
+		<param name="base_frame" value="ns1/base_footprint"/>
+		<param name="tf_prefix" value="ns1"/>
+		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+			<param name="publish_frequency" type="double" value="50.0" />
+		</node>
+	<!-- run turtlebot3_depth_follow.cpp   -->
+		<arg name="cmd_vel" default="cmd_vel"/>
+  	<arg name="name" default="turtlebot3"/>
+		<arg name="ns" default="ns1"/>
+
+		<param name="taget_base_frame" value="target/base_footprint"/>
+  	<param name="cmd_vel_topic_name" value="$(arg cmd_vel)"/>
+		<param name="base_footprint" value="$(arg ns)/base_footprint" />
+		<param name="robot_width" value="0.14" />
+  	<node name="$(arg name)_follow" pkg="robot_follow" type="follow" required="true" output="screen"/>
+	</group>
+
+	<group ns = "target">
+		<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/depth_turtlebot3_burger.urdf.xacro" />
+		<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model target -x 0 -y 0 -z 0 -param robot_description" />
+	</group>
+
+	<node name="my_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map ns1/odom 20"/>
+	<node name="target_stp" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map target/odom 20"/>
+</launch>
