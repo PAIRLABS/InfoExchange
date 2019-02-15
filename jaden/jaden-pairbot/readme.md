@@ -42,7 +42,7 @@
 
       to launch an empty world and you will see Pairbot in there.
 
-      In another terminal, under ``pairbot/src/pairbot/pb_teleop/scripts`` run:
+      In another terminal, under ``jaden-pairbot/src/pairbot/pb_teleop/scripts`` run:
 
       ```shell
       $ ./pb_teleop.py
