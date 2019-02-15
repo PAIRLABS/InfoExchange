@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<robot>
+  <gazebo reference="zed_sim">
+    <sensor name="depth" type="depth">
+        <pose> 0 0 0.0375 0 0 0 </pose>
+        <update_rate>20</update_rate>
+        <camera>
+          <horizontal_fov>1.5707813</horizontal_fov> 
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>20</far>
+          </clip>
+        </camera>
+
+        <!--plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so"-->
+        <plugin name="depth_plugin" filename="libgazebo_ros_depth_camera.so">
+	  <robotNamespace>Zed_sim</robotNamespace>
+	  <baseline>0.12</baseline>
+          <cameraName>depth</cameraName>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0</updateRate>
+          <pointCloudTopicName>point_cloud/cloud_registered</pointCloudTopicName>
+	  <depthImageTopicName>depth_registered</depthImageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>zed_sim</frameName>
+          <distortionK1>0</distortionK1>
+          <distortionK2>0</distortionK2>
+          <distortionK3>0</distortionK3>
+          <distortionT1>0</distortionT1>
+          <distortionT2>0</distortionT2>
+          <CxPrime>0</CxPrime>
+          <Cx>0</Cx>
+          <Cy>0</Cy>
+          <focalLength>0</focalLength>
+	</plugin>
+      </sensor>
+
+      <sensor name="right" type="camera">
+	<visualize>true</visualize>
+	<pose> 0.005 -0.0595 0.004 0 0 0 </pose>
+	<update_rate>20</update_rate>
+        <camera>
+          <horizontal_fov>1.5707813</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>10</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+
+        <plugin name="right_plugin" filename="libgazebo_ros_camera.so">
+	  <robotNamespace>Zed_sim</robotNamespace>
+	  <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>right</cameraName>
+	  <imageTopicName>image_raw_color</imageTopicName>
+	  <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>zed_sim</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+
+      </sensor>
+
+      <sensor name="left" type="camera">
+        <visualize>true</visualize>
+	<pose> 0.005 0.058 0.004 0 0 0 </pose>
+        <update_rate>20</update_rate>
+        <camera>
+          <horizontal_fov>1.5707813</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>10</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+
+        <plugin name="camera_left_plugin" filename="libgazebo_ros_camera.so">
+	  <robotNamespace>Zed_sim</robotNamespace>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>left</cameraName>
+          <imageTopicName>image_raw_color</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>zed_sim</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+
+
+  </gazebo>
+
+<!-- modify-->
+</robot>
