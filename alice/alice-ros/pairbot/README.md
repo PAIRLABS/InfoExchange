@@ -27,7 +27,7 @@ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.0, y: 0.0
 
 #### flipper
 ```bash
- rostopic pub /pairbot/joint_right_front_flipper_controller/command std_msgs/Float64 '1.5
+ rostopic pub /pairbot/joint_right_front_flipper_controller/command std_msgs/Float64 '1.5'
 ```
 
 #### flipper wheels
