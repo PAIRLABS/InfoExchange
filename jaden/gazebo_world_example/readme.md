@@ -102,3 +102,7 @@ If you want to take a look the world without ROS:
 
    It may take some time, if this is your first time running.
 
+
+
+**The scene of the Microelectronics and Information Research Center(MIRC) of the National Chiao Tung University(NCTU) is now available! Try to launch it by following the steps above.**
+
