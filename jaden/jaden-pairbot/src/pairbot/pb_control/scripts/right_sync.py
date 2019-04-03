@@ -18,27 +18,27 @@ def callback(data):
         p.publish(data)
 
 T_RIGHT_BASE_WHEELS = "joint_right_base_wheel_{0}_controller/command"
-T_RIGHT_BASE_WHEELS_2nd = "joint_right_base_wheel_2nd_{0}_controller/command"
+# T_RIGHT_BASE_WHEELS_2nd = "joint_right_base_wheel_2nd_{0}_controller/command"
 T_RF_FW  = 'joint_right_front_flipper_wheel_controller/command'
 T_RR_FW  = 'joint_right_rear_flipper_wheel_controller/command'
 T_RF_FMW = 'joint_right_front_flipper_middle_wheel_{0}_controller/command'
 T_RR_FMW = 'joint_right_rear_flipper_middle_wheel_{0}_controller/command'
-T_RF_FMW_2nd = 'joint_right_front_flipper_middle_wheel_2nd_{0}_controller/command'
-T_RR_FMW_2nd = 'joint_right_rear_flipper_middle_wheel_2nd_{0}_controller/command'
+# T_RF_FMW_2nd = 'joint_right_front_flipper_middle_wheel_2nd_{0}_controller/command'
+# T_RR_FMW_2nd = 'joint_right_rear_flipper_middle_wheel_2nd_{0}_controller/command'
 
 def listener():
     rospy.init_node('listener', anonymous=True, log_level=rospy.DEBUG)
     pubs.extend([ rospy.Publisher(T_RIGHT_BASE_WHEELS.format(i+1), Float64, queue_size=10) for i in range(12)])
-    pubs.extend([ rospy.Publisher(T_RIGHT_BASE_WHEELS_2nd.format(i+1), Float64, queue_size=10) for i in range(11)])
+#     pubs.extend([ rospy.Publisher(T_RIGHT_BASE_WHEELS_2nd.format(i+1), Float64, queue_size=10) for i in range(11)])
     rospy.logdebug("There are %s publishers for right base wheels", str(len(pubs)))
     base_wheel_number = len(pubs)
 
     pubs.append(rospy.Publisher(T_RF_FW, Float64, queue_size=10))
     pubs.append(rospy.Publisher(T_RR_FW, Float64, queue_size=10))
-    pubs.extend([ rospy.Publisher(T_RF_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
-    pubs.extend([ rospy.Publisher(T_RR_FMW.format(i+1), Float64, queue_size=10) for i in range(6)])
-    pubs.extend([ rospy.Publisher(T_RF_FMW_2nd.format(i+1), Float64, queue_size=10) for i in range(6)])
-    pubs.extend([ rospy.Publisher(T_RR_FMW_2nd.format(i+1), Float64, queue_size=10) for i in range(6)])
+    pubs.extend([ rospy.Publisher(T_RF_FMW.format(i+1), Float64, queue_size=10) for i in range(8)])
+    pubs.extend([ rospy.Publisher(T_RR_FMW.format(i+1), Float64, queue_size=10) for i in range(8)])
+#     pubs.extend([ rospy.Publisher(T_RF_FMW_2nd.format(i+1), Float64, queue_size=10) for i in range(6)])
+#     pubs.extend([ rospy.Publisher(T_RR_FMW_2nd.format(i+1), Float64, queue_size=10) for i in range(6)])
     rospy.logdebug("There are %s publishers for right flipper wheels", str(len(pubs)-base_wheel_number))
 
     rospy.Subscriber("right/command", Float64, callback)

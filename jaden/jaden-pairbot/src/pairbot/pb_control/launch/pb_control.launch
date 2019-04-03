@@ -18,17 +18,6 @@
                                       joint_right_base_wheel_10_controller
                                       joint_right_base_wheel_11_controller
                                       joint_right_base_wheel_12_controller
-                                      joint_right_base_wheel_2nd_1_controller
-                                      joint_right_base_wheel_2nd_2_controller
-                                      joint_right_base_wheel_2nd_3_controller
-                                      joint_right_base_wheel_2nd_4_controller
-                                      joint_right_base_wheel_2nd_5_controller
-                                      joint_right_base_wheel_2nd_6_controller
-                                      joint_right_base_wheel_2nd_7_controller
-                                      joint_right_base_wheel_2nd_8_controller
-                                      joint_right_base_wheel_2nd_9_controller
-                                      joint_right_base_wheel_2nd_10_controller
-                                      joint_right_base_wheel_2nd_11_controller
                                       joint_left_base_wheel_1_controller
                                       joint_left_base_wheel_2_controller
                                       joint_left_base_wheel_3_controller
@@ -41,17 +30,6 @@
                                       joint_left_base_wheel_10_controller
                                       joint_left_base_wheel_11_controller
                                       joint_left_base_wheel_12_controller
-                                      joint_left_base_wheel_2nd_1_controller
-                                      joint_left_base_wheel_2nd_2_controller
-                                      joint_left_base_wheel_2nd_3_controller
-                                      joint_left_base_wheel_2nd_4_controller
-                                      joint_left_base_wheel_2nd_5_controller
-                                      joint_left_base_wheel_2nd_6_controller
-                                      joint_left_base_wheel_2nd_7_controller
-                                      joint_left_base_wheel_2nd_8_controller
-                                      joint_left_base_wheel_2nd_9_controller
-                                      joint_left_base_wheel_2nd_10_controller
-                                      joint_left_base_wheel_2nd_11_controller
                                       joint_left_front_flipper_controller
                                       joint_right_front_flipper_controller
                                       joint_left_rear_flipper_controller
@@ -63,12 +41,8 @@
                                       joint_left_front_flipper_middle_wheel_4_controller
                                       joint_left_front_flipper_middle_wheel_5_controller
                                       joint_left_front_flipper_middle_wheel_6_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_1_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_2_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_3_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_4_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_5_controller
-                                      joint_left_front_flipper_middle_wheel_2nd_6_controller
+                                      joint_left_front_flipper_middle_wheel_7_controller
+                                      joint_left_front_flipper_middle_wheel_8_controller
                                       joint_right_front_flipper_wheel_controller
                                       joint_right_front_flipper_middle_wheel_1_controller
                                       joint_right_front_flipper_middle_wheel_2_controller
@@ -76,12 +50,8 @@
                                       joint_right_front_flipper_middle_wheel_4_controller
                                       joint_right_front_flipper_middle_wheel_5_controller
                                       joint_right_front_flipper_middle_wheel_6_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_1_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_2_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_3_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_4_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_5_controller
-                                      joint_right_front_flipper_middle_wheel_2nd_6_controller
+                                      joint_right_front_flipper_middle_wheel_7_controller
+                                      joint_right_front_flipper_middle_wheel_8_controller
                                       joint_left_rear_flipper_wheel_controller
                                       joint_left_rear_flipper_middle_wheel_1_controller
                                       joint_left_rear_flipper_middle_wheel_2_controller
@@ -89,12 +59,8 @@
                                       joint_left_rear_flipper_middle_wheel_4_controller
                                       joint_left_rear_flipper_middle_wheel_5_controller
                                       joint_left_rear_flipper_middle_wheel_6_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_1_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_2_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_3_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_4_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_5_controller
-                                      joint_left_rear_flipper_middle_wheel_2nd_6_controller
+                                      joint_left_rear_flipper_middle_wheel_7_controller
+                                      joint_left_rear_flipper_middle_wheel_8_controller
                                       joint_right_rear_flipper_wheel_controller
                                       joint_right_rear_flipper_middle_wheel_1_controller
                                       joint_right_rear_flipper_middle_wheel_2_controller
@@ -102,12 +68,8 @@
                                       joint_right_rear_flipper_middle_wheel_4_controller
                                       joint_right_rear_flipper_middle_wheel_5_controller
                                       joint_right_rear_flipper_middle_wheel_6_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_1_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_2_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_3_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_4_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_5_controller
-                                      joint_right_rear_flipper_middle_wheel_2nd_6_controller
+                                      joint_right_rear_flipper_middle_wheel_7_controller
+                                      joint_right_rear_flipper_middle_wheel_8_controller
                                         ">
 		</node>
 
