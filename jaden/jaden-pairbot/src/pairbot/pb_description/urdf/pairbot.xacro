@@ -13,8 +13,8 @@
     <xacro:property name="gear_width"  value="0.136"/> <!-- = 0.20-0.064 -->
     <xacro:property name="gear_height" value="0.15"/>
     
-    <xacro:property name="base_wheel_mass" value="1"/>
-    <xacro:property name="base_wheel_radius" value="0.025"/>   <!--was 0.09-->
+    <xacro:property name="base_wheel_mass" value="0.8"/>
+    <xacro:property name="base_wheel_radius" value="0.075"/>   <!--was 0.09-->
     
     <xacro:property name="flipper_mass" value="2.5"/> <!--77.5-->
     <xacro:property name="flipper_length" value="0.42"/>
@@ -22,9 +22,9 @@
     <xacro:property name="flipper_height" value="0.1578"/> 
 
     <xacro:property name="flipper_wheel_mass" value="0.2"/>
-    <xacro:property name="flipper_wheel_radius" value="0.025"/>
+    <xacro:property name="flipper_wheel_radius" value="0.05"/>
     <xacro:property name="flipper_wheel_length" value="0.017"/>
-    <xacro:property name="flipper_wheel_distance" value="0.051"/>
+    <xacro:property name="flipper_wheel_distance" value="0.032"/>
     
     <!-- <xacro:property name="ground_clearance" value="0.02517"/>  old 0.05 0.02517-->   
     <xacro:property name="scale" value="1"/>
@@ -104,7 +104,42 @@
                  params="mesh_name material name_link x y z roll pitch yaw radius wheel_length mass parent direction:=1">
         <link name="${name_link}">
             <xacro:visual_macro mesh_name="${mesh_name}" x="0" y="0" z="0" roll="0" pitch="0" yaw="0"
-                                material="${material}" scale="${scale}"/>
+                                material="${material}" scale="${scale*2}"/>
+            <collision>
+                <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+                <geometry>
+                	<cylinder radius="${radius*scale}" length="${0.011*scale}"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_macro x="0" y="0" z="0"
+                                  roll="0" pitch="0" yaw="0" mass="${mass}"
+                                  ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+        </link>
+        <joint name="joint_${name_link}" type="continuous">
+            <parent link="${parent}"/>
+            <child link="${name_link}"/>
+            <origin xyz="${x} ${y} ${z}" rpy="${roll} ${pitch} ${yaw}"/>
+            <axis xyz="0 ${direction} 0"/>
+            <limit velocity="20" effort="100"/>
+        </joint>
+
+        <transmission name="tran_joint_${name_link}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="joint_${name_link}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="motor_joint_${name_link}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+        
+    </xacro:macro>
+    <xacro:macro name="basewheel"
+                 params="mesh_name material name_link x y z roll pitch yaw radius wheel_length mass parent direction:=1">
+        <link name="${name_link}">
+            <xacro:visual_macro mesh_name="${mesh_name}" x="0" y="0" z="0" roll="0" pitch="0" yaw="0"
+                                material="${material}" scale="${scale*3}"/>
             <collision>
                 <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
                 <geometry>
@@ -177,7 +212,28 @@
         </transmission>
         
     </xacro:macro>
+    
+    <!-- start##In order to improve the performance, I use simple box instead of mesh -->
+    <xacro:macro name="visual_base_box" params="x y z roll pitch yaw material scale mesh_name">
+        <visual>
+            <origin xyz="${x+0.01} ${y} ${z+0.11}" rpy="${roll} ${pitch} ${yaw}"/>
+            <geometry>
+                <box size="${scale*0.37} ${0.46*scale} ${0.12*scale}"/>
+            </geometry>
+            <material name="${material}"/>-->
+        </visual>
+    </xacro:macro>
 
+    <xacro:macro name="collision_base_box"
+                 params="mesh_name x y z roll pitch yaw scale:=${scale}">
+        <collision>
+            <origin xyz="${x+0.01} ${y} ${z+0.11}" rpy="${roll} ${pitch} ${yaw}"/>
+            <geometry>
+                <box size="${scale*0.37} ${0.46*scale} ${0.12*scale}"/>
+            </geometry>
+        </collision>
+    </xacro:macro>
+    <!-- end##In order to improve the performance, I use simple box instead of mesh -->
 
     <link name="base_link">
         <xacro:visual_macro mesh_name="mainbody.stl" x="0" y="0" z="0" roll="0" pitch="0" yaw="0"
@@ -187,7 +243,7 @@
         <xacro:visual_macro mesh_name="right_gears.stl" x="0" y="${-1*base_width/2}" z="0.02" roll="0" pitch="0" yaw="0"
                                 material="grey" scale="${scale}"/>      
         
-        <xacro:collision_macro mesh_name="mainbody.stl" x="0" y="0" z="0" roll="0" pitch="0" yaw="0"
+        <xacro:collision_base_box mesh_name="mainbody.stl" x="0" y="0" z="0" roll="0" pitch="0" yaw="0"
                                    scale="${scale}"/>
 
         <!--
@@ -216,8 +272,8 @@
     </joint>
 
     <xacro:macro name="right_base_wheel" params="index">
-      <xacro:wheel name_link="right_base_wheel_${index}" mesh_name="right_flipper_tire.stl" material="grey" 
-                 x="${base_length/2-0.001-(index-1)*(2*base_wheel_radius+0.001)}"
+      <xacro:basewheel name_link="right_base_wheel_${index}" mesh_name="right_flipper_tire.stl" material="grey" 
+                 x="${base_length/2-0.001-0.075-(index-1)*(0.042)}"
                  y="${-1*base_width/2}" 
                  z="${base_wheel_radius-0.02}" roll="0" pitch="0" yaw="0"
                  radius="${base_wheel_radius}" wheel_length="${gear_width-0.005}" 
@@ -226,29 +282,9 @@
     </xacro:macro>
 
     <xacro:macro name="left_base_wheel" params="index">
-      <xacro:wheel name_link="left_base_wheel_${index}" mesh_name="left_flipper_tire.stl" material="grey" 
-                 x="${base_length/2-0.001-(index-1)*(2*base_wheel_radius+0.001)}"
+      <xacro:basewheel name_link="left_base_wheel_${index}" mesh_name="left_flipper_tire.stl" material="grey" 
+                 x="${base_length/2-0.001-0.075-(index-1)*(0.042)}"
                  y="${base_width/2}" 
-                 z="${base_wheel_radius-0.02}" roll="0" pitch="0" yaw="0"
-                 radius="${base_wheel_radius}" wheel_length="${gear_width-0.005}" 
-                 mass="${base_wheel_mass}"
-                 parent="base_link" />
-    </xacro:macro>
-
-    <xacro:macro name="right_base_wheel_2nd" params="index">
-      <xacro:wheel name_link="right_base_wheel_2nd_${index}" mesh_name="right_flipper_tire.stl" material="grey" 
-                 x="${base_length/2-0.001-(index-1)*(2*base_wheel_radius+0.001)-base_wheel_radius}"
-                 y="${-1*base_width/2-0.026}" 
-                 z="${base_wheel_radius-0.02}" roll="0" pitch="0" yaw="0"
-                 radius="${base_wheel_radius}" wheel_length="${gear_width-0.005}" 
-                 mass="${base_wheel_mass}"
-                 parent="base_link" />
-    </xacro:macro>
-
-    <xacro:macro name="left_base_wheel_2nd" params="index">
-      <xacro:wheel name_link="left_base_wheel_2nd_${index}" mesh_name="left_flipper_tire.stl" material="grey" 
-                 x="${base_length/2-0.001-(index-1)*(2*base_wheel_radius+0.001)-base_wheel_radius}"
-                 y="${base_width/2+0.026}" 
                  z="${base_wheel_radius-0.02}" roll="0" pitch="0" yaw="0"
                  radius="${base_wheel_radius}" wheel_length="${gear_width-0.005}" 
                  mass="${base_wheel_mass}"
@@ -281,35 +317,6 @@
     <xacro:left_base_wheel index="10" />
     <xacro:left_base_wheel index="11" />
     <xacro:left_base_wheel index="12" />
-    
-
-    <xacro:right_base_wheel_2nd index="1" />
-    <xacro:right_base_wheel_2nd index="2" />
-    <xacro:right_base_wheel_2nd index="3" />
-    <xacro:right_base_wheel_2nd index="4" />
-    <xacro:right_base_wheel_2nd index="5" />
-    <xacro:right_base_wheel_2nd index="6" />
-    <xacro:right_base_wheel_2nd index="7" />
-    <xacro:right_base_wheel_2nd index="8" />
-    <xacro:right_base_wheel_2nd index="9" />
-    <xacro:right_base_wheel_2nd index="10" />
-    <xacro:right_base_wheel_2nd index="11" />
-    
-      
-    <xacro:left_base_wheel_2nd index="1" />
-    <xacro:left_base_wheel_2nd index="2" />
-    <xacro:left_base_wheel_2nd index="3" />
-    <xacro:left_base_wheel_2nd index="4" />
-    <xacro:left_base_wheel_2nd index="5" />
-    <xacro:left_base_wheel_2nd index="6" />
-    <xacro:left_base_wheel_2nd index="7" />
-    <xacro:left_base_wheel_2nd index="8" />
-    <xacro:left_base_wheel_2nd index="9" />
-    <xacro:left_base_wheel_2nd index="10" />
-    <xacro:left_base_wheel_2nd index="11" />
-    
-
-      
       
     
 <!-- y=3.4 x=0.3--> <!--for flipper: x: left/right y: up/down-->
@@ -326,7 +333,7 @@
 
         <xacro:wheel name_link="${loc}_flipper_wheel" mesh_name="right_flipper_tire.stl" material="grey"
                  x="${(flipper_length-flipper_wheel_radius-flipper_height/2)*scale}"
-                 y="-0.02" z="${0.01-flipper_height/2}" 
+                 y="-0.02" z="${0.032-flipper_height/2}" 
                  roll="0" pitch="0" yaw="0" direction="${direction}"
                  radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
 
@@ -335,7 +342,7 @@
             <xacro:wheel name_link="${loc}_flipper_middle_wheel_${index}" mesh_name="right_flipper_tire.stl" material="grey"
                  x="${(flipper_length-flipper_wheel_radius-index*flipper_wheel_distance-flipper_height/2)*scale}" 
                  y="-0.02" 
-                 z="${0.01-flipper_height/2}" 
+                 z="${0.032-flipper_height/2}" 
                  roll="0" pitch="0" yaw="0" direction="${direction}"
                  radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
         </xacro:macro>
@@ -345,22 +352,8 @@
         <xacro:right_flipper_middle_wheel loc="${loc}" index="4" direction="${direction}"/>
         <xacro:right_flipper_middle_wheel loc="${loc}" index="5" direction="${direction}"/>
         <xacro:right_flipper_middle_wheel loc="${loc}" index="6" direction="${direction}"/>
-        
-        <xacro:macro name="right_flipper_middle_wheel_2nd"
-             params="loc index direction">
-            <xacro:wheel name_link="${loc}_flipper_middle_wheel_2nd_${index}" mesh_name="right_flipper_tire.stl" material="grey"
-                 x="${(flipper_length-flipper_wheel_radius-(index-0.5)*flipper_wheel_distance-flipper_height/2)*scale}" 
-                 y="-0.04" 
-                 z="${0.01-flipper_height/2}" 
-                 roll="0" pitch="0" yaw="0" direction="${direction}"
-                 radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
-        </xacro:macro>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="1" direction="${direction}"/>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="2" direction="${direction}"/>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="3" direction="${direction}"/>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="4" direction="${direction}"/>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="5" direction="${direction}"/>
-        <xacro:right_flipper_middle_wheel_2nd loc="${loc}" index="6" direction="${direction}"/>
+        <xacro:right_flipper_middle_wheel loc="${loc}" index="7" direction="${direction}"/>
+        <xacro:right_flipper_middle_wheel loc="${loc}" index="8" direction="${direction}"/>
     </xacro:macro>
 
     <xacro:right_flipper_asm loc="right_front" 
@@ -387,7 +380,7 @@
         <xacro:wheel name_link="${loc}_flipper_wheel"  mesh_name="left_flipper_tire.stl" material="grey"
                      x="${(flipper_length-flipper_wheel_radius-flipper_height/2)*scale}" 
                      y="0.02" 
-                     z="${0.01*scale-flipper_height/2}" 
+                     z="${0.032*scale-flipper_height/2}" 
                      roll="0" pitch="0" yaw="0" direction="${direction}"
                      radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
 
@@ -396,7 +389,7 @@
             <xacro:wheel name_link="${loc}_flipper_middle_wheel_${index}" mesh_name="left_flipper_tire.stl" material="grey"
                      x="${(flipper_length-flipper_wheel_radius-index*flipper_wheel_distance-flipper_height/2)*scale}" 
                      y="0.02" 
-                     z="${0.01*scale-flipper_height/2}" 
+                     z="${0.032*scale-flipper_height/2}" 
                      roll="0" pitch="0" yaw="0" direction="${direction}"
                      radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
         </xacro:macro>
@@ -406,22 +399,8 @@
         <xacro:left_flipper_middle_wheel loc="${loc}" index="4" direction="${direction}"/>
         <xacro:left_flipper_middle_wheel loc="${loc}" index="5" direction="${direction}"/>
         <xacro:left_flipper_middle_wheel loc="${loc}" index="6" direction="${direction}"/>
-
-        <xacro:macro name="left_flipper_middle_wheel_2nd"
-             params="loc index direction">
-            <xacro:wheel name_link="${loc}_flipper_middle_wheel_2nd_${index}" mesh_name="right_flipper_tire.stl" material="grey"
-                 x="${(flipper_length-flipper_wheel_radius-(index-0.5)*flipper_wheel_distance-flipper_height/2)*scale}" 
-                 y="0.054" 
-                 z="${0.01-flipper_height/2}" 
-                 roll="0" pitch="0" yaw="0" direction="${direction}"
-                 radius="${flipper_wheel_radius}" wheel_length="${flipper_width-0.02}" mass="${flipper_wheel_mass}" parent="${loc}_flipper"/>
-        </xacro:macro>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="1" direction="${direction}"/>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="2" direction="${direction}"/>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="3" direction="${direction}"/>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="4" direction="${direction}"/>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="5" direction="${direction}"/>
-        <xacro:left_flipper_middle_wheel_2nd loc="${loc}" index="6" direction="${direction}"/>
+        <xacro:left_flipper_middle_wheel loc="${loc}" index="7" direction="${direction}"/>
+        <xacro:left_flipper_middle_wheel loc="${loc}" index="8" direction="${direction}"/>
     </xacro:macro>
 
     <xacro:left_flipper_asm loc="left_front"
@@ -437,45 +416,6 @@
         direction="-1"
         roll="0" pitch="0" yaw="${PI}"/>
 
-   <!--<joint name="imu_joint" type="fixed">
-
-       <origin xyz="0 0 0"/>
-       <parent link="base_link"/>
-       <child link="imu_link"/>
-     </joint>
-
-
-   <link name="imu_link">
-     <inertial>
-       <mass value="0.001"/>
-       <origin rpy="0 0 0" xyz="0 0 0"/>
-       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
-     </inertial>
-     <visual>
-       <origin rpy="0 0 0" xyz="0 0 0"/>
-       <geometry>
-         <box size="0.1 0.1 0.1"/>
-       </geometry>
-     </visual>
-     <collision>
-       <origin rpy="0 0 0" xyz="0 0 0"/>
-       <geometry>
-         <box size=".1 .1 .1"/>
-       </geometry>
-     </collision>
-   </link>-->
-
-   <!--
-   <sick_lms1xx_mount prefix="base" topic="scan"/> 
-
-   <joint name="laser_mount_joint" type="fixed">
-     <origin xyz="0.0 0.0 ${scale*0.3}"
-             rpy="0 0 0" />
-     <parent link="base_link" />
-     <child link="base_laser_mount" />
-   </joint>
-
-   -->
   <joint name="scan_joint" type="fixed">
     <parent link="camera_stick_link"/>
     <child link="zed_sim"/>

@@ -91,10 +91,17 @@ void Turtlebot3Drive::updatecommandVelocity(double linear, double angular)
 {
   geometry_msgs::Twist cmd_vel;
 
-  cmd_vel.linear.x  = linear;
-  cmd_vel.angular.z = angular;
-
-  cmd_vel_pub_.publish(cmd_vel);
+  
+  
+  //ros::Rate acceleratorRate(10);
+	//for (int i = 1; i < 20 ; i++)
+	//{
+		cmd_vel.linear.x  = linear;// * i/20;
+  		cmd_vel.angular.z = angular;// * i/20;
+		cmd_vel_pub_.publish(cmd_vel);
+		printf("real--vel:%f ang:%f\n", cmd_vel.linear.x, cmd_vel.angular.z);
+		//acceleratorRate.sleep();
+	//}
 }
 /**
 uint8_t find_distance(float x)
@@ -191,7 +198,7 @@ bool Turtlebot3Drive::controlLoop()
 	  																		transform.getOrigin().x());
 		vel = LINEAR_VELOCITY * 3;
 		updatecommandVelocity(vel, ang);
-	}
+			}
 
 	else if (min_index <= WIDTH/2)//obstacle is on the left side
 	{
