@@ -899,6 +899,12 @@ nodelet_DIR:PATH=/opt/ros/kinetic/share/nodelet/cmake
 //Path to a library.
 onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libignition-transport3.so
 
+//Value Computed by CMake
+pairworld_gazebo_BINARY_DIR:STATIC=/home/ros/test/InfoExchange/nano/catkin_ws/build/pairworld_gazebo
+
+//Value Computed by CMake
+pairworld_gazebo_SOURCE_DIR:STATIC=/home/ros/test/InfoExchange/nano/catkin_ws/src/pairworld_gazebo
+
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/kinetic/share/pluginlib/cmake
 
@@ -1299,7 +1305,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

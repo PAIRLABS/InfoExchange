@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include <sensor_msgs/Image.h>
 
+float* f;
 void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
 {
   //ROS_INFO("I heard: %d",msg->data[2]);
@@ -8,7 +9,7 @@ void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
   int h=msg->height;
   int w=msg->width;
 
-  float* f=(float*)(&msg->data[0]);
+  f=(float*)(&msg->data[0]);
   float dis;
 
   int i,j;
@@ -25,14 +26,13 @@ void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
         uint8_t b2 = msg->data[i*w*4+j*4+2];
         uint8_t b3 = msg->data[i*w*4+j*4+3];
 	
-	if(dis==1.0/0.0 || dis==-1.0/0.0 )
-        {
-                printf("%f = %d %d %d %d",dis,b0,b1,b2,b3);
-                break;
-        }
+	//if((dis==1.0/0.0 || dis==-1.0/0.0 ))
+       // {
+                printf("%f = %d %d %d %d",f[i*w+j],b0,b1,b2,b3);
+       //         break;
+       // }
 
     }
-//    printf("\n");
   }
 
   return;
@@ -40,6 +40,7 @@ void DepthImage_Callback(const sensor_msgs::Image::ConstPtr &msg)
 
 int main(int argc, char **argv)
 {
+  printf("GOGOGOGO\n");
   ros::init(argc, argv, "listener");
   ros::NodeHandle n;
 
