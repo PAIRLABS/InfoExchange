@@ -12,7 +12,7 @@ method 3 : python (accsee ArangoDB server and query by javascript or AQL)
 
 #### method 1 : arangosh (JavaScript)
 
----
+------
 
 > source ：<https://docs.arangodb.com/3.4/Manual/Programs/Arangosh/>
 >
@@ -45,15 +45,15 @@ method 3 : python (accsee ArangoDB server and query by javascript or AQL)
 
 ##### 1.3) basic operation cmd to models in arangosh
 
-#####     a. Database
+##### a. Database
 
-​                create	：`db._createDatabase(<name>)`	
+1. create	：`db._createDatabase(<name>)`	
 
-​                list 		：`db._databases()` 
+1.  list 		：`db._databases()` 
 
-​                use		：`db._useDatabase(<name>)`
+1.  use		：`db._useDatabase(<name>)`
 
-​                drop	：`db._dropDatabase(<name>)`
+1. drop	：`db._dropDatabase(<name>)`
 
 ```
 //example
@@ -66,17 +66,17 @@ method 3 : python (accsee ArangoDB server and query by javascript or AQL)
 
 
 
-#####     b. Collection   (collection_name = col_name)
+##### b. Collection   (collection_name = col_name)
 
-​                create document collection ： `db._create(<name>)` or `db._createDocumentCollection(<name>)` 
+1. create document collection ： `db._create(<name>)` or `db._createDocumentCollection(<name>)` 
 
-​                create edge collection		  ：  `db._createEdgeCollection(<name>)`
+1. create edge collection		  ：  `db._createEdgeCollection(<name>)`
 
-​                list		：`db._collections()`
+1. list		：`db._collections()`
 
-​                list one 	：`db._collection(<name>)` or `db.<col_name>`
+1. list one 	：`db._collection(<name>)` or `db.<col_name>`
 
-​                drop	：`db._drop(<name>)` or `db.<col_name>.drop()`
+1. drop	：`db._drop(<name>)` or `db.<col_name>.drop()`
 
 ```
 //example
@@ -109,25 +109,25 @@ method 3 : python (accsee ArangoDB server and query by javascript or AQL)
 
 
 
-##### 	    c. Document (in a collection) 
+##### c. Document (in a collection) 
 
-##### 	                **create document**：`db.<col_name>.save(<attr>)`
+##### **create document**：`db.<col_name>.save(<attr>)`
 
-​                **update document**：`db._update(<id>,<attr>)` or `db.<col_name>.update(<key>,<attr>)`
+1. **update document**：`db._update(<id>,<attr>)` or `db.<col_name>.update(<key>,<attr>)`
 
-​                **check exist**		 ：`db._exists(<id>)`
+1. **check exist**		 ：`db._exists(<id>)`
 
-​                **list all document** ：`db.<col_name>.toArray()`
+1. **list all document** ：`db.<col_name>.toArray()`
 
-​                **count document** ：`db.<col_name>.count()`
+1. **count document** ：`db.<col_name>.count()`
 
-​                **list a document** 	 ：`db._document(<id>)`  or     `db.<col_name>.document(<key>)`
+1. **list a document** 	 ：`db._document(<id>)`  or     `db.<col_name>.document(<key>)`
 
-​                **drop document**   ：`db._remove(<id>)`      or      `db.<col_name>.remove(<key>)`
+1. **drop document**   ：`db._remove(<id>)`      or      `db.<col_name>.remove(<key>)`
 
-​                **drop all documents**：`db.<col_name>.truncate()`
+1. **drop all documents**：`db.<col_name>.truncate()`
 
-​                **Searching for document with specific attributes**：
+1. **Searching for document with specific attributes**：
 
 ​							`db.<col_name>.byExample( <attr> ).toArray()`
 
@@ -195,7 +195,7 @@ method 3 : python (accsee ArangoDB server and query by javascript or AQL)
 
 
 
-#####     d. AQL in arangosh
+##### d. AQL in arangosh
 
 ```
 db._query(<AQL>).toArray()
@@ -236,7 +236,7 @@ db._query(<AQL>).toArray()
 
 
 
-##### 	e. Other's operation：
+##### e. Other's operation：
 
 ```
 [arangosh] > db.<press tab>
@@ -248,7 +248,7 @@ db._query(<AQL>).toArray()
 
 #### method 2 : AQL
 
----
+------
 
 ##### 2.1) introduction
 
@@ -277,7 +277,7 @@ db._query(<AQL>).toArray()
 
 #### method 3 : python (accsee ArangoDB server and query by AQL or JavaScript )
 
----
+------
 
 AQL directly ：
 
