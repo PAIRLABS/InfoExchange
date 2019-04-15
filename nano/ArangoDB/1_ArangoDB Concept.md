@@ -63,11 +63,11 @@
 
 ​	Otherwise, note that there are **three special attributes** will automatically generated when a new document is create, they are `_key` `_id` and `_rev`：
 
-​	`_key`：a unique string represent this document, can be assigned by unused string or be randomized when nothing assign.
+1. `_key`：a unique string represent this document, can be assigned by unused string or be randomized when nothing assign.
+2. `_id`：<collections_name> + '/' + `_key`
+3. `_rev`：a unique string represent **revision number of  document**, can be used for conditional 
 
-​	`_id`：<collections_name> + '/' + `_key`
-
-​	`_rev`：a unique string represent **revision number of  document**, can be used for conditional modifications. Here is an example of how to avoid lost updates in case multiple clients are accessing the documents in parallel：
+​	modifications. Here is an example of how to avoid lost updates in case multiple clients are accessing the documents in parallel：
 
 ```javascript
 //example in arangosh, by javascript
