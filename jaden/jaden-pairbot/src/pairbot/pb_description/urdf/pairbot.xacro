@@ -416,11 +416,14 @@
         direction="-1"
         roll="0" pitch="0" yaw="${PI}"/>
 
-  <joint name="scan_joint" type="fixed">
-    <parent link="camera_stick_link"/>
-    <child link="zed_sim"/>
-    <origin xyz="0 0 0.65" rpy="0 0 0"/>
-  </joint>
-
+    <!-- <joint name="scan_joint" type="fixed">
+        <parent link="camera_stick_link"/>
+        <child link="zed_sim"/>
+        <origin xyz="0 0 0.65" rpy="0 0.17 0"/>
+    </joint> -->
+    <xacro:joint_macro joint_name="scan_joint" type="continuous" parent="camera_stick_link" 
+                            child="zed_sim"
+                            x="0" y="0" z="0.24"
+                            roll="0" pitch="0" yaw="0" axis="0 1 0" />
 
 </robot>

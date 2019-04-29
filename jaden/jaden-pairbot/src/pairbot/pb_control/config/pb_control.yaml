@@ -327,6 +327,11 @@
      joint: joint_left_rear_flipper_middle_wheel_8
      pid: {p: 200.0, i: 0.01, d: 10.0, i_clamp: 10.0}
 
+  joint_scan_joint_controller:
+    type: effort_controllers/JointPositionController
+    joint: scan_joint
+    pid: {p: 400.0, i: 0.01, d: 40.0}
+
   # joint_left_front_wheel_controller:
   #   type: effort_controllers/JointEffortController
   #   joint: joint_left_front_wheel

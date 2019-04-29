@@ -13,9 +13,13 @@
 	      </geometry>
       </collision>
       <visual name="visual">
-        <pose>-0.02 -0.0875 -0.0125 1.5707963  0 1.5707963 </pose>
+        <pose>-0.02 -0.0875 -0.0125 1.5707963 0 1.5707963 </pose>
         <geometry>
-          <mesh filename="package://zed_sim_package/mesh/zed_body.stl" scale="0.001 0.001 0.001" />
+          <mesh>
+            <uri>package://zed_sim_package/mesh/zed_body.stl</uri>
+            <scale> 0.001 0.001 0.001</scale>
+	        </mesh>
+          <!-- <mesh filename="package://zed_sim_package/mesh/zed_body.stl" scale="0.001 0.001 0.001" /> -->
         </geometry>
       </visual>
   </link>
