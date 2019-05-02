@@ -21,7 +21,7 @@
 
 #### step1：download voc from creDa data
 
-#### ![p1](C:\Users\Nano\Desktop\ai實習\logs\creDa\img\p1.png)
+   ![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/Creda/log_imgs/p1.PNG)
 
 
 
@@ -33,7 +33,7 @@
 
 1. I suggest that input folder should contain only folders of Pascal Voc(without other folders).
 
-   ​	![p2](C:\Users\Nano\Desktop\ai實習\logs\creDa\img\p2.png)
+   ​	![image](https://github.com/Nano1201/InfoExchange/blob/master/nano/Creda/log_imgs/p2.PNG)
 
 
 
