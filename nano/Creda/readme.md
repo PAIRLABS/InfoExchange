@@ -13,7 +13,7 @@
 #### step0：git clone
 
 ```
- $ git clone git@github.com:Nano1201/InfoExchange.git
+ $ git clone https://github.com/Nano1201/InfoExchange.git
  $ cd InfoExchange/nano/Creda
 ```
 
