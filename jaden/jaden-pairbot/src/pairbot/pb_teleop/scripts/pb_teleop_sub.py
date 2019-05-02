@@ -6,13 +6,16 @@ from __future__ import print_function
 import rospy
 import threading
 import time
+import numpy as np
 
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64
 from std_msgs.msg import String
+from std_msgs.msg import Int32MultiArray
 
 import sys, select, termios, tty, math
-global sub_once
+global sub_once, leg_HO
+leg_HO = np.array([0, 0])
 msg = """
 Reading from the keyboard and Publishing to Twist!
 ---------------------------
@@ -53,30 +56,29 @@ baseMove = {
 
 frontFlipper = {
     #'key':(speed, degree)
-    'u':(1,24),  # math.pi/180*30
+    'u':(1,30),  # math.pi/180*30
     'i':(1,0),
-    'o':(1,-24), # math.pi/180*30
+    'o':(1,-30), # math.pi/180*30
     '7':(0,1),
     'y':(0,-1)
 }
 
 rearFlipper = {
     #'key':(speed, degree)
-    'j':(1,24), # math.pi/180*30
+    'j':(1,30), # math.pi/180*30
     'k':(1,0),
-    'l':(1,-24),# math.pi/180*30
+    'l':(1,-30),# math.pi/180*30
     'h':(0,1),
     'n':(0,-1)
 }
 
 
-def keycallback(data):
+def rMA_callback(data):
     global pub_vel,pub_front_flipper,pub_rear_flipper
     global x,y,z,th,speed_step,angle_step,front_speed,front_degree,rear_speed,rear_degree
     global sub_once
-    keymsg = data.data
-    cur_time = rospy.get_time()
-    print("getin keycb, kmsg="+str(keymsg))
+    robot_MA = data.data
+    print("getin keycb, kmsg="+str(robot_MA))
     # if (cur_time - timestamp)<0.1:
     #     print("Click keystroke too fast! Ignore input temporarily....")
     #     continue
@@ -189,15 +191,60 @@ def keycallback(data):
             print('done')
             
         endWhile = True
-    
-
-    #print("current:\tx: %s\ttheta: %s\tfront_speed:%s\tfront_degree:%s\trear_speed:%s\trear_degree:%s\t" \
-    #      %(x, th, front_speed, front_degree, rear_speed, rear_degree))
         print("current:\tx: %s\ttheta: %s\tfront_degree:%s\trear_degree:%s\t" \
             %(x, th, 180*front_degree/math.pi, 180*rear_degree/math.pi))
-    #print("receiveee="+keymsg)
-    #sub_once.unregister()
-    #rospy.spin()
+
+
+def lMA_callback(data):
+    global pub_vel,pub_front_flipper,pub_rear_flipper
+    global x,y,z,th,speed_step,angle_step,front_speed,front_degree,rear_speed,rear_degree,leg_HO
+    global sub_once
+    leg_MA = np.array([0, 0])
+    leg_MA[0] = data.data[0]  #front
+    leg_MA[1] = data.data[1]  #rear
+    sub_once = rospy.Subscriber('/leg_HO', Int32MultiArray, cb_leg_HO)
+    endWhile = False
+    while endWhile == False:
+        t_step = leg_HO[0]-leg_MA[0]/4550  #HOME
+        sub_once = rospy.Subscriber('/pairbot/joint_left_front_flipper_controller/command', Float64, cb_front_degree)
+        print('get lHO0='+str(leg_HO[0]))   
+        cur_step = int(front_degree/angle_step)
+        if t_step == cur_step:
+            break
+        print('moving front flipper to {0}....'.format(180*t_step*angle_step/math.pi))
+        r = rospy.Rate(20)
+        direction = (t_step-cur_step)/abs(t_step-cur_step)
+        while cur_step!=t_step:
+            cur_step+=direction
+            front_degree = angle_step*cur_step
+            if abs(front_degree)<0.0001:
+                front_degree = 0
+            pub_front_flipper.publish(front_degree)
+            r.sleep()
+        print('done')
+
+
+        t_step = leg_HO[1]-leg_MA[1]/4550
+        sub_once = rospy.Subscriber('/pairbot/joint_left_rear_flipper_controller/command', Float64, cb_rear_degree)
+        print('get lHO1='+str(leg_HO[1]))  
+        cur_step = int(rear_degree/angle_step)
+        if t_step == cur_step:
+            break
+        print('moving rear flipper to {0}....'.format(180*t_step*angle_step/math.pi))
+        r = rospy.Rate(20)
+        direction = (t_step-cur_step)/abs(t_step-cur_step)
+        while cur_step!=t_step:
+            cur_step+=direction
+            rear_degree = angle_step*cur_step
+            if abs(rear_degree)<0.0001:
+                rear_degree = 0
+            pub_rear_flipper.publish(rear_degree)
+            r.sleep()
+        print('done')
+            
+        endWhile = True
+        print("current:\tx: %s\ttheta: %s\tfront_degree:%s\trear_degree:%s\t" \
+            %(x, th, 180*front_degree/math.pi, 180*rear_degree/math.pi))
     
 def cb_front_degree(data):
     global front_degree
@@ -211,6 +258,12 @@ def cb_rear_degree(data):
     #print("receiveee="+keymsg)
     sub_once.unregister()
 
+def cb_leg_HO(data):
+    global leg_HO, front_degree, rear_degree
+    leg_HO[0] = front_degree*180/math.pi + data.data[0]  #front
+    leg_HO[1] = rear_degree*180/math.pi + data.data[1]  #rear
+    sub_once.unregister()
+
 
 
 REST_STEPS=20
@@ -221,9 +274,7 @@ def listener():
     global pub_vel,pub_front_flipper,pub_rear_flipper
     pub_vel = rospy.Publisher('/pairbot/cmd_vel', Twist, queue_size = 10)
     pub_front_flipper = rospy.Publisher('/pairbot/joint_left_front_flipper_controller/command', Float64, queue_size = 10)
-    pub_front_flipper_wheel = rospy.Publisher('/pairbot/joint_left_front_flipper_wheel_controller/command', Float64, queue_size = 10)
     pub_rear_flipper = rospy.Publisher('/pairbot/joint_left_rear_flipper_controller/command', Float64, queue_size = 10)
-    pub_rear_flipper_wheel = rospy.Publisher('/pairbot/joint_left_rear_flipper_wheel_controller/command', Float64, queue_size = 10)
     
 
     # base
@@ -234,7 +285,7 @@ def listener():
     th = 0
 
     speed_step = 0.1
-    angle_step = math.pi/144
+    angle_step = math.pi/180
     # front flipper
     front_speed = 0
     front_degree = 0
@@ -242,35 +293,10 @@ def listener():
     rear_speed = 0
     rear_degree = 0
 
-    try:
-        twist = Twist()
-        twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
-        twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
-        pub_vel.publish(twist)
-        pub_front_flipper.publish(0.0)
-        pub_front_flipper_wheel.publish(0.0)
-        pub_rear_flipper.publish(0.0)
-        pub_rear_flipper_wheel.publish(0.0)
-        
-        print(msg)
-        timestamp = rospy.get_time()
-
-    except Exception as e:
-        print(e)
-
-    finally:
-        twist = Twist()
-        twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
-        twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
-        pub_vel.publish(twist)
-        pub_front_flipper.publish(0.0)
-        pub_front_flipper_wheel.publish(0.0)
-        pub_rear_flipper.publish(0.0)
-        pub_rear_flipper_wheel.publish(0.0)
-    print("before sub keycb")
-    rospy.Subscriber("teleopKey", String, keycallback)
+    print("Ready for subscribe teleop")
+    # rospy.Subscriber("robot_MA", Int32MultiArray, rMA_callback)
+    rospy.Subscriber("leg_MA", Int32MultiArray, lMA_callback)
     rospy.spin()
-	#rospy.sleep()
 
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)

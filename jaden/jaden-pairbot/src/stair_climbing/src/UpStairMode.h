@@ -38,10 +38,10 @@ class UpStairMode
 			pub_rMR = n.advertise<std_msgs::Int32MultiArray>("robot_MR", 1);
 			pub_MS = n.advertise<std_msgs::Int32MultiArray>("motor_switch", 1);
 			pub_vel = n.advertise<geometry_msgs::Twist>("/pairbot/cmd_vel", 1);
-			pub_front_flipper = n.advertise<std_msgs::Float64>("/pairbot/joint_left_front_flipper_controller/command", 1);
-			pub_rear_flipper = n.advertise<std_msgs::Float64>("/pairbot/joint_left_rear_flipper_controller/command", 1);
+			//pub_front_flipper = n.advertise<std_msgs::Float64>("/pairbot/joint_left_front_flipper_controller/command", 1);
+			//pub_rear_flipper = n.advertise<std_msgs::Float64>("/pairbot/joint_left_rear_flipper_controller/command", 1);
 			pub_workbenchV = n.advertise<std_msgs::Float64>("/pairbot/joint_scan_joint_controller/command", 1);
-			pub_teleopKey = n.advertise<std_msgs::String>("teleopKey", 1);
+			//pub_teleopKey = n.advertise<std_msgs::String>("teleopKey", 1);
 
 			
             joint_command_client = n.serviceClient<dynamixel_workbench_msgs::JointCommand>("joint_command");
@@ -101,9 +101,9 @@ class UpStairMode
 		ros::Publisher pub_rMR ;
 		ros::Publisher pub_vel ;
 		ros::Publisher pub_workbenchV;
-		ros::Publisher pub_front_flipper;
-		ros::Publisher pub_rear_flipper;
-		ros::Publisher pub_teleopKey;
+		// ros::Publisher pub_front_flipper;
+		// ros::Publisher pub_rear_flipper;
+		// ros::Publisher pub_teleopKey;
 
 		// ros::Publisher pub_ht ;
 		// ros::Publisher pub_hb ;

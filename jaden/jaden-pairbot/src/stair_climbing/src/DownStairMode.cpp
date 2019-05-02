@@ -18,8 +18,8 @@
 //  extern float topp,bottomm;
 //  extern float angg; //34
 //  extern float ang;
-static float top=-5,bottom=30;
-static float topp=-5,bottomm=30;
+static float top=134,bottom=45;
+static float topp=134,bottomm=45;
 static float angg=30; //34
 static float ang=0;
 
@@ -292,8 +292,8 @@ void DownStairMode::mode_6()
    printf("Mode 6 , Down stairs prepare \n");
     //bodyJOGvel(350,350);
 
-   r_speed[0]=350;
-   r_speed[1]=350;
+   r_speed[0]=540;
+   r_speed[1]=540;
    for (int i = 0; i < 2; i++)
 	{
 	   robot_speed.data.push_back(r_speed[i]);
@@ -373,8 +373,8 @@ void DownStairMode::mode_6()
    printf("Down Stairs Prepare.\n\n");
 	//---Down Prepare
 	//bodyJOGvel(350,350);
-	r_speed[0]=350;
-   r_speed[1]=350;
+	r_speed[0]=600;
+   r_speed[1]=600;
    for (int i = 0; i < 2; i++)
 	{
 	   robot_speed.data.push_back(r_speed[i]);
@@ -388,8 +388,8 @@ void DownStairMode::mode_6()
 
 
 	//legMAvel(200,200); //80,50
-	l_speed[0]=200;
-	l_speed[1]=200;
+	l_speed[0]=1000;
+	l_speed[1]=1000;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_speed.data.push_back(l_speed[i]);
@@ -416,8 +416,8 @@ void DownStairMode::mode_6()
 	usleep(30000);
 	usleep(100000);
 	//legma(100*300,(90+angg)*300);
-	l_MA[0]=100*300;//Front
-	l_MA[1]=60*300;//Back
+	l_MA[0]=135*4550;//Front
+	l_MA[1]=60*4550;//Back
 	for (int i = 0; i < 2; i++)
 	{
 		leg_MA.data.push_back(l_MA[i]);
@@ -427,7 +427,8 @@ void DownStairMode::mode_6()
 	ros::spinOnce();
 	r.sleep();
 	leg_MA.data.clear();
-   sleep(6);
+    printf("******************** front 135 back 60 sleep 20s******************************\n");
+   sleep(20);
 
 	//bodyact("fwd");
 	r_motion=1;
@@ -436,11 +437,12 @@ void DownStairMode::mode_6()
    printf("robot_motion publish\n");
    ros::spinOnce();
    r.sleep();
-	usleep(5800000);
+    printf("************************* go 1s **********************************\n");
+	usleep(1000000);
 
 	//legma(98*300,95*300);
-	l_MA[0]=98*300;
-	l_MA[1]=95*300;
+	l_MA[0]=98*4550;
+	l_MA[1]=95*4550;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_MA.data.push_back(l_MA[i]);
@@ -450,6 +452,7 @@ void DownStairMode::mode_6()
 	ros::spinOnce();
 	r.sleep();
 	leg_MA.data.clear();
+    printf("************************** front 90 back 95 go & sleep 7s ***************************\n");
 	usleep(7000000); //5.5sec
 
 	//bodyact("stop");
@@ -495,12 +498,12 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 //    FILE *M7DD=fopen("/home/ubuntu/CodeBlocks/TrackedRobot_Control/Recore Data/M7_downDistance.txt","w");
     /*---Vel - For Record---*/
 
-    int vel_L=0,vel_R=0;
+    int vel_L=600,vel_R=600;
 
     //XtionMotor(600,0);
 
   	bottomm=bottom;
-	topp=top-10;
+	topp=top - 0;
 	joint_command.request.unit = "rad";
 	joint_command.request.id = 1;
 	joint_command.request.goal_position = bottomm*PI/180;
@@ -526,7 +529,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
     usleep(30000);
 
-
+    int d_counter = 0;
    while(ros::ok())
     //while(d7d>800)//700
     {
@@ -561,8 +564,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
                 //printf("error:%d , Alignment OK!\n",d7);
 
-                vel_L=350;
-                vel_R=350;
+                vel_L=600;
+                vel_R=600;
                 //bodyJOGvel(vel_L,vel_R);
                 //bodyJOGvel(1000,1000); //650,650
                r_speed[0]=vel_L;
@@ -593,8 +596,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
                 //printf("error:%d , need some left\n",d7);
 
-                vel_L=350;
-                vel_R=300;
+                vel_L=600;
+                vel_R=550;
                 //bodyJOGvel(vel_L,vel_R);
                 //bodyJOGvel(850,1000); //250,250
                r_speed[0]=vel_L;
@@ -624,8 +627,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
             {
                 printf("error:%d , need some right\n",d7);
 
-                vel_L=300;
-                vel_R=350;
+                vel_L=600;
+                vel_R=550;
                 //bodyJOGvel(vel_L,vel_R);
                 //bodyJOGvel(1000,850);
                r_speed[0]=vel_L;
@@ -664,10 +667,16 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
         //fprintf(M7VR,"%d\n",vel_R);
         //fprintf(M7DD,"%d\n",d);
 
-        if(d<=800)break;
+        if(d != 0 && d > 750)
+        {
+            d_counter++;
+            printf("***************** d > 750 *********************************\n");
+            if(d_counter >= 3)
+                break;
+        }
 
     }
-
+    
 	//----down stairs end , prepare-----
 	printf("Landind prepare...\n");
 
@@ -687,8 +696,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
     //fprintf(M7VR,"Down stairs end prepare = %d\n",350);
 
 	//bodyJOGvel(350,350);
-	r_speed[0]=400;
-	r_speed[1]=400;
+	r_speed[0]=600;
+	r_speed[1]=600;
 	for (int i = 0; i < 2; i++)
 	{
 	   robot_speed.data.push_back(r_speed[i]);
@@ -703,8 +712,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
 	//legMAvel(50,50); //80,50
 
-	l_speed[0]=100;
-	l_speed[1]=50;
+	l_speed[0]=1000;
+	l_speed[1]=1000;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_speed.data.push_back(l_speed[i]);
@@ -735,7 +744,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
 	//bodyact("fwd");
 	r_motion=1;
-    robot_motion.data=r_motion;
+    	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
 	printf("robot_motion publish\n");
 	ros::spinOnce();
@@ -744,7 +753,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
 	//bodyact("stop");
 // 	r_motion=1;
-//    robot_motion.data=r_motion;
+//      robot_motion.data=r_motion;
 // 	pub_rm.publish(robot_motion);
 // 	printf("robot_motion publish\n");
 // 	ros::spinOnce();
@@ -753,7 +762,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
 	//legma(0,-27000); //T3 up
 	   l_MA[0]=0;
-		l_MA[1]=-27000;
+		l_MA[1]=-90*4550;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_MA.data.push_back(l_MA[i]);
@@ -777,8 +786,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 	usleep(3500000);
 
 	//legma(-28000,-27000);
-	l_MA[0]=-27000;
-	l_MA[1]=-27000;
+	l_MA[0]=-90*4550;
+	l_MA[1]=-90*4550;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_MA.data.push_back(l_MA[i]);
@@ -840,8 +849,8 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 
 	//legMAvel(400,400);
 
-		l_speed[0]=500;
-		l_speed[1]=500;
+		l_speed[0]=1000;
+		l_speed[1]=1000;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_speed.data.push_back(l_speed[i]);

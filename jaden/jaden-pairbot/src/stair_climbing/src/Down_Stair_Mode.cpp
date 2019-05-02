@@ -45,8 +45,8 @@ int main(int argc, char **argv)
 		r.sleep();
 	}
 	sleep(3);
-	DSM.legMA(-26000,-27000);
-	sleep(3);
+	//DSM.legMA(-26000,-27000);
+	//sleep(3);
 	// DSM.mode_5();
 	DSM.mode_6();
 	DSM.mode_7();

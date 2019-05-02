@@ -3,7 +3,7 @@
 <!-- test 3rd generation trackedrobot stair finding function -->
 
 
-<arg name="t1" default="1" />
+<arg name="t1" default="3" />
 <arg name="t2" default="350" />
 <arg name="t3" default="200" />
 <arg name="t4" default="300" />

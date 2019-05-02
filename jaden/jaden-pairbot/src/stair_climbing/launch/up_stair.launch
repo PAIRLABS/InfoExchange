@@ -13,7 +13,7 @@
  <node pkg="stair_climbing" type="Up_Stair_Mode" name="Up_Stair_Mode"  output="screen">
 
 
-    <rosparam param="stop_align_dis">100</rosparam>
+    <rosparam param="stop_align_dis">350</rosparam>
 
     <rosparam param="far_dis">75</rosparam>
 

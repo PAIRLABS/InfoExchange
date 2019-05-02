@@ -26,15 +26,16 @@ int main(int argc, char **argv)
 	
 	while(ros::ok())
 	{
-		std::cout<<"d21="<<USM.d21<<" cnt21="<<USM.counter21<<"\n";
-		if(USM.d21!=0 && USM.counter21>70)break;
+		break;
+        std::cout<<"d21="<<USM.d21<<" cnt21="<<USM.counter21<<"\n";
+		//if(USM.d21!=0 && USM.counter21>70)break;
 		//printf("d21=%d\n",USM.d21);
 		ros::spinOnce();
 		r.sleep();
 	}
 	//USM.start();	
 
-	USM.legMA(-26000,-27000);
+	//USM.legMA(-28000,-29000);
 	sleep(3);
 	printf("before mode_21\n");
 	USM.mode_21();

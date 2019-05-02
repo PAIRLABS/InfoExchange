@@ -34,16 +34,9 @@ int main(int argc, char **argv)
 	{
 		if(cv::waitKey(33) == 27)//press esc to escape
 		{ 
-			printf("before break\n");
 			break;
 		}
 		SD.Depth_Arr();
-		if(SD.depthMD(width/2,height/2)!=0)
-		{ 
-			printf("before break\n");
-			break;
-		}
-		printf("READY!!!,%f\n",SD.depthMD(width/2,height/2));
 		for(int ii=0;ii<height-20;ii+=20)
 		{
 			for(int jj=0;jj<width-20;jj+=20)
@@ -52,14 +45,16 @@ int main(int argc, char **argv)
 			}
 			printf("%d\n", ii);
 		}
-		printf("before spin\n");
+		if(SD.depthMD(width/2,height/2)!=0)
+		{ 
+			break;
+		}
+		printf("READY!!!,%f\n",SD.depthMD(width/2,height/2));
 		ros::spinOnce();
 		r.sleep();
-		printf("after spin\n");
 		
 		
 	}
-	printf("before SD_Start\n");
 	SD.SD_Start();
 	
 	

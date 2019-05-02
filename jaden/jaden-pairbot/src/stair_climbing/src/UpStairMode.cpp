@@ -21,24 +21,18 @@
 // float topp=-5,bottomm=30;
 // float angg=30; //34
 // float ang=0;
-static float top=-5,bottom=30;
-static float topp=-5,bottomm=30;
+static float top=134,bottom=45;
+static float topp=134,bottomm=45;
 static float angg=30; //34
 static float ang=0;
-int front_degree, rear_degree = 0;  //***flippers current degree
-int i_deg, t_deg = 0; //***flippers target and index degree
-std_msgs::String keymsg;
-
-
-
 
 
 void UpStairMode::d21Callback(const std_msgs::Int32::ConstPtr& msg_d21)
-{	
+{
 	d21=msg_d21->data;
 }
 void UpStairMode::d4Callback(const std_msgs::Int32::ConstPtr& msg_d4)
-{	
+{
 	d4=msg_d4->data;
 }
 void UpStairMode::cnt21Callback(const std_msgs::Float64::ConstPtr& msg_cnt21)
@@ -105,12 +99,12 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 		//    FILE *M2VR=fopen("/home/ubuntu/CodeBlocks/TrackedRobot_Control/Recore Data/M2_VelRight.txt","w");
 		//    FILE *M2dldr=fopen("/home/ubuntu/CodeBlocks/TrackedRobot_Control/Recore Data/M2_dldr.txt","w");
 
-	
-	
+
+
    printf("Mode21,1m Alignment Mode\n");
 	//=======ROS============
 	std_msgs::Int32MultiArray robot_speed,leg_speed,robot_MA,leg_MA,robot_HO,robot_VA,robot_MR,leg_HO,leg_VA;
-	
+
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
@@ -121,6 +115,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 	leg_speed.data.clear();
 	robot_MA.data.clear();
 	leg_MA.data.clear();
+	leg_HO.data.clear();
 	robot_HO.data.clear();
 	robot_VA.data.clear();
 	robot_MR.data.clear();
@@ -143,43 +138,28 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 
 	printf("ZED turn down\n");
 	ROS_INFO("bottom:%f,top:%f", bottomm,topp);
-	// head_bottom.data=bottom;
-	// head_top.data=top+20;
-	// pub_hb.publish(head_bottom);
-	// pub_ht.publish(head_top);
-	// ros::spinOnce();
-	// for (int i_deg = front_degree; i_deg<=80; i_deg++){
-	// 	frontflipperang.data = (float)(i_deg*PI/180);
-	// 	pub_front_flipper.publish(frontflipperang);
-	// 	usleep(100000);
-	// }
-	// t_deg = 80;
-	// while (front_degree != t_deg){
-	//  	i_deg = front_degree + (t_deg-front_degree)/abs(t_deg-front_degree); //current + 1 deg
-	// 	frontflipperang.data = (float)(i_deg*PI/180);
-	// 	pub_front_flipper.publish(frontflipperang);
-	// 	pub_rear_flipper.publish(frontflipperang);
-	// 	front_degree = i_deg;
-	// 	rear_degree = i_deg;
-	// 	//printf("f_d = %d\n",front_degree);
-	// 	usleep(100000);
-	// }
-	keymsg.data = "7";
-	for (int i_iter=0; i_iter<32; i_iter++){
-		pub_teleopKey.publish(keymsg);
-		usleep(100000);
-	}
 	
-	keymsg.data = "h";
-	for (int i_iter=0; i_iter<32; i_iter++){
-		pub_teleopKey.publish(keymsg);
-		usleep(100000);
-		//r.sleep();
-		//sleep(0.2);
+	l_MA[0]=-90*4550;
+	l_MA[1]=-90*4550;
+	for (int i = 0; i < 2; i++)
+	{
+		leg_MA.data.push_back(l_MA[i]);
+		printf("MA:%d\n",l_MA[i]);
 	}
-	printf("leg_MA publish\n");
-	keymsg.data = "";
-	pub_teleopKey.publish(keymsg);
+	pub_lMA.publish(leg_MA);
+	printf("leg_MA publish***************\n");
+	
+	// l_HO[0]=90;
+	// l_HO[1]=90;
+	// for (int i = 0; i < 2; i++)
+	// {
+	// 	leg_HO.data.push_back(l_HO[i]);
+	// }
+	// pub_lHO.publish(leg_HO);
+	// printf("leg_HO publish\n");
+	// ros::spinOnce();
+	// r.sleep();
+	// leg_HO.data.clear();
 
 	//while(d>600)
 	while(ros::ok())
@@ -206,7 +186,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 		{
 			printf("counter21 = %f\n",counter21);
 			usleep(10000);
-			
+
 			if(counter21<=stop_align_dis) //5F:830, 4F:680
 			{
 				printf("distance OK\n");
@@ -219,7 +199,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				printf("Too Far\n");
 				printf("stop_align_dis=%f\n",stop_align_dis);
 		//bodyact("stop");
-				
+
 				r_motion=0;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
@@ -230,13 +210,13 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				//*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
-				
+
 				usleep(5000);
 
 				vel_L=350;
 				vel_R=350;
 		//bodyJOGvel(vel_L,vel_R);//400
-				
+
 				r_speed[0]=vel_L;
 				r_speed[1]=vel_R;
 				for (int i = 0; i < 2; i++)
@@ -244,9 +224,9 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 					robot_speed.data.push_back(r_speed[i]);
 				}
 				pub_rs.publish(robot_speed);
-								
-				printf("robot_speed publish\n");				
-				
+
+				printf("robot_speed publish\n");
+
 				usleep(5000);
 		//bodyact("fwd");
 
@@ -260,7 +240,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				//*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
-				
+
 				usleep(50000);
 			}
 			else if(key1!=2 && counter21<close_dis) //5F:780, 4F:590 ; too close,TR back //900 depthMD(mid_x2,mid_y2)<800
@@ -269,7 +249,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				printf("Too Close\n");
 				printf("close_dis=%f\n",close_dis);
 		//bodyact("stop");
-				
+
 				r_motion=0;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
@@ -280,7 +260,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				//*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
-								
+
 				usleep(5000);
 
 				vel_L=350;
@@ -294,7 +274,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 					robot_speed.data.push_back(r_speed[i]);
 				}
 				pub_rs.publish(robot_speed);
-								
+
 				printf("robot_speed publish\n");
 
 		//bodyact("back");
@@ -303,13 +283,13 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
 				//*** pub_rm for simulating version
-				twist.linear.x = -0.28; twist.linear.y = 0; twist.linear.z = 0;
+				twist.linear.x = -0.2; twist.linear.y = 0; twist.linear.z = 0;
 				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
 				pub_vel.publish(twist);
 				//*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
-				
+
 				usleep(50000);
 			}
 			else if(key1==3)
@@ -326,7 +306,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				//*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
-				
+
 				usleep(5000);
 
 				if(sum3!=0) //never happen
@@ -377,7 +357,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 		else if( d21<=-err )
 		{
 			printf("d21:%d , Mode2 Need Left\n",d21);
-			
+
 			//bodyact("stop");
 			r_motion=0;
 			robot_motion.data=r_motion;
@@ -389,7 +369,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
-			
+
 			usleep(5000);
 
 			vel_L=300;
@@ -404,7 +384,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			}
 			pub_rs.publish(robot_speed);
 			printf("robot_speed publish\n");
-			
+
 			//bodyact("left");
 
 			r_motion=3;
@@ -417,7 +397,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
-			
+
 			usleep(300000);
 
 
@@ -431,7 +411,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
-			
+
 			usleep(5000);
 			key1=0;
 		}
@@ -440,7 +420,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 		//Dec demo
 		{
 			printf("d21:%d , Mode2 Need Right\n",d21);
-			
+
 	//bodyact("stop");
 
 			r_motion=0;
@@ -453,7 +433,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
-			
+
 			usleep(5000);
 
 			vel_L=300;
@@ -466,7 +446,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				robot_speed.data.push_back(r_speed[i]);
 			}
 			pub_rs.publish(robot_speed);
-							
+
 			printf("robot_speed publish\n");
 	//bodyact("right");
 
@@ -480,7 +460,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
-			
+
 			usleep(300000);//200000
 
 
@@ -497,15 +477,15 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			usleep(5000);
 			key1=0;
 		}
-		
+
 
 
 	if(counter21<stop_align_dis )
 		break;
-		
+
 	ros::spinOnce();
-	r.sleep();	
-	
+	r.sleep();
+
 	}//while(d>600) end
 	// int cnt_dis=0;
 	while(ros::ok())
@@ -542,7 +522,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			//cnt_dis++;
 			r.sleep();
 		}
-	
+
 		// if(cnt_dis>=3)
 		// {
 		// 	break;
@@ -572,9 +552,9 @@ void UpStairMode::mode_3()
 	/*---Data Record - open---*/
     //FILE *M3Time=fopen("/home/ubuntu/CodeBlocks/TrackedRobot_Control/Recore Data/M3_time.txt","w");
 
-	
+
 	std_msgs::Int32MultiArray robot_speed,leg_speed,robot_MA,leg_MA,robot_HO,robot_VA,robot_MR,leg_HO,leg_VA;
-	
+
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
@@ -589,11 +569,11 @@ void UpStairMode::mode_3()
 	leg_HO.data.clear();
 	robot_VA.data.clear();
 	robot_MR.data.clear();
-	
+
 	ros::Rate r(1);
-	
+
 	ros::spinOnce();
-	r.sleep();	
+	r.sleep();
 
 	//bodyact("stop");
 	r_motion=0;//robot_motion
@@ -610,9 +590,9 @@ void UpStairMode::mode_3()
 	usleep(50000);
 
 	//XtionMotor(740-angg,0); //375 5F 640
-	
+
 	bottomm=bottom;
-	topp=top-30;
+	topp=top-15;
 	joint_command.request.unit = "rad";
 	joint_command.request.id = 1;
 	joint_command.request.goal_position = bottomm*PI/180;
@@ -621,7 +601,7 @@ void UpStairMode::mode_3()
 	joint_command.request.id = 2;
 	joint_command.request.goal_position = topp*PI/180;
 	joint_command_client.call(joint_command);
-	workbenchV.data = (float)(30*PI/180);
+	workbenchV.data = (float)(15*PI/180);
 	pub_workbenchV.publish(workbenchV);
 
 	printf("ZED turn down\n");
@@ -643,10 +623,12 @@ void UpStairMode::mode_3()
 		/*---Speed set---*/
 		//bodyJOGvel(450,450);//350,350
 		//legMAvel(200,200);
-		r_speed[0]=450;
-		r_speed[1]=450;
-		l_speed[0]=200;
-		l_speed[1]=200;
+		//r_speed[0]=450;
+		//r_speed[1]=450;
+		r_speed[0]=700;
+		r_speed[1]=700;
+		l_speed[0]=1000;
+		l_speed[1]=1000;
 		for (int i = 0; i < 2; i++)
 		{
 			robot_speed.data.push_back(r_speed[i]);
@@ -676,45 +658,27 @@ void UpStairMode::mode_3()
 		/*---01---*/
 		//legma((85-angg)*300,(85-angg)*300); //T0, T3 move down 90,90
 
-		l_MA[0]=(85-angg)*300;
-		l_MA[1]=(85-angg)*300;
+		l_MA[0]=(90-angg)*4550;
+		l_MA[1]=(90-angg)*4550;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_MA.data.push_back(l_MA[i]);
 		}
 		pub_lMA.publish(leg_MA);
-		// t_deg = 30;
-		// while (front_degree != t_deg){
-		//  	i_deg = front_degree + (t_deg-front_degree)/abs(t_deg-front_degree); //current + 1 deg
-		// 	frontflipperang.data = (float)(i_deg*PI/180);
-		// 	pub_front_flipper.publish(frontflipperang);
-		// 	pub_rear_flipper.publish(frontflipperang);
-		// 	front_degree = i_deg;
-		// 	rear_degree = i_deg;
-		// 	//printf("f_d = %d\n",front_degree);
-		// 	usleep(100000);
-		// }
-		keymsg.data = "u";
-		pub_teleopKey.publish(keymsg);
-		sleep(1.5);
-		keymsg.data = "j";
-		pub_teleopKey.publish(keymsg);
 		printf("leg_MA publish\n");
-		sleep(1.5);
-		keymsg.data = "";
-		pub_teleopKey.publish(keymsg);
 		ros::spinOnce();
 		r.sleep();
 		leg_MA.data.clear();
-		sleep(3); //6.5 sec
-
+		printf("************************************sleep 10s****************************\n");
+		//sleep(3); //6.5 sec
+		usleep(10000000);
 		/*---02 Time: 7sec---*/
 		//bodyact("fwd");
 		r_motion=1;//robot_motion
 		robot_motion.data=r_motion;
 		pub_rm.publish(robot_motion);
 		//*** pub_rm for simulating version
-		twist.linear.x = 0.7; twist.linear.y = 0; twist.linear.z = 0;
+		twist.linear.x = 0.56; twist.linear.y = 0; twist.linear.z = 0;
 		twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
 		pub_vel.publish(twist);
 		//*** pub_rm for simulating version
@@ -722,10 +686,11 @@ void UpStairMode::mode_3()
 		ros::spinOnce();
 		r.sleep();
 		usleep(1000000);
+		printf("********************* go 1s *****************\n");
 
 		//legma((85-angg)*300,90*300); //T3 move down first, T0 not move 90,90
-		l_MA[0]=80*300;
-		l_MA[1]=60*300;
+		l_MA[0]=80*4550;
+		l_MA[1]=80*4550;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_MA.data.push_back(l_MA[i]);
@@ -733,34 +698,17 @@ void UpStairMode::mode_3()
 		}
 		pub_lMA.publish(leg_MA);
 		ros::spinOnce();
-		// t_deg = 0;
-		// while (front_degree != t_deg){
-		//  	i_deg = front_degree + (t_deg-front_degree)/abs(t_deg-front_degree); //current + 1 deg
-		// 	frontflipperang.data = (float)(i_deg*PI/180);
-		// 	pub_front_flipper.publish(frontflipperang);
-		// 	pub_rear_flipper.publish(frontflipperang);
-		// 	front_degree = i_deg;
-		// 	rear_degree = i_deg;
-		// 	//printf("f_d = %d\n",front_degree);
-		// 	usleep(100000);
-		// }
-		keymsg.data = "i";
-		pub_teleopKey.publish(keymsg);
-		sleep(1.5);
-		keymsg.data = "k";
-		pub_teleopKey.publish(keymsg);
 		printf("leg_MA publish\n");
-		sleep(1.5);
-		keymsg.data = "";
-		pub_teleopKey.publish(keymsg);
 		r.sleep();
 		leg_MA.data.clear();
 		// usleep(6800000);
-		usleep(7800000);
+		//usleep(7800000);
+		printf("************************************sleep 4s****************************\n");
+		usleep(4000000);
 		/*---03---*/
 		//legma(85*300,85*300); //T0 move down, T3 not move 98,90
-		l_MA[0]=80*300;
-		l_MA[1]=110*300;
+		l_MA[0]=90*4550;
+		l_MA[1]=90*4550;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_MA.data.push_back(l_MA[i]);
@@ -770,6 +718,7 @@ void UpStairMode::mode_3()
 		ros::spinOnce();
 		r.sleep();
 		leg_MA.data.clear();
+		printf("************************************sleep 2.5s****************************\n");
 		usleep(2500000);
 		//bodyact("stop");
 		r_motion=0;//robot_motion
@@ -802,7 +751,7 @@ void UpStairMode::mode_3()
 void UpStairMode::mode_4()	//---Climbing mode
 {
 	std_msgs::Int32MultiArray robot_speed,leg_speed,robot_MA,leg_MA,robot_HO,robot_VA,robot_MR,leg_HO,leg_VA;
-	
+
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
@@ -820,9 +769,9 @@ void UpStairMode::mode_4()	//---Climbing mode
 	leg_HO.data.clear();
 
 	ros::Rate r(2);
-	
+
 	//ros::spinOnce();
-	//r.sleep();	
+	//r.sleep();
 
 	int cont4=0;
 	int key=0;
@@ -853,7 +802,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 		leg_speed.data.clear();
 		leg_VA.data.clear();
 
-   
+
 	//bodyact("fwd");
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
@@ -871,7 +820,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	while(ros::ok())
 	{
 		bottomm=bottom;
-		topp=top-50;
+		topp=top-40;
 		joint_command.request.unit = "rad";
 		joint_command.request.id = 1;
 		joint_command.request.goal_position = bottomm*PI/180;
@@ -880,19 +829,18 @@ void UpStairMode::mode_4()	//---Climbing mode
 		joint_command.request.id = 2;
 		joint_command.request.goal_position = topp*PI/180;
 		joint_command_client.call(joint_command);
-		workbenchV.data = (float)(30*PI/180);
+		workbenchV.data = (float)(40*PI/180);
 		pub_workbenchV.publish(workbenchV);
-
 
 		printf("ZED turn down\n");
 		ROS_INFO("bottom:%f,top:%f,workbenchV:%f", bottomm,topp, workbenchV.data);
 		printf("mid:(%d,%d) , d4:%d , cnt21:%f",mid_x,mid_y,d4,counter21);		
-		if(mid_x!=0 && mid_y!=0 && counter21<500)
+		if(mid_x!=0 && mid_y!=0 && counter21<1500)
 		{
 			if(d4<=56 && d4>=-56) //40
 			{
-				vel_L=350;//1000
-				vel_R=350;//1000
+				vel_L=600;//1000
+				vel_R=600;//1000
 			//bodyJOGvel(vel_L,vel_R);
 				r_speed[0]=vel_L;
 				r_speed[1]=vel_R;
@@ -911,7 +859,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
 				//*** pub_rm for simulating version
-				twist.linear.x = 0.28; twist.linear.y = 0; twist.linear.z = 0;
+				twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
 				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
 				pub_vel.publish(twist);
 				//*** pub_rm for simulating version
@@ -920,45 +868,11 @@ void UpStairMode::mode_4()	//---Climbing mode
 				r.sleep();
 				usleep(10000);
 			}
-			else if(d4<-15)
+			else if(d4<-56)
 			{
 				printf("need turn left\n");
-				vel_L=300;//880
-            	vel_R=350;//1000
-				//bodyJOGvel(vel_L,vel_R);
-				r_speed[0]=vel_L;
-				r_speed[1]=vel_R;
-				for (int i = 0; i < 2; i++)
-				{
-					robot_speed.data.push_back(r_speed[i]);
-				}
-				pub_rs.publish(robot_speed);
-				printf("speed publish\n");
-				ros::spinOnce();
-				r.sleep();
-				robot_speed.data.clear();	
-				usleep(10000);
-				//bodyact("fwd");
-				r_motion=1;//robot_motion
-				robot_motion.data=r_motion;
-				pub_rm.publish(robot_motion);
-				//*** pub_rm for simulating version
-				twist.linear.x = 0.28; twist.linear.y = 0; twist.linear.z = 0;
-				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = PI/144*2;
-				pub_vel.publish(twist);
-				//*** pub_rm for simulating version
-				printf("robot_motion publish\n");
-				ros::spinOnce();
-				r.sleep();
-				usleep(10000);
-
-
-			}
-			else if(d4>15)
-			{
-				printf("need turn right\n");
-				vel_L=350;//1000
-		        vel_R=300;//880
+				vel_L=550;//880
+            	vel_R=600;//1000
 				//bodyJOGvel(vel_L,vel_R);
 				r_speed[0]=vel_L;
 				r_speed[1]=vel_R;
@@ -971,13 +885,47 @@ void UpStairMode::mode_4()	//---Climbing mode
 				ros::spinOnce();
 				r.sleep();
 				robot_speed.data.clear();
-				usleep(10000);					
+				usleep(10000);
 				//bodyact("fwd");
 				r_motion=1;//robot_motion
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
 				//*** pub_rm for simulating version
-				twist.linear.x = 0.28; twist.linear.y = 0; twist.linear.z = 0;
+				twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
+				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = PI/144*2;
+				pub_vel.publish(twist);
+				//*** pub_rm for simulating version
+				printf("robot_motion publish\n");
+				ros::spinOnce();
+				r.sleep();
+				usleep(10000);
+
+
+			}
+			else if(d4>56)
+			{
+				printf("need turn right\n");
+				vel_L=600;//1000
+		        vel_R=550;//880
+				//bodyJOGvel(vel_L,vel_R);
+				r_speed[0]=vel_L;
+				r_speed[1]=vel_R;
+				for (int i = 0; i < 2; i++)
+				{
+					robot_speed.data.push_back(r_speed[i]);
+				}
+				pub_rs.publish(robot_speed);
+				printf("speed publish\n");
+				ros::spinOnce();
+				r.sleep();
+				robot_speed.data.clear();
+				usleep(10000);
+				//bodyact("fwd");
+				r_motion=1;//robot_motion
+				robot_motion.data=r_motion;
+				pub_rm.publish(robot_motion);
+				//*** pub_rm for simulating version
+				twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
 				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = -PI/144*2;
 				pub_vel.publish(twist);
 				//*** pub_rm for simulating version
@@ -994,7 +942,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 		{
 			printf("---Ready go to the top!---\n");
 			key=0;
-			
+
 			//bodyact("stop");
 			r_motion=0;//robot_motion
 			robot_motion.data=r_motion;
@@ -1009,8 +957,8 @@ void UpStairMode::mode_4()	//---Climbing mode
 			r.sleep();
 
 			usleep(50000);
-			vel_L=400;
-			vel_R=400;
+			vel_L=600;
+			vel_R=600;
 			//bodyJOGvel(vel_L,vel_R);
 			r_speed[0]=vel_L;
 			r_speed[1]=vel_R;
@@ -1022,8 +970,8 @@ void UpStairMode::mode_4()	//---Climbing mode
 			printf("speed publish\n");
 			ros::spinOnce();
 			r.sleep();
-			robot_speed.data.clear();	
-         
+			robot_speed.data.clear();
+
 			//bodyact("fwd");
 			r_motion=0;//robot_motion
 			robot_motion.data=r_motion;
@@ -1062,7 +1010,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	ros::spinOnce();
 	r.sleep();
 
-	
+
 	usleep(10000);
 
 	//legva(600,600);
@@ -1076,7 +1024,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	printf("speed publish\n");
 	ros::spinOnce();
 	r.sleep();
-	leg_VA.data.clear();	
+	leg_VA.data.clear();
 
 	usleep(10000);
 
@@ -1086,8 +1034,8 @@ void UpStairMode::mode_4()	//---Climbing mode
 
 
 	//bodyJOGvel(450,450); //400,400
-	r_speed[0]=450;
-	r_speed[1]=450;
+	r_speed[0]=600;
+	r_speed[1]=600;
 	for (int i = 0; i < 2; i++)
 	{
 		robot_speed.data.push_back(r_speed[i]);
@@ -1096,14 +1044,14 @@ void UpStairMode::mode_4()	//---Climbing mode
 	printf("speed publish\n");
 	ros::spinOnce();
 	r.sleep();
-	robot_speed.data.clear();	
+	robot_speed.data.clear();
 	usleep(10000);
 	//bodyact("fwd");
 	r_motion=1;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
 	//*** pub_rm for simulating version
-	twist.linear.x = 0.8; twist.linear.y = 0; twist.linear.z = 0;
+	twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
 	twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
 	pub_vel.publish(twist);
 	//*** pub_rm for simulating version
@@ -1117,7 +1065,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 
 	/*---02.Stop and set speed---*/
 
-	//bodyact("stop");		
+	//bodyact("stop");
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
@@ -1133,10 +1081,10 @@ void UpStairMode::mode_4()	//---Climbing mode
 	usleep(50000);//0.5
 	//bodyJOGvel(400,400);
 	//legMAvel(200,200);
-	r_speed[0]=400;
-	r_speed[1]=400;
-	l_speed[0]=200;
-	l_speed[1]=200;
+	r_speed[0]=600;
+	r_speed[1]=600;
+	l_speed[0]=1000;
+	l_speed[1]=1000;
 	for (int i = 0; i < 2; i++)
 	{
 		robot_speed.data.push_back(r_speed[i]);
@@ -1148,7 +1096,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	ros::spinOnce();
 	r.sleep();
 	leg_speed.data.clear();
-	robot_speed.data.clear();	
+	robot_speed.data.clear();
 
 	//XtionMotor(0,0);
     bottomm=bottom;
@@ -1163,7 +1111,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	joint_command_client.call(joint_command);
 	workbenchV.data = (float)(0*PI/180);
 	pub_workbenchV.publish(workbenchV);
-
 
 	printf("ZED init\n");
 	ROS_INFO("bottom:%f,top:%f", bottomm,topp);
@@ -1182,55 +1129,36 @@ void UpStairMode::mode_4()	//---Climbing mode
 	/*---03. Time : 7sec---*/
 
 	//legma(95*300,135*300);
-	l_MA[0]=130*300;
-	l_MA[1]=115*300;
+	l_MA[0]=135*4550;
+	l_MA[1]=115*4550;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_MA.data.push_back(l_MA[i]);
 		printf("MA:%d\n",l_MA[i]);
 	}
 	pub_lMA.publish(leg_MA);
-	// t_deg = -35;
-	// while (front_degree != t_deg){
-	// 	i_deg = front_degree + (t_deg-front_degree)/abs(t_deg-front_degree); //current + 1 deg
-	// 	frontflipperang.data = (float)(i_deg*PI/180);
-	// 	pub_front_flipper.publish(frontflipperang);
-	// 	pub_rear_flipper.publish(frontflipperang);
-	// 	front_degree = i_deg;
-	// 	rear_degree = i_deg;
-	// 	//printf("f_d = %d\n",front_degree);
-	// 	usleep(100000);
-	// }
-	keymsg.data = "o";
-	pub_teleopKey.publish(keymsg);
-	sleep(1.5);
-	keymsg.data = "l";
-	pub_teleopKey.publish(keymsg);
-	sleep(1.5);
-	keymsg.data = "";
-	pub_teleopKey.publish(keymsg);
 	printf("leg_MA publish\n");
 	ros::spinOnce();
 	r.sleep();
 	leg_MA.data.clear();
 
-	
+
 	r_motion=1;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
 	//*** pub_rm for simulating version
-	twist.linear.x = 0.24; twist.linear.y = 0; twist.linear.z = 0;
+	twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
 	twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
 	pub_vel.publish(twist);
 	//*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
+    printf("**********************front: %d back %d, go & sleep 3.5s********************\n", l_MA[0], l_MA[1]);
+	usleep(3500000);
 
-	usleep(6000000);
-
-	l_MA[0]=60*300;
-	l_MA[1]=55*300;
+	l_MA[0]=60*4550;
+	l_MA[1]=55*4550;
 
 
 	for (int i = 0; i < 2; i++)
@@ -1239,16 +1167,9 @@ void UpStairMode::mode_4()	//---Climbing mode
 		printf("MA:%d\n",l_MA[i]);
 	}
 	pub_lMA.publish(leg_MA);
-	keymsg.data = "i";
-	pub_teleopKey.publish(keymsg);
-	sleep(1.5);
-	keymsg.data = "k";
-	pub_teleopKey.publish(keymsg);
-	sleep(1.5);
-	keymsg.data = "";
-	pub_teleopKey.publish(keymsg);
-	printf("leg_MA publish\n");
-	ros::spinOnce();
+	printf("leg_MA publish\n");	
+    printf("**********************front: %d back %d********************\n", l_MA[0], l_MA[1]);
+    ros::spinOnce();
 	leg_MA.data.clear();
 	UpStairMode::motor_switch(1,0);
 	usleep(500000);
@@ -1271,7 +1192,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 
 	/*---04---*/
 
-	
+
 	//legma(0,0);
 	// l_MA[0]=0;
 	// l_MA[1]=0;
@@ -1303,8 +1224,8 @@ void UpStairMode::mode_4()	//---Climbing mode
 	usleep(50000);
 
 	//legMAvel(500,500);
-	l_speed[0]=500;
-	l_speed[1]=500;
+	l_speed[0]=1000;
+	l_speed[1]=1000;
 	for (int i = 0; i < 2; i++)
 	{
 		leg_speed.data.push_back(l_speed[i]);
@@ -1316,8 +1237,9 @@ void UpStairMode::mode_4()	//---Climbing mode
 	leg_speed.data.clear();
 	//legma(0,0);
 	UpStairMode::legMA(-26000,-27000);//leg up
+    printf("******************leg recover****************\n");
 	usleep(2000000);
-	
+
 	UpStairMode::leghome(0,0);
 	usleep(1000000);//sleep to wait the leg touch ground
 	printf("---Already On the TOP---\n");
@@ -1327,7 +1249,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 
 
 void UpStairMode::legMA(int front,int back)
-{			
+{
 	std_msgs::Int32MultiArray leg_MA;
 
 	l_MA[0]=back;
@@ -1338,8 +1260,8 @@ void UpStairMode::legMA(int front,int back)
 	}
 	pub_lMA.publish(leg_MA);
 	printf("leg_MA publish\n");
-	
-	ros::spinOnce();          
+
+	ros::spinOnce();
 }
 void UpStairMode::robotMA(int left,int right)
 {
@@ -1353,8 +1275,8 @@ void UpStairMode::robotMA(int left,int right)
 	}
 	pub_rMA.publish(robot_MA);
 	printf("robot_MA publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 void UpStairMode::robotspeed(int left,int right)
 {
@@ -1368,8 +1290,8 @@ void UpStairMode::robotspeed(int left,int right)
 	}
 	pub_rs.publish(robot_speed);
 	printf("robot_speed publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 void UpStairMode::legspeed(int front,int back)
 {
@@ -1383,8 +1305,8 @@ void UpStairMode::legspeed(int front,int back)
 	}
 	pub_ls.publish(leg_speed);
 	printf("legspeed publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 
 void UpStairMode::robotmotion(std::string rm)
@@ -1437,12 +1359,12 @@ void UpStairMode::robotmotion(std::string rm)
 
 	pub_rm.publish(robot_motion);
 	//printf("robot_motion publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 void UpStairMode::legmotion(std::string lm)
 {
-	
+
 	std_msgs::Int32 leg_motion;
 
 	if  (lm=="Front_Up")
@@ -1455,12 +1377,12 @@ void UpStairMode::legmotion(std::string lm)
 			leg_motion.data=4;
 	else
 		std::cout<<"error lm input!!\n";
-	
+
 
 	pub_lm.publish(leg_motion);
 	printf("leg_motion publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 void UpStairMode::leghome(int front,int back)
 {
@@ -1474,8 +1396,8 @@ void UpStairMode::leghome(int front,int back)
 	}
 	pub_lHO.publish(leg_HO);
 	printf("leghome publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }
 void UpStairMode::motor_switch(int number,int serve_status)
 {
@@ -1489,6 +1411,6 @@ void UpStairMode::motor_switch(int number,int serve_status)
 	}
 	pub_MS.publish(motor_switch);
 	printf("motor_switch publish\n");
-	
-	ros::spinOnce();   
+
+	ros::spinOnce();
 }

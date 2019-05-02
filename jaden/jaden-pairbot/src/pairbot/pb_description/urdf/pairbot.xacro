@@ -421,6 +421,8 @@
         <child link="zed_sim"/>
         <origin xyz="0 0 0.65" rpy="0 0.17 0"/>
     </joint> -->
+    
+    <!-- z is 39 cm = 0.15m+0.24m -->
     <xacro:joint_macro joint_name="scan_joint" type="continuous" parent="camera_stick_link" 
                             child="zed_sim"
                             x="0" y="0" z="0.24"
