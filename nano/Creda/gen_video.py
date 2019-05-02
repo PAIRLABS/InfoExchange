@@ -77,21 +77,19 @@ def AssignFolderByCmd(video_list):
     files = [ args.folder+item for item in os.listdir(args.folder) if os.path.isdir(args.folder+item) ]
     
     files.sort()
-    #print(files)
     video_list+=files
-    #return args.folder
+    return args.folder
 
 def main():
 
     video_list=list()
-    AssignFolderByCmd(video_list)
 
     type_color = {'car':'red', 'cycles':'yellow', 'human':'green' }
     color_list = ['magenta','lightBlue','orange','darkGreen','gray','white','blue']
 
     img_num = 0
 
-    print('Convert video in ' + '/'.join(video_list[0].split('/')[0:-1]) + ' : \n')
+    print('Convert video in ' + AssignFolderByCmd(video_list)  + ' : \n')
 
     for folder_path in video_list:
         #folder_path = set_path+folder_name
