@@ -59,6 +59,10 @@ def gen_video(folder_path,type_color,color_list):
     plt.tight_layout()
     ani = FuncAnimation(fig,update,frames=img_set,fargs=[ax,folder_path,type_color,color_list],interval=1,repeat=False)
     mp4_name = folder_path.split('/')[-1]+'.mp4'
+    try:
+        os.mkdir('output')
+    except:
+        pass
     ani.save(os.getcwd()+'/output/'+mp4_name,writer='ffmpeg',fps=30)
     #plt.show()
     plt.close()
