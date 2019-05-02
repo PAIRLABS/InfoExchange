@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>Fog_02_03.mp4_00435.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <category>organisms</category>
+    <type>human</type>
+    <attribute>adult</attribute>
+    <bndbox>
+      <xmin>22</xmin>
+      <ymin>579</ymin>
+      <xmax>239</xmax>
+      <ymax>995</ymax>
+    </bndbox>
+  </object>
+</annotation>

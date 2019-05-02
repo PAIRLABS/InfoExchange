@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>Fog_02_03.mp4_00273.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <category>organisms</category>
+    <type>human</type>
+    <attribute>adult</attribute>
+    <bndbox>
+      <xmin>408</xmin>
+      <ymin>602</ymin>
+      <xmax>488</xmax>
+      <ymax>757</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <category>organisms</category>
+    <type>human</type>
+    <attribute>adult</attribute>
+    <bndbox>
+      <xmin>257.48461538462</xmin>
+      <ymin>630.50724022346</ymin>
+      <xmax>331.43725852781</xmax>
+      <ymax>799.25548395479</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <category>transportation</category>
+    <type>car</type>
+    <attribute>sedan</attribute>
+    <bndbox>
+      <xmin>0</xmin>
+      <ymin>701</ymin>
+      <xmax>113</xmax>
+      <ymax>1080</ymax>
+    </bndbox>
+  </object>
+</annotation>
