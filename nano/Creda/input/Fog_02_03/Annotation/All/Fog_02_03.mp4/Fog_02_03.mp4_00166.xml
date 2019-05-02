@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>Fog_02_03.mp4_00166.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <category>transportation</category>
+    <type>car</type>
+    <attribute>sedan</attribute>
+    <bndbox>
+      <xmin>597</xmin>
+      <ymin>649</ymin>
+      <xmax>875</xmax>
+      <ymax>823</ymax>
+    </bndbox>
+  </object>
+</annotation>

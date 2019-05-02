@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>Fog_02_03.mp4_00390.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <category>organisms</category>
+    <type>human</type>
+    <attribute>adult</attribute>
+    <bndbox>
+      <xmin>199</xmin>
+      <ymin>602</ymin>
+      <xmax>357</xmax>
+      <ymax>882</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <category>organisms</category>
+    <type>human</type>
+    <attribute>adult</attribute>
+    <bndbox>
+      <xmin>0.50000000000009</xmin>
+      <ymin>719.8375708095</ymin>
+      <xmax>108.93055056017</xmax>
+      <ymax>870.01324997989</ymax>
+    </bndbox>
+  </object>
+</annotation>
