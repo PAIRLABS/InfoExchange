@@ -64,7 +64,7 @@ def gen_video(folder_path,type_color,color_list):
     except:
         pass
     ani.save(os.getcwd()+'/output/'+mp4_name,writer='ffmpeg',fps=30)
-    #plt.show()
+    #plt.show()  #for debug
     plt.close()
     print('--------------------')
     return img_num
@@ -96,7 +96,6 @@ def main():
     print('Convert video in ' + AssignFolderByCmd(video_list)  + ' : \n')
 
     for folder_path in video_list:
-        #folder_path = set_path+folder_name
         img_num+=gen_video(folder_path,type_color,color_list)
 
     print('color map : ')
