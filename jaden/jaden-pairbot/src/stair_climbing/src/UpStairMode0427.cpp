@@ -67,7 +67,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 	/*---"depth_find" Function Variable---*/
 	int i=0,j=0,x=0,y=0,mid_x=0,mid_y=0,sw,mid_x2=0,mid_y2=0;
 	/*---For Alignment(Mode 21) Luck---*/
-    int key=0;//Left & Right
+    	int key=0;//Left & Right
 	int key1=0;//Far & Close
 	int Align=0;
 	/*---For 1m Alignment---*/
@@ -82,7 +82,7 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 	/*---Out While---*/
 	int d=800;
 	int err=15;
-	float far_dis=125,close_dis=115,stop_align_dis=100;
+	int far_dis=125,close_dis=115,stop_align_dis=100;
 	ros::param::get(NameSpace+"/err", err);
 	ros::param::get(NameSpace+"/far_dis", far_dis);
 	ros::param::get(NameSpace+"/close_dis", close_dis);
@@ -108,22 +108,18 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
-	std_msgs::Float64 workbenchV;
-	std_msgs::Float64 frontflipperang;
 
 	robot_speed.data.clear();
 	leg_speed.data.clear();
 	robot_MA.data.clear();
 	leg_MA.data.clear();
-	leg_HO.data.clear();
 	robot_HO.data.clear();
 	robot_VA.data.clear();
 	robot_MR.data.clear();
-	
-	ros::Rate r(2);
 
+	ros::Rate r(2);
 	//=======================
-    bottomm=bottom;
+    	bottomm=bottom;
 	topp=top-15;
 	joint_command.request.unit = "rad";
 	joint_command.request.id = 1;
@@ -133,33 +129,15 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 	joint_command.request.id = 2;
 	joint_command.request.goal_position = topp*PI/180;
 	joint_command_client.call(joint_command);
-	workbenchV.data = (float)(15*PI/180);
-	pub_workbenchV.publish(workbenchV);
 
 	printf("ZED turn down\n");
 	ROS_INFO("bottom:%f,top:%f", bottomm,topp);
-	
-	l_MA[0]=-90*4550;
-	l_MA[1]=-90*4550;
-	for (int i = 0; i < 2; i++)
-	{
-		leg_MA.data.push_back(l_MA[i]);
-		printf("MA:%d\n",l_MA[i]);
-	}
-	pub_lMA.publish(leg_MA);
-	printf("leg_MA publish***************\n");
-	
-	// l_HO[0]=90;
-	// l_HO[1]=90;
-	// for (int i = 0; i < 2; i++)
-	// {
-	// 	leg_HO.data.push_back(l_HO[i]);
-	// }
-	// pub_lHO.publish(leg_HO);
-	// printf("leg_HO publish\n");
+	// head_bottom.data=bottom;
+	// head_top.data=top+20;
+	// pub_hb.publish(head_bottom);
+	// pub_ht.publish(head_top);
 	// ros::spinOnce();
-	// r.sleep();
-	// leg_HO.data.clear();
+
 
 	//while(d>600)
 	while(ros::ok())
@@ -189,7 +167,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 
 			if(counter21<=stop_align_dis) //5F:830, 4F:680
 			{
-				printf("distance OK\n");
 				key1=3;//distance OK
 			}
 
@@ -197,17 +174,12 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			{
 				key1=1;
 				printf("Too Far\n");
-				printf("stop_align_dis=%f\n",stop_align_dis);
+				printf("stop_align_dis=%d\n",stop_align_dis);
 		//bodyact("stop");
 
 				r_motion=0;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 
@@ -233,11 +205,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				r_motion=1;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0.28; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 
@@ -247,17 +214,12 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			{
 				key1=2;
 				printf("Too Close\n");
-				printf("close_dis=%f\n",close_dis);
+				printf("close_dis=%d\n",close_dis);
 		//bodyact("stop");
 
 				r_motion=0;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 
@@ -282,11 +244,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				r_motion=2;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = -0.2; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 
@@ -299,11 +256,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 				r_motion=0;
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 
@@ -362,18 +314,13 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=0;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 
 			usleep(5000);
 
 			vel_L=300;
-        	vel_R=300;
+        		vel_R=300;
 			//bodyJOGvel(vel_L,vel_R);
 
 			r_speed[0]=vel_L;
@@ -390,11 +337,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=3;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 2*PI/144;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 
@@ -404,11 +346,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=0;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 
@@ -426,11 +363,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=0;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 
@@ -453,11 +385,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=4;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = -2*PI/144;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 
@@ -467,11 +394,6 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 			r_motion=0;
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 			usleep(5000);
@@ -495,22 +417,21 @@ int UpStairMode::mode_21()	//---Alignment & Calculated the tilt angle
 		if( counter21>far_dis )//80
 		{
 			UpStairMode::robotmotion("Forward");
-			printf("cnt21:%d > far_dis:%f\n",counter21, far_dis);
 			std::cout<<"Too far\n";
+            std::cout << "counter21: " << counter21 << std::endl;
 			r.sleep();
 
 		}
 		else if(counter21<close_dis)//70
 		{
 			UpStairMode::robotmotion("Backward");
-			printf("cnt21:%d < close_dis:%f\n",counter21, close_dis);
 			std::cout<<"Too close\n";
+            std::cout << "counter21: " << counter21 << std::endl;
 			r.sleep();
 		}
 		else
 		{
 			UpStairMode::robotmotion("Stop");
-			printf("cnt21:%d is fine\n",counter21);
 			break;
 			//cnt_dis++;
 			r.sleep();
@@ -558,8 +479,6 @@ void UpStairMode::mode_3()
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
-	std_msgs::Float64 workbenchV;
-	std_msgs::Float64 frontflipperang;
 
 	robot_speed.data.clear();
 	leg_speed.data.clear();
@@ -579,11 +498,6 @@ void UpStairMode::mode_3()
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -601,8 +515,6 @@ void UpStairMode::mode_3()
 	joint_command.request.id = 2;
 	joint_command.request.goal_position = topp*PI/180;
 	joint_command_client.call(joint_command);
-	workbenchV.data = (float)(15*PI/180);
-	pub_workbenchV.publish(workbenchV);
 
 	printf("ZED turn down\n");
 	ROS_INFO("bottom:%f,top:%f", bottomm,topp);
@@ -677,11 +589,6 @@ void UpStairMode::mode_3()
 		r_motion=1;//robot_motion
 		robot_motion.data=r_motion;
 		pub_rm.publish(robot_motion);
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0.56; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
 		printf("robot_motion publish\n");
 		ros::spinOnce();
 		r.sleep();
@@ -707,8 +614,8 @@ void UpStairMode::mode_3()
 		usleep(4000000);
 		/*---03---*/
 		//legma(85*300,85*300); //T0 move down, T3 not move 98,90
-		l_MA[0]=90*4550;
-		l_MA[1]=90*4550;
+		l_MA[0]=95*4550;
+		l_MA[1]=110*4550;
 		for (int i = 0; i < 2; i++)
 		{
 			leg_MA.data.push_back(l_MA[i]);
@@ -724,11 +631,6 @@ void UpStairMode::mode_3()
 		r_motion=0;//robot_motion
 		robot_motion.data=r_motion;
 		pub_rm.publish(robot_motion);
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0.1; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
 		printf("robot_motion publish\n");
 		ros::spinOnce();
 		r.sleep();
@@ -755,8 +657,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	std_msgs::Int32 robot_motion,leg_motion;
 
 	dynamixel_workbench_msgs::JointCommand joint_command;
-	std_msgs::Float64 workbenchV;
-	std_msgs::Float64 frontflipperang;
 
 	robot_speed.data.clear();
 	leg_speed.data.clear();
@@ -807,11 +707,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0.1; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -829,14 +724,11 @@ void UpStairMode::mode_4()	//---Climbing mode
 		joint_command.request.id = 2;
 		joint_command.request.goal_position = topp*PI/180;
 		joint_command_client.call(joint_command);
-		workbenchV.data = (float)(40*PI/180);
-		pub_workbenchV.publish(workbenchV);
 
 		printf("ZED turn down\n");
-		ROS_INFO("bottom:%f,top:%f,workbenchV:%f", bottomm,topp, workbenchV.data);
-   		usleep(1000000);		
-		printf("mid:(%d,%d) , d4:%d , cnt21:%d",mid_x,mid_y,d4,counter21);		
-		if(mid_x!=0 && mid_y!=0 && counter21<210)
+		ROS_INFO("bottom:%f,top:%f", bottomm,topp);
+		printf("mid:(%d,%d) , d4:%d , cnt21:%d",mid_x,mid_y,d4,counter21);
+		if(mid_x!=0 && mid_y!=0 && counter21<1500)
 		{
 			if(d4<=56 && d4>=-56) //40
 			{
@@ -859,11 +751,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 				r_motion=1;//robot_motion
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 				r.sleep();
@@ -891,11 +778,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 				r_motion=1;//robot_motion
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = PI/144*2;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 				r.sleep();
@@ -925,11 +807,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 				r_motion=1;//robot_motion
 				robot_motion.data=r_motion;
 				pub_rm.publish(robot_motion);
-				// //*** pub_rm for simulating version
-				// twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
-				// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = -PI/144*2;
-				// pub_vel.publish(twist);
-				// //*** pub_rm for simulating version
 				printf("robot_motion publish\n");
 				ros::spinOnce();
 				r.sleep();
@@ -948,11 +825,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 			r_motion=0;//robot_motion
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0.1; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 			r.sleep();
@@ -977,16 +849,11 @@ void UpStairMode::mode_4()	//---Climbing mode
 			r_motion=0;//robot_motion
 			robot_motion.data=r_motion;
 			pub_rm.publish(robot_motion);
-			// //*** pub_rm for simulating version
-			// twist.linear.x = 0.1; twist.linear.y = 0; twist.linear.z = 0;
-			// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-			// pub_vel.publish(twist);
-			// //*** pub_rm for simulating version
 			printf("robot_motion publish\n");
 			ros::spinOnce();
 			r.sleep();
 
-         	usleep(50000);//0.05
+         		usleep(50000);//0.05
 			cont4++;
 			if(cont4>=2)break;
 		}
@@ -1002,11 +869,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0.1; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -1051,11 +913,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=1;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -1070,11 +927,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -1100,7 +952,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	robot_speed.data.clear();
 
 	//XtionMotor(0,0);
-    bottomm=bottom;
+    	bottomm=bottom;
 	topp=top;
 	joint_command.request.unit = "rad";
 	joint_command.request.id = 1;
@@ -1110,8 +962,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	joint_command.request.id = 2;
 	joint_command.request.goal_position = topp*PI/180;
 	joint_command_client.call(joint_command);
-	workbenchV.data = (float)(0*PI/180);
-	pub_workbenchV.publish(workbenchV);
 
 	printf("ZED init\n");
 	ROS_INFO("bottom:%f,top:%f", bottomm,topp);
@@ -1125,7 +975,7 @@ void UpStairMode::mode_4()	//---Climbing mode
 	// ros::spinOnce();
 	// r.sleep();
 	usleep(500000);
-   
+
 
 	/*---03. Time : 7sec---*/
 
@@ -1147,11 +997,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=1;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0.48; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -1213,11 +1058,6 @@ void UpStairMode::mode_4()	//---Climbing mode
 	r_motion=0;//robot_motion
 	robot_motion.data=r_motion;
 	pub_rm.publish(robot_motion);
-	// //*** pub_rm for simulating version
-	// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-	// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-	// pub_vel.publish(twist);
-	// //*** pub_rm for simulating version
 	printf("robot_motion publish\n");
 	ros::spinOnce();
 	r.sleep();
@@ -1315,46 +1155,16 @@ void UpStairMode::robotmotion(std::string rm)
 	std_msgs::Int32 robot_motion;
 
 
-	if  (rm =="Stop"){
-		robot_motion.data=0;
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
-	}
-	else if(rm =="Forward"){
-		robot_motion.data=1;
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0.28; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
-	}
-	else if(rm =="Backward"){
-		robot_motion.data=2;
-		// //*** pub_rm for simulating version
-		// twist.linear.x = -0.28; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
-	}
-	else if(rm =="Left"){
-		robot_motion.data=3;
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = PI/144;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
-	}
-	else if(rm =="Right"){
-		robot_motion.data=4;
-		// //*** pub_rm for simulating version
-		// twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0;
-		// twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = -PI/144;
-		// pub_vel.publish(twist);
-		// //*** pub_rm for simulating version
-	}
+	if  (rm =="Stop")
+			robot_motion.data=0;
+	else if(rm =="Forward")
+			robot_motion.data=1;
+	else if(rm =="Backward")
+			robot_motion.data=2;
+	else if(rm =="Left")
+			robot_motion.data=3;
+	else if(rm =="Right")
+			robot_motion.data=4;
 	else
 		std::cout<<"error rm input!!\n";
 

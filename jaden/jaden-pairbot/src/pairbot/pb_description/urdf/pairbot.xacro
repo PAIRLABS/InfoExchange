@@ -425,7 +425,28 @@
     <!-- z is 39 cm = 0.15m+0.24m -->
     <xacro:joint_macro joint_name="scan_joint" type="continuous" parent="camera_stick_link" 
                             child="zed_sim"
-                            x="0" y="0" z="0.24"
+                            x="0.01" y="0" z="0.24"
                             roll="0" pitch="0" yaw="0" axis="0 1 0" />
+
+    
+    <joint name="sonar_joint" type="fixed">
+        <origin xyz="${base_length/2-0.01} 0 ${base_height-0.04}" rpy="0 1.57 0"/>
+        <parent link="base_link"/>
+        <child link="sonar_link"/>
+    </joint>
+
+    <link name="sonar_link">
+        <inertial>
+            <mass value="0.001"/>
+            <origin xyz="0 0 0.0" rpy="0 0 0 "/>
+            <inertia ixx="0.000000017" ixy="0" ixz="0" iyy="0.000000017" iyz="0" izz="0.000000017"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.005 0.03 0.02"/>
+            </geometry>
+        </visual>
+    </link>
 
 </robot>

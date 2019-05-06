@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 		{
 			for(int jj=0;jj<width-20;jj+=20)
 			{ 
-				printf("%.1f ",SD.depthMD(jj,ii));
+				printf("%d ",SD.depthMD(jj,ii));
 			}
 			printf("%d\n", ii);
 		}
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 		{ 
 			break;
 		}
-		printf("READY!!!,%f\n",SD.depthMD(width/2,height/2));
+		printf("READY!!!,%d\n",SD.depthMD(width/2,height/2));
 		ros::spinOnce();
 		r.sleep();
 		

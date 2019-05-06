@@ -82,8 +82,8 @@ void StairDetection::SD_Start()
 	int width_temp;
 	std::vector <int> d21_avg;
 	d21_avg.assign(3,0);
-	std_msgs::Int32 d21,d4,d5,d7,d;
-	std_msgs::Float64 cnt21;
+	std_msgs::Int32 d21,d4,d5,d7,d,cnt21;
+	//std_msgs::Float64 cnt21;
 	std_msgs::Int32MultiArray mid,mid5,mid7;
 	ros::Rate r(2);
 
@@ -117,7 +117,7 @@ void StairDetection::SD_Start()
 			cnt21.data += depthMD(i,cnt_row);
 		}
 		//*** cnt21 is No.200 rows avg depth.
-		cnt21.data = (float)(cnt21.data/width_temp);
+		cnt21.data = (int)(cnt21.data/width_temp);
 		
 		//*** left stair depth minus right stair depth, if positive means face to left. mid_x and mid_y are mid of whole stair
 		d21_temp=(int)((depthMD(mid_x-100,mid_y+25)+depthMD(mid_x-100,mid_y+30)+depthMD(mid_x-100,mid_y+20))/3-(depthMD(mid_x+100,mid_y+25)+depthMD(mid_x+100,mid_y+30)+depthMD(mid_x+100,mid_y+20))/3);
@@ -171,11 +171,20 @@ void StairDetection::SD_Start()
 		mid.data.push_back(mid_y4);
 
 		//print important measurement
-		ROS_INFO("21:(%d,%d),d21:%d,cnt21:%f",mid_x,mid_y,d21.data,cnt21.data);
+		ROS_INFO("21:(%d,%d),d21:%d,cnt21:%d",mid_x,mid_y,d21.data,cnt21.data);
 		ROS_INFO("4:(%d,%d),d4:%d",mid_x4,mid_y4,d4.data);
 		ROS_INFO("5:(%d,%d),d5:%d",mid_x5,mid_y5,d5.data);
 		ROS_INFO("7:(%d,%d),d7:%d",mid_x7,mid_y7,d7.data);
 		ROS_INFO("d:%d",d.data);
+		
+		for(int ii=0;ii<height-20;ii+=20)
+		{
+			for(int jj=0;jj<width-20;jj+=20)
+			{ 
+				printf("%d ",depthMD(jj,ii));
+			}
+			printf("--%d\n", ii);
+		}
 
 		//pub
 		pub_d21.publish(d21);
@@ -313,10 +322,10 @@ void StairDetection::Depth_Arr()
 }
 
 
-float StairDetection::depthMD(int x,int y)
+int StairDetection::depthMD(int x,int y)
 {
     int idx=0;
-    float idxx=0;
+    int idxx=0;
 
     if(x>row)
 	x=row;
@@ -329,7 +338,7 @@ float StairDetection::depthMD(int x,int y)
 
     idx = depth[x+y*width];  //Calculate the coordinates of the location
 
-	idxx = (float)dis[x][y];
+	idxx = (int)dis[x][y];
 
     return idxx;
 

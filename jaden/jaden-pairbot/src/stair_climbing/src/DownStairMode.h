@@ -18,6 +18,7 @@
 #include "std_msgs/String.h"
 #include "std_msgs/Float64.h"
 #include <dynamixel_workbench_msgs/JointCommand.h>
+#include "sensor_msgs/Range.h"
 
 
 class DownStairMode
@@ -26,7 +27,7 @@ class DownStairMode
 		std::string NameSpace;
 		DownStairMode()
 		{
-			pub_rs = n.advertise<std_msgs::Int32MultiArray>("robot_speed", 1);
+			//pub_rs = n.advertise<std_msgs::Int32MultiArray>("robot_speed", 1);
 			pub_rs = n.advertise<std_msgs::Int32MultiArray>("robot_speed", 1);
 			pub_ls = n.advertise<std_msgs::Int32MultiArray>("leg_speed", 1);
 			pub_rMA = n.advertise<std_msgs::Int32MultiArray>("robot_MA", 1);
@@ -50,7 +51,8 @@ class DownStairMode
 			// sub_d7d = n.subscribe("d7d", 1, &DownStairMode::d7dCallback,this);
 			sub_mid5 = n.subscribe("midxy5", 1, &DownStairMode::mid5Callback,this);
 			sub_mid7 = n.subscribe("midxy7", 1, &DownStairMode::mid7Callback,this);
-			sub_us = n.subscribe("ultrasonic", 1, &DownStairMode::ultrasonicCallback,this);
+			sub_us = n.subscribe("/pairbot/sonar", 1, &DownStairMode::ultrasonicCallback,this);
+			//sub_us = n.subscribe("ultrasonic", 1, &DownStairMode::ultrasonicCallback,this);
 		}
 		
 		void mode_5();
@@ -67,7 +69,8 @@ class DownStairMode
 		void motor_switch(int number,int serve_status);
 
 		
-		void ultrasonicCallback(const std_msgs::Int32::ConstPtr& msg_us);
+		void ultrasonicCallback(const sensor_msgs::Range::ConstPtr& msg_us);
+		//void ultrasonicCallback(const std_msgs::Float64::ConstPtr& msg_us);
 		void d5Callback(const std_msgs::Int32::ConstPtr& msg_d5);
 		void dCallback(const std_msgs::Int32::ConstPtr& msg_d);
 		void d7Callback(const std_msgs::Int32::ConstPtr& msg_d7);

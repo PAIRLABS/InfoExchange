@@ -24,10 +24,10 @@ static float angg=30; //34
 static float ang=0;
 
 
-void DownStairMode::ultrasonicCallback(const std_msgs::Int32::ConstPtr& msg_us)
+void DownStairMode::ultrasonicCallback(const sensor_msgs::Range::ConstPtr& msg_us)
 {
-	us=msg_us->data;
-	// printf("us=%d",us);
+	us=(int)(msg_us->range*100);  //***Unit m multiply 100 convert to cm
+	//printf("us=%d\n",us);
 }
 void DownStairMode::d5Callback(const std_msgs::Int32::ConstPtr& msg_d5)
 {
@@ -58,7 +58,7 @@ void DownStairMode::mid7Callback(const std_msgs::Int32MultiArray::ConstPtr& arra
 {
 	mid_x7=*(array_mid->data.begin());
 	mid_y7=*(array_mid->data.begin())+1;
-	//ROS_INFO("mid:(%d,%d)",mid_x,mid_y);
+	//ROS_INFO("mid:(%d,%d)",mid_x7,mid_y7);
 }
 
 void DownStairMode::mode_5()	//---Before 'down' stairs alignment
@@ -292,18 +292,31 @@ void DownStairMode::mode_6()
    printf("Mode 6 , Down stairs prepare \n");
     //bodyJOGvel(350,350);
 
-   r_speed[0]=540;
-   r_speed[1]=540;
-   for (int i = 0; i < 2; i++)
+	r_speed[0]=540;
+	r_speed[1]=540;
+	for (int i = 0; i < 2; i++)
 	{
-	   robot_speed.data.push_back(r_speed[i]);
-   }
+		robot_speed.data.push_back(r_speed[i]);
+	}
 	pub_rs.publish(robot_speed);
 	printf("robot_speed publish\n");
 	ros::spinOnce();
 	r.sleep();
-   robot_speed.data.clear();
-   usleep(50000);
+	robot_speed.data.clear();
+	usleep(50000);
+
+	l_MA[0]=-90*4550;
+	l_MA[1]=-90*4550;
+	for (int i = 0; i < 2; i++)
+	{
+		leg_MA.data.push_back(l_MA[i]);
+		printf("MA:%d\n",l_MA[i]);
+	}
+	pub_lMA.publish(leg_MA);
+	printf("leg_MA publish***************\n");
+	usleep(5000000);
+	leg_MA.data.clear();
+
 
     /*---Check Sensor Connection---*/
 
@@ -329,7 +342,7 @@ void DownStairMode::mode_6()
 	    r_motion=1;
 	    robot_motion.data=r_motion;
 	    pub_rm.publish(robot_motion);
-	    printf("robot_motion publish\n");
+	    printf("robot_motion publish,%d\n",r_speed[0]);
 	    ros::spinOnce();
 	    r.sleep();
        usleep(50000);
@@ -666,7 +679,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
         //fprintf(M7VL,"%d\n",vel_L);
         //fprintf(M7VR,"%d\n",vel_R);
         //fprintf(M7DD,"%d\n",d);
-
+ROS_INFO("d:(%d)",d);
         if(d != 0 && d > 750)
         {
             d_counter++;
@@ -793,7 +806,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 		leg_MA.data.push_back(l_MA[i]);
 	}
 	pub_lMA.publish(leg_MA);
-	printf("leg_MA publish\n");
+	printf("leg_MA publish*****mode 7 -90\n");
 	ros::spinOnce();
 	r.sleep();
 	leg_MA.data.clear();
@@ -875,7 +888,7 @@ void DownStairMode::mode_7()	//---'down' stairs alignment
 		r.sleep();
 		leg_MA.data.clear();
 
-    usleep(500000);
+    usleep(5000000);
 
 	//bodyact("stop");
 	r_motion=0;

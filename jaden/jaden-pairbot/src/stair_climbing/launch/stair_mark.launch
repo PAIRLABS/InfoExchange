@@ -7,7 +7,7 @@
 <arg name="t2" default="350" />
 <arg name="t3" default="200" />
 <arg name="t4" default="300" />
-<arg name="cnt_row" default="70" />
+<arg name="cnt_row" default="125" />
 <arg name="rgb_imgshow" default="False" />
 <arg name="depth_imgshow" default="False" />
 

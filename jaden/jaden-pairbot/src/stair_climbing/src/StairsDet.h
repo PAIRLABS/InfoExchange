@@ -33,7 +33,7 @@ class StairDetection
 			d_sub = it.subscribe("/Zed_sim/depth/depth_registered", 10, &StairDetection::imageCallback,this);
 			rgb_sub=it.subscribe("/zed/rgb/image_rect_color", 1, &StairDetection::rgbCallback,this);
 			pub_d21 = n.advertise<std_msgs::Int32>("d21", 1);
-			pub_cnt21 = n.advertise<std_msgs::Float64>("cnt21", 1);
+			pub_cnt21 = n.advertise<std_msgs::Int32>("cnt21", 1);
 			pub_d4 = n.advertise<std_msgs::Int32>("d4", 1);
 			pub_mid = n.advertise<std_msgs::Int32MultiArray>("midxy", 1);
 
@@ -49,7 +49,7 @@ class StairDetection
 
 		void test();
 		void Depth_Arr();
-		float depthMD(int x,int y);
+		int depthMD(int x,int y);
 		void depth_find(int dc,int *mid_x2,int *mid_y2,int *midx,int *midy,int *di,int *dj,int *dx,int *dsw);
 		void depth_find_4(int dc,int *midx,int *midy,int *di,int *dj,int *dx,int *dsw);
 		void depth_find_5(int dc,int *midx,int *midy,int *di,int *dj,int *dx,int *dsw);

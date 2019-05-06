@@ -70,12 +70,12 @@ class UpStairMode
 
 		void d21Callback(const std_msgs::Int32::ConstPtr& msg_d21);
 		void d4Callback(const std_msgs::Int32::ConstPtr& msg_d4);
-		void cnt21Callback(const std_msgs::Float64::ConstPtr& msg_cnt21);
+		void cnt21Callback(const std_msgs::Int32::ConstPtr& msg_cnt21);
 		void midCallback(const std_msgs::Int32MultiArray::ConstPtr& array_mid);
 
 		ros::NodeHandle n;
 		int d21,d4;
-		float counter21;
+		int counter21;
 		int mid_x,mid_y;
 		geometry_msgs::Twist twist;
         
