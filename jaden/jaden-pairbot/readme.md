@@ -67,8 +67,10 @@
 1. ``apt-get`` install workbench packages:
 
    ```shell
+   $ sudo apt-get update
    $ sudo apt-get install ros-kinetic-dynamixel-workbench
    $ sudo apt-get install ros-kinetic-dynamixel-workbench-msgs
+   $ sudo apt-get install ros-kinetic-dynamixel-sdk
    ```
 
 2. Copy this work space to your local, under work space:
@@ -102,9 +104,9 @@
    $ ./src/pairbot/pb_teleop/scripts/pb_teleop.py
    ```
 
-   or you can just modify pairbot's pose in Gazebo GUI.
+   or you can just modify Pairbot's pose in Gazebo GUI.
 
-   ![](/home/jaden/Pictures/up_stairs_pose.png)
+   ![](./images/up_stairs_pose.png)
 
    Notice the pose: x, y, z, on the left side.
 
@@ -117,6 +119,7 @@
 7. Launch the up stairs main program, in another terminal:
 
    ```shell
+   $ source ./devel/setup.bash
    $ roslaunch stair_climbing up_stair.launch
    ```
 
@@ -127,8 +130,10 @@
 1. ``apt-get`` install workbench packages:
 
    ```shell
+   $ sudo apt-get update
    $ sudo apt-get install ros-kinetic-dynamixel-workbench
    $ sudo apt-get install ros-kinetic-dynamixel-workbench-msgs
+   $ sudo apt-get install ros-kinetic-dynamixel-sdk
    ```
 
 2. Copy this work space to your local, under work space:
@@ -162,9 +167,9 @@
    $ ./src/pairbot/pb_teleop/scripts/pb_teleop.py
    ```
 
-   or you can just modify pairbot's pose in Gazebo GUI.
+   or you can just modify Pairbot's pose in Gazebo GUI.
 
-   ![](/home/jaden/Pictures/down_stairs_pose.png)
+   ![](./images/down_stairs_pose.png)
 
    Notice the pose: x, y, z, on the left side.
 
@@ -177,6 +182,7 @@
 7. Launch the up stairs main program, in another terminal:
 
    ```shell
+   $ source ./devel/setup.bash
    $ roslaunch stair_climbing down_stair.launch
    ```
 
