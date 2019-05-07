@@ -1,5 +1,6 @@
-from argparse import ArgumentParser
+#branch input data to test_folder and train_folder by py3
 
+from argparse import ArgumentParser
 import os
 import shutil
 
