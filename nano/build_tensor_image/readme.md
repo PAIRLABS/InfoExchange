@@ -69,7 +69,7 @@ nano/tensorflow:1.11.0-devel-gpu-py3 /bin/bash
 
 ##### 1.5) password in container
 
-◆ default **user name** and **password in image** are both assigned by **your user name in host**.
+◆ default **user name** and **password in image** are both assigned by **your user name in host**
 
 ```
 # in host terminal, execute whoami to check it out.
