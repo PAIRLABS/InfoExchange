@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 user_name="$(whoami)"
 echo "Your user is ${user_name}"
