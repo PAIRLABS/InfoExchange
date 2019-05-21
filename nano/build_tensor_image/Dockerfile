@@ -10,4 +10,3 @@ RUN usermod -aG sudo $username
 RUN echo "$username:$username" | chpasswd
 USER $username 
 WORKDIR /home/$username
-
