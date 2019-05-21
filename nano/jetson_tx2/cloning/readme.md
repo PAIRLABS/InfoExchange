@@ -1,10 +1,10 @@
 # how to do Jetson tx2 cloning
 
-> step 1：Place TX2  system in Force USB Recovery Mode
+> step 1：Place TX2  system in Force USB Recovery Mode.
 >
 > step 2：Read APP partition from TX2 board and save image to file.
 >
-> step 3：Restore your image to any board
+> step 3：Restore your image to any board.
 
 ### step 1：Place TX2  system in Force USB Recovery Mode
 
