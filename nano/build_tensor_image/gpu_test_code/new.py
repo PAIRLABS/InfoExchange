@@ -58,4 +58,4 @@ if __name__ == "__main__":
             print ("  CPU : %f s" %(t2-t1))
             print ("  GPU : %f s" %(t3-t2))
             print ("CPU : GPU = %f" %( (t2-t1)/(t3-t2) ) )
-            print ("---------------")
+            print ("--------------")
