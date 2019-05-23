@@ -93,27 +93,48 @@ def create_tf_example(group, path):
     }))
     return tf_example
 
-def xml_to_csv(path):
+def xml_to_csv(directory):
     xml_list = []
-    #print(str(path+'/*.xml'))
-    files = os.listdir(path)
-    for file in files:
-        for xml_file in glob.glob(path + '/' + file + '/*.xml'):
-                tree = ET.parse(xml_file)
-                root = tree.getroot()
-                for member in root.findall('object'):
-                        value = ('JPEGImages/'+member[0].text,
-                        #      int(root.find('size')[0].text),
-                        #      int(root.find('size')[1].text),
-                                '1920',
-                                '1080',
-                                member[1].text,
-                                int(member[2][0].text),
-                                int(member[2][1].text),
-                                int(member[2][2].text),
-                                int(member[2][3].text)
-                                )
-                        xml_list.append(value)
+    all_path_set = list()
+    # cnt=0
+    with open('ImageSets/All.txt') as f1:
+        all_path_set = f1.readlines()
+        f1.close()
+    all_path_set = [x.strip() for x in all_path_set]
+
+    for each_path in all_path_set:
+        #print(os.path.join(directory,each_path)+'.xml')
+        xml_file = os.path.join(directory,each_path)+'.xml'    
+        tree = ET.parse(xml_file)
+        root = tree.getroot()
+        if not root.findall('object'):
+            # cnt=cnt+1
+            # print(xml_file+'No object, No:'+str(cnt))
+            value = (os.path.join('JPEGImages', each_path)+'.jpg',
+                    '1920' if root.find('size') is None  else int(root.find('size')[0].text),
+                    '1080' if root.find('size') is None  else int(root.find('size')[1].text),
+                    root.find('name').text,
+                    int(root.find('bndbox')[0].text),
+                    int(root.find('bndbox')[1].text),
+                    int(root.find('bndbox')[2].text),
+                    int(root.find('bndbox')[3].text)
+                    )
+            xml_list.append(value)
+
+        # if len(root.findall('object'))==1:
+        #     print(xml_file+'1 object, No:'+str(cnt))
+
+        for member in root.findall('object'):
+            value = (os.path.join('JPEGImages', each_path)+'.jpg',
+                    '1920' if root.find('size') is None  else int(root.find('size')[0].text),
+                    '1080' if root.find('size') is None  else int(root.find('size')[1].text),
+                    member.find('name').text,
+                    int(member.find('bndbox')[0].text),
+                    int(member.find('bndbox')[1].text),
+                    int(member.find('bndbox')[2].text),
+                    int(member.find('bndbox')[3].text)
+                    )
+            xml_list.append(value)
     column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     return xml_df
@@ -127,10 +148,8 @@ def main(_):
     else:    
         print('')
     
-    for directory in ['All']:
-        project_path = 'Annotations'
-        image_path = os.path.join(project_path, directory)
-        xml_df = xml_to_csv(image_path)
+    for directory in ['Annotations/']:
+        xml_df = xml_to_csv(directory)
         xml_df.to_csv('csv_data/train_labels.csv', index=None)
         print('Successfully converted xml to csv.')
 

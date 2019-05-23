@@ -45,17 +45,17 @@ Requirement:
 
    Before converting, you may need to split your data for training and testing. I didn't, cause I got two of VOC data, one for training and the other one for testing, so...please search this part on google.
 
-   To convert VOC to tfrecord file, use [training_xml_to_csv_to_tfrecord.py](./training_xml_to_csv_to_tfrecord.py) and [testing_xml_to_csv_to_tfrecord.py](./testing_xml_to_csv_to_tfrecord.py). Put them into training_data and testing_data directories.
+   To convert VOC to tfrecord file, use [create_training_tf_record.py](./create_training_tf_record.py) and [create_testing_tf_record.py](./create_testing_tf_record.py). Put them into training_data and testing_data directories.
 
    Go back to container, usage:
 
    ```shell
    # For training data
    $ cd /dk-jaden-tensorflow/training_data
-   $ python ./training_xml_to_csv_to_tfrecord.py
+   $ python ./create_training_tf_record.py
    # For testing data
    $ cd /dk-jaden-tensorflow/testing_data
-   $ python ./testing_xml_to_csv_to_tfrecord.py
+   $ python ./create_testing_tf_record.py
    ```
 
    It will take a while...
@@ -104,7 +104,7 @@ Requirement:
    	|	├── csv_data           # csv files
    	|	├── record_data        # tfrevoed files
    	|	├── label_map.pbtxt
-   	|	└── training_xml_to_csv_to_tfrecord.py
+   	|	└── create_training_tf_record.py
    	└── testing_data           #testing VOC's root
    		├── Annotations        # xml files, one on one map to JPEGImages's photos
    		├── ImageSets          # txt files, contains photo path
@@ -112,7 +112,7 @@ Requirement:
    		├── csv_data           # csv files
    		├── record_data        # tfrevoed files
    		├── label_map.pbtxt
-   		└── testing_xml_to_csv_to_tfrecord.py
+   		└── create_testing_tf_record.py
    ```
 
    

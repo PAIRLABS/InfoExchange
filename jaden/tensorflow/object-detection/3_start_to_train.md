@@ -164,7 +164,7 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
    	category_name = str(category_name, 'utf-8')
    ```
 
-   Start to evaluage:
+   Start to evaluate, usage:
 
    ```shell
    $ cd /dk-jaden-tensorflow/models/research
