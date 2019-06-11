@@ -1,6 +1,8 @@
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
+from __future__ import print_function
+from argparse import ArgumentParser
 
 import os
 import glob
@@ -12,6 +14,10 @@ import tensorflow as tf
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
+
+parser = ArgumentParser(usage="python create_train_test_set.py [-p input-path]", description="Description: Convert xml to csv, csv to tf_record, and generate label_map.pbtxt")
+parser.add_argument("-p", "--inputPath", help="Path to the input txt file. default=\'ImageSets/Splitted/train.txt\'", dest="inputPath", default="ImageSets/Splitted/train.txt")
+args = parser.parse_args()
 
 flags = tf.app.flags
 flags.DEFINE_string('csv_input', 'csv_data/train_labels.csv', '')
@@ -97,7 +103,7 @@ def xml_to_csv(directory):
     xml_list = []
     all_path_set = list()
     # cnt=0
-    with open('ImageSets/All.txt') as f1:
+    with open(str(args.inputPath)) as f1:
         all_path_set = f1.readlines()
         f1.close()
     all_path_set = [x.strip() for x in all_path_set]
@@ -111,8 +117,8 @@ def xml_to_csv(directory):
             # cnt=cnt+1
             # print(xml_file+'No object, No:'+str(cnt))
             value = (os.path.join('JPEGImages', each_path)+'.jpg',
-                    '1920' if root.find('size') is None  else int(root.find('size')[0].text),
-                    '1080' if root.find('size') is None  else int(root.find('size')[1].text),
+                    1920 if root.find('size') is None  else int(root.find('size')[0].text),
+                    1080 if root.find('size') is None  else int(root.find('size')[1].text),
                     root.find('name').text,
                     int(root.find('bndbox')[0].text),
                     int(root.find('bndbox')[1].text),
@@ -126,8 +132,8 @@ def xml_to_csv(directory):
 
         for member in root.findall('object'):
             value = (os.path.join('JPEGImages', each_path)+'.jpg',
-                    '1920' if root.find('size') is None  else int(root.find('size')[0].text),
-                    '1080' if root.find('size') is None  else int(root.find('size')[1].text),
+                    1920 if root.find('size') is None  else int(root.find('size')[0].text),
+                    1080 if root.find('size') is None  else int(root.find('size')[1].text),
                     member.find('name').text,
                     int(member.find('bndbox')[0].text),
                     int(member.find('bndbox')[1].text),

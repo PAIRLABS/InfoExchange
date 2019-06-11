@@ -20,7 +20,7 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
    ```shell
    $ cd ~/dk-jaden-tensorflow/models/research/object_detection
    $ mkdir ssd_model
-   $ mv ~/dk-jaden-tensorflow/training_data/record_data/train.record ~/dk-jaden-tensorflow/testing_data/record_data/test.record ./ssd_model
+   $ cp ~/dk-jaden-tensorflow/training_data/record_data/t* ./ssd_model
    ```
 
    Move `label_map.pbtxt` file to ./ssd_model:
@@ -66,13 +66,17 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 
    
 
-3. Also, download model config file from [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs), and modify it:
+3. Also, download model config file from [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs), and modify it.
+
+   Actually, we already have it, just copy it:
 
    ```shell
    $ cp ~/dk-jaden-tensorflow/models/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config ./ssd_model/
    ```
 
    I used the "[ssd_mobilenet_v1_coco.config](https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config)" here.
+
+   Modify the config file:
 
    ```config
    line 9:
@@ -135,9 +139,9 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
    $ python object_detection/legacy/train.py --train_dir object_detection/train --pipeline_config_path object_detection/ssd_model/ssd_mobilenet_v1_coco.config
    ```
 
-   --train_dir: checkpoint, model.ckpt.....output's directory.
+   `--train_dir`: checkpoint, model.ckpt.....output's directory.
 
-   --pipeline_config_path: Path of config file.
+   `--pipeline_config`_path: Path of config file.
 
    It will start to train.
 
@@ -174,10 +178,54 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 6. Monitor it by **tensorboard**:
 
    ```shell
-   $ tensorboard --logdir /models/research/object_detection/
+   $ tensorboard --logdir /dk-jaden-tensorflow/models/research/object_detection/
    ```
 
    and access [Host IP:port] on your browser.
+
+   
+
+7. Export your "Inference"
+
+   If you want to use your model in real situation, you need Inference.
+
+   Usage:
+
+   ```shell
+   $ cd /dk-jaden-tensorflow/models/research
+   $ python object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path object_detection/ssd_model/ssd_mobilenet_v1_coco.config --trained_checkpoint_prefix object_detection/train/model.ckpt-497962 --output_directory object_detection/inference_497962/
+   ```
+
+   `--input_type`: When we are using it, we will send image_tensor as input.
+
+   `--pipeline_config_path`: Path to the model's config file.
+
+   `--trained_checkpoint_prefix`: Path to the latest check point step we trained.
+
+   `--output_directory`: Export path.
+
+   
+
+8. For the IEEE MMSP object-detection competition, they request participants to hand in a submission.csv file, you can use [object_detection_inference_to_submission.ipynb](./object_detection_inference_to_submission.ipynb) to generate the file.
+
+   Modify the python code:
+
+   ```python
+   ...
+   PATH_TO_FROZEN_GRAPH = [Path to frozen detection graph where we exported]
+   ...
+   PATH_TO_LABELS = [Path to the label_map.pbtxt where we generated]
+   ```
+
+   ```python
+   ...
+   PATH_TO_TEST_IMAGES_DIR = [Path to your testing imageset]
+   ...
+   ```
+
+   
+
+9. There is an example of calculating the mean Average Precision (mAP). If you are interested in it, you can take a look: [calculate_mAP.ipynb](./calculate_mAP.ipynb).
 
 
 

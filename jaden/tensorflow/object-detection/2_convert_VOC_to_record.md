@@ -10,11 +10,11 @@ Requirement:
 
 ```
 .
-└── training_data           #training VOC's root
+└── training_data          # training VOC's root
 |	├── Annotations        # xml files, one on one map to JPEGImages's photos
 |	├── ImageSets          # txt files, contains photo path
 |	└── JPEGImages         # jpg files, photos 
-└──testing_data            #testing VOC's root
+└──testing_data            # testing VOC's root
 	├── Annotations        # xml files, one on one map to JPEGImages's photos
 	├── ImageSets          # txt files, contains photo path
 	└── JPEGImages         # jpg files, photos 
@@ -29,11 +29,11 @@ Requirement:
    └── dk-jaden-tensorflow        # mounted path
    	├── models                 # tensorflow/models package
    	├── protoc_3.3             # google protocol buffer tool
-   	└── training_data           #training VOC's root
+   	└── training_data          # training VOC's root
    	|	├── Annotations        # xml files, one on one map to JPEGImages's photos
    	|	├── ImageSets          # txt files, contains photo path
    	|	└── JPEGImages         # jpg files, photos
-   	└── testing_data           #testing VOC's root
+   	└── testing_data           # testing VOC's root
    		├── Annotations        # xml files, one on one map to JPEGImages's photos
    		├── ImageSets          # txt files, contains photo path
    		└── JPEGImages         # jpg files, photos
@@ -43,19 +43,40 @@ Requirement:
 
 2. #### Convert VOC data to tfrecord
 
-   Before converting, you may need to split your data for training and testing. I didn't, cause I got two of VOC data, one for training and the other one for testing, so...please search this part on google.
+   Before converting, you need to split your data for training and testing.
 
-   To convert VOC to tfrecord file, use [create_training_tf_record.py](./create_training_tf_record.py) and [create_testing_tf_record.py](./create_testing_tf_record.py). Put them into training_data and testing_data directories.
+   To split VOC's txt file under `ImageSets/` directory, use [create_splitted_set.py](./create_splitted_set.py) , put this python program into training_data directory.
 
    Go back to container, usage:
 
    ```shell
-   # For training data
    $ cd /dk-jaden-tensorflow/training_data
+   $ python ./create_splitted_set.py
+   #Use "python ./create_splitted_set.py -h" for more detail
+   ```
+
+   Then you will get 3 splitted txt files in `./ImageSets/Splitted/`: 
+
+   `"train.txt"`: Contains random 90% of training_data's path.
+
+   `"test.txt"`: Contains random 5% of training_data's path.
+
+   `"val.txt"`: Contains random 5% of training_data's path.
+
+   For normal case,  `"train.txt"` and `"val.txt"` would be used in training phase, and `"test.txt"` is for testing phase. But we have another testing_data VOC, so we will only use `"train.txt"` and `"test.txt"` here.
+
+   
+
+   To convert VOC to tfrecord file, use [create_training_tf_record.py](./create_training_tf_record.py) and [create_testing_tf_record.py](./create_testing_tf_record.py). Put them into training_data directory.
+
+   Usage:
+
+   ```shell
+   # For training data
    $ python ./create_training_tf_record.py
    # For testing data
-   $ cd /dk-jaden-tensorflow/testing_data
    $ python ./create_testing_tf_record.py
+   # Use --help for more detail
    ```
 
    It will take a while...
@@ -86,7 +107,7 @@ Requirement:
 
    Also, the program generated the `label_map.pbtxt` for next step: [3_start_to_train](./3_start_to_train.md). 
 
-   Notice: label_map.pbtxt of training and testing should be the same.
+   Notice: label_map.pbtxt and label_map_from_test.pbtxt should be the same.
 
    
 
@@ -97,22 +118,20 @@ Requirement:
    └── dk-jaden-tensorflow        # mounted path
    	├── models                 # tensorflow/models package
    	├── protoc_3.3             # google protocol buffer tool
-   	└── training_data          #training VOC's root
+   	└── training_data          # training VOC's root
    	|	├── Annotations        # xml files, one on one map to JPEGImages's photos
    	|	├── ImageSets          # txt files, contains photo path
    	|	├── JPEGImages         # jpg files, photos
    	|	├── csv_data           # csv files
    	|	├── record_data        # tfrevoed files
    	|	├── label_map.pbtxt
-   	|	└── create_training_tf_record.py
-   	└── testing_data           #testing VOC's root
+   	|	├── label_map_from_test.pbtxt
+   	|	├── create_training_tf_record.py
+   	|	└── create_testing_tf_record.py
+   	└── testing_data           # testing VOC's root
    		├── Annotations        # xml files, one on one map to JPEGImages's photos
    		├── ImageSets          # txt files, contains photo path
-   		├── JPEGImages         # jpg files, photos
-   		├── csv_data           # csv files
-   		├── record_data        # tfrevoed files
-   		├── label_map.pbtxt
-   		└── create_testing_tf_record.py
+   		└── JPEGImages         # jpg files, photos
    ```
 
    

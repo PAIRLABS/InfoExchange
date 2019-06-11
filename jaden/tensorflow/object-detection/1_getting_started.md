@@ -39,9 +39,9 @@ Using TensorFlow with docker, object detection example.
    $ git clone https://github.com/tensorflow/models.git
    ```
 
-   Acording to:https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md, we will need Tensorflow Object Detection API depends on the following libraries:
+   According to:https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md, we will need Tensorflow Object Detection API depends on the following libraries:
 
-   *   Protobuf 3.0.0
+   *   Protobuf 3.0.
    *   Python-tk
    *   Pillow 1.0
    *   lxml
@@ -92,7 +92,7 @@ Using TensorFlow with docker, object detection example.
    $ cp -rp pycocotools /dk-jaden-tensorflow/models/research/
    ```
 
-   The docker environment already included a lot of dependencies.
+   The docker environment already included a lot of other dependencies.
 
    
 
@@ -115,7 +115,7 @@ Using TensorFlow with docker, object detection example.
 
    Open your browser and access `[You host IP]:49152`, use the token which shows on terminal for this page. (Notice that host's 49152 port => container's 8888 port)
 
-   Get in ./models/research/object_detection/, click `object_detection_tutorial.ipynb` to run.
+   Get in `./models/research/object_detection/`, click `object_detection_tutorial.ipynb` to run.
 
    
 
@@ -127,12 +127,16 @@ Using TensorFlow with docker, object detection example.
 
    Then change the code like this:
 
-   ```
+   ```python
    PATH_TO_TEST_IMAGES_DIR = 'test_images'
    TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 8) ]
    ```
 
    Means I have image1.jpg to image7.jpg for this example.
+
+
+
+**Before next step, please shutdown your jupyter-notebook kernel, or it may hold all of your GPU resource.**
 
 
 
