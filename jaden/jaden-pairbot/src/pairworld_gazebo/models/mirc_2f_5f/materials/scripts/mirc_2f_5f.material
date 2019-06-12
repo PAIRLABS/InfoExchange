@@ -1,0 +1,15 @@
+material vrc/mirc_2f_5f
+{
+	receive_shadows off
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture ../Parquet dark squares_250_DF.jpg
+				scale 1 1
+			}
+		}
+	}
+}

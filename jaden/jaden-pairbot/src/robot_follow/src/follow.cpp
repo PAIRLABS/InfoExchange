@@ -82,7 +82,12 @@ void Turtlebot3Drive::depthScanMsgCallBack(const sensor_msgs::Image::ConstPtr &m
 			 if (f <0.3)
 				 dis[i][j] = 0.3;
        else
-	       dis[i][j] = f;
+	       {
+		   		dis[i][j] = f;
+		   		if (i % 24 == 0 && j % 24 == 0)
+					printf("dis=%f",dis[i][j]);
+		   }
+
    }
   }
 }

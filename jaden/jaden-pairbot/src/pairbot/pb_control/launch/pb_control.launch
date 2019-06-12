@@ -70,6 +70,7 @@
                                       joint_right_rear_flipper_middle_wheel_6_controller
                                       joint_right_rear_flipper_middle_wheel_7_controller
                                       joint_right_rear_flipper_middle_wheel_8_controller
+                                      joint_scan_joint_controller
                                         ">
 		</node>
 
@@ -82,6 +83,7 @@
     <node name="right_sync" pkg="pb_control" type="right_sync.py" output="screen"></node>
     <node name="left_sync" pkg="pb_control" type="left_sync.py" output="screen"></node>
     <node name="move" pkg="pb_control" type="move_base.py" output="screen"></node>
+    <!-- <node name="motion_monitor" pkg="pb_teleop" type="motion_monitor.py" output="screen"></node> -->
 
     <!--for flipper wheel sync-->
     <!-- <node name="flipper_wheel_sync" pkg="pb_control" type="flipper_wheel_sync.py" output="screen"></node> -->

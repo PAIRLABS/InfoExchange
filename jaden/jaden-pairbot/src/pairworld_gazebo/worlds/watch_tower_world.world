@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <!-- We use a custom world for the eng so that the camera angle is launched correctly -->
+
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+<!-- Example: You can use "model://PACKNAME" here, cause env variable has already been added in package.xml -->
+    <include>
+        <uri>model://pairworld_gazebo/models/wooden_watch_tower</uri>
+    </include>
+
+<!-- Example: You can include two models by assigning different name -->
+    <include>
+        <uri>model://pairworld_gazebo/models/garden_bridge</uri>
+        <name>bridge1</name>
+    </include>
+    <include>
+        <uri>model://pairworld_gazebo/models/garden_bridge</uri>
+        <name>bridge2</name>
+        <pose>-3 -5 0  1.57 0 0.79</pose>
+    </include>
+
+<!-- Example: population tag usage -->
+<!--
+    <population name="bridge_population1">
+      <include>
+        <uri>model://pairworld_gazebo/models/garden_bridge</uri>
+      </include>
+      <box>
+        <size>5 5 2</size>
+      </box>
+      <pose>5 -5 1 1.57 0 1.57</pose>
+      <model_count>2</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population>
+    -->
+    
+<!-- Example: Declare model in world file -->
+    <model name="my_tilted_stair">
+      <pose>3 5 0  1.57 0 1.57</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <scale>0.28 0.28 0.28</scale>
+              <uri>file:///home/ros/sharefolder/pairbot/src/pairbot/pairworld_gazebo/models/stair/Stairsstl2.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <mesh>
+              <scale>0.28 0.28 0.28</scale>
+              <uri>file:///home/ros/sharefolder/pairbot/src/pairbot/pairworld_gazebo/models/stair/Stairsstl2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
