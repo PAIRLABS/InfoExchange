@@ -1,0 +1,51 @@
+function pi2af(pi_name){
+	var res = db._query(
+	    {
+		    'query':"for pi in person filter pi.name==@pi_name  \
+    	                for pap in 1..1 outbound pi author_of  \
+    		                for co_author in 1..1 inbound pap author_of  \
+    			                for part in participation filter part._from!=co_author._id \
+    		                        for af in 1..1 outbound co_author work  \
+				                        RETURN distinct { 'path': CONCAT_SEPARATOR( ' -> ', pi.name,af.name ), 'through':co_author.name }",
+		    'bindVars':{ 'pi_name': pi_name }
+        }
+    ).toArray()  //console.log(res.constructor==Array) : true
+
+    res.forEach( function(e){
+	    var idx
+	    while((idx = res.findIndex(x => x['path']===e['path'] && x['through']!=e['through']))!=-1 ){
+		    e['through']+=( ', '+res[idx]['through'] )
+	        res.splice(idx,1)
+	    }
+    });
+    print(res)
+}
+//////////////////////////////////////////////////////////////////////
+function pia2af(pi_arr){
+	var res =[]
+
+	pi_arr.forEach( function(pi_name){
+		var new_af = db._query(
+	    {
+		    'query':"for pi in person filter pi.name==@pi_name  \
+    	                for pap in 1..1 outbound pi author_of  \
+    		                for co_author in 1..1 inbound pap author_of  \
+    			                for part in participation filter part._from!=co_author._id \
+    		                        for af in 1..1 outbound co_author work  \
+				                        RETURN distinct { 'path': CONCAT_SEPARATOR( ' -> ', pi.name,af.name ), 'through':co_author.name }",
+		    'bindVars':{ 'pi_name': pi_name }
+        }).toArray()  //console.log(res.constructor==Array) : true
+
+        res = res.concat(new_af);
+	});
+
+    res.forEach( function(e){
+	    var idx
+	    while((idx = res.findIndex(x => x['path']===e['path'] && x['through']!=e['through']))!=-1 ){
+		    e['through']+=( ', '+res[idx]['through'] )
+	        res.splice(idx,1)
+	    }
+    });
+    return res
+    //print(res)
+}

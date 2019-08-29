@@ -1,0 +1,250 @@
+db._useDatabase("test")
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="包傑奇" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("包傑奇",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳永昇" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳永昇",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳慶瀚" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳慶瀚",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="謝君偉" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("謝君偉",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林芳邦" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林芳邦",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林幸助" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林幸助",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="鄭旭詠" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("鄭旭詠",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="申雍" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("申雍",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="阮瑞祥" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("阮瑞祥",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="張詠淳" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("張詠淳",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳宗麟" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳宗麟",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蕭旭峰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蕭旭峰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蔣欣翰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蔣欣翰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="范倫達" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("范倫達",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳樹群" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳樹群",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="劉吉軒" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("劉吉軒",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蔡宗漢" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蔡宗漢",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="許陳鑑" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("許陳鑑",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="紀明德" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("紀明德",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="曹昱" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("曹昱",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="曾建維" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("曾建維",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林信標" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林信標",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="曾煜棋" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("曾煜棋",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="楊靜瑩" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("楊靜瑩",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李宏毅" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李宏毅",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="謝易錚" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("謝易錚",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林智揚" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林智揚",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李佳翰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李佳翰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王新民" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王新民",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="許奕婷" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("許奕婷",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蘇木春" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蘇木春",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="吳政瑋" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("吳政瑋",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="張寶基" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("張寶基",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="杭學鳴" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("杭學鳴",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳華總" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳華總",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="廖文宏" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("廖文宏",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="許聞廉" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("許聞廉",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳柏琳" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳柏琳",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王偉彥" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王偉彥",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="彭文孝" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("彭文孝",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="張俊盛" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("張俊盛",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="程登湖" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("程登湖",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳冠文" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳冠文",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="楊明德" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("楊明德",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王蒞君" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王蒞君",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王文俊" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王文俊",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林政宏" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林政宏",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳以錚" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳以錚",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蘇柏齊" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蘇柏齊",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李奇育" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李奇育",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="范國清" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("范國清",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="黃能富" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("黃能富",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="韓仁毓" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("韓仁毓",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="吳毅成" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("吳毅成",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="林順喜" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("林順喜",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="郭寶錚" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("郭寶錚",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳琦玲" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳琦玲",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="鄧俊宏" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("鄧俊宏",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="邱維辰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("邱維辰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="施國琛" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("施國琛",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳翔傑" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳翔傑",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李蔡彥" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李蔡彥",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="鄭淑真" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("鄭淑真",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="黃敬群" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("黃敬群",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="呂菁菁" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("呂菁菁",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="陳志昌" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("陳志昌",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="顏士淨" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("顏士淨",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="帥宏翰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("帥宏翰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="馬偉雲" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("馬偉雲",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="楊叔卿" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("楊叔卿",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李宜勳" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李宜勳",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="簡仁宗" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("簡仁宗",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="郭峻因" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("郭峻因",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="張志文" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("張志文",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="莊仁輝" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("莊仁輝",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王家慶" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王家慶",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="郭建宏" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("郭建宏",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="徐國鎧" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("徐國鎧",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="王子華" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("王子華",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="張添烜" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("張添烜",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李聯旺" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李聯旺",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="蔡宗翰" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("蔡宗翰",":",Cnt.size.toString())
+
+var Cnt = new Set(db._query(aql`for per in person filter per.name=="李柏磊" for pap in 1..1 outbound per author_of for per2 in 1..1 inbound pap author_of return per2.name`).toArray())
+print("李柏磊",":",Cnt.size.toString())
+
