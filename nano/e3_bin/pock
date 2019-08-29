@@ -1,0 +1,1 @@
+docker run -it --rm -p 8888:8888 --volume /home/nano/test/InfoExchange/nano/learn_pytorch:/workspace --hostname nano-pytorch --name nano-pytorch nano/pytorch:1.1.0-cuda10.0-cudnn7.5-devel /bin/bash

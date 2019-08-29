@@ -1,0 +1,1 @@
+docker exec -it nano-docker-vnc /bin/bash

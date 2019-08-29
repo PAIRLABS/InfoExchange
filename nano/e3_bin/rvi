@@ -1,0 +1,5 @@
+cd /opt/ros/kinetic
+source setup.bash
+cd bin/
+ROS_MASTER_URI=http://172.17.0.2:11311 ./rosrun rqt_graph rqt_graph &
+ROS_MASTER_URI=http://172.17.0.2:11311 ./rviz &

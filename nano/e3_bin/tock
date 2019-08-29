@@ -1,0 +1,1 @@
+nvidia-docker run --rm -it -p 8886:8888 --volume /home/nano/test:/home/nano/test --hostname nano-e3-gpu  --name nano-tensorflow-gpu nano/tensorflow:1.11.0-devel-gpu-py3 /bin/bash

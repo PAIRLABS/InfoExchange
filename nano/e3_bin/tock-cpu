@@ -1,0 +1,1 @@
+docker run -it --rm -p 7777:8888 --hostname nano-e3-cpu --name nano-tensorflow-cpu  tensorflow/tensorflow /bin/bash

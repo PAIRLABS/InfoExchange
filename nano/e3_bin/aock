@@ -1,0 +1,1 @@
+docker run --volume /home/nano/test/test_arang:/run -e ARANGO_ROOT_PASSWORD=pair -p 8529:8529 --name nano-arangodb -d arangodb
