@@ -1,0 +1,1 @@
+docker commit nano-docker-vnc nano/ros-vnc-ubuntu:kinetic

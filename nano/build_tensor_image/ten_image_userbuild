@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 user_name="$(whoami)"
 echo "Your user is ${user_name}"
@@ -7,4 +7,4 @@ echo "Your host user uid: ${yourHostUid}"
 yourHostGid="$(id -g)"
 echo "Your host user gid: ${yourHostGid}"
 
-docker build -t ${user_name}/tensorflow:1.11.0-devel-gpu-py3 . --build-arg hostUid=${yourHostUid} --build-arg hostGid=${yourHostGid} --build-arg username=${user_name}
+docker build -t ${user_name}/tensorflow:1.11.0-devel-gpu-py3 .  --build-arg hostUid=${yourHostUid} --build-arg hostGid=${yourHostGid} --build-arg username=${user_name}

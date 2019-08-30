@@ -1,0 +1,1 @@
+docker rmi nano/tensorflow:1.11.0-devel-gpu-py3
